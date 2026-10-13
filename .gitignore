@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Course materials from the instructor (not ours to redistribute)
+slides/
+Syllabus-6327-2026-2.pdf
+Topics in Macroeconomics.pdf
