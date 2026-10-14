@@ -11,3 +11,6 @@ venv/
 slides/
 Syllabus-6327-2026-2.pdf
 Topics in Macroeconomics.pdf
+
+# MDIS microdata (licensed; never commit)
+bunching/data/
