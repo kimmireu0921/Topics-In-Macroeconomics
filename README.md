@@ -4,10 +4,14 @@ Group project repository for ISA6327 Topics in Macroeconomics at Yonsei Universi
 
 **Team:** Sara Ambre Chekroune · Yitang Donny Chen · Mireu Kim · Julian Henry Raymundo · Zachary Benjamin Yoo
 
+**Start here: [`PROJECT_LOG.md`](PROJECT_LOG.md)** — day-by-day record of what we did, the results, and what they mean.
+
 ## Contents
 
 | Folder | What it is |
 |---|---|
+| `hopenhayn_project/eps_model/` | Our project model: Hopenhayn with Korea's Employment Permit System (calibration and experiments). |
+| `bunching/` | Bunching tests at the card-fee and EPS thresholds (MDIS microdata; aggregate results only). |
 | `hopenhayn_project/` | Hopenhayn (1992) and Asturias, Hur, Kehoe and Ruhl (2023) models, worked through the four rungs of the course's project ladder. See its own README. |
 | `aiyagari_replication/` | Replication of Table 2 in Aiyagari (1994). |
 
