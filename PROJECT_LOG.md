@@ -359,3 +359,25 @@ calibration and robustness rather than statistical significance.
 Data source: Statistics Korea, MDIS — 소상공인실태조사 (2018–2024) and
 전국사업체조사 (2000–2024). Raw files are not in this repository; teammates who
 need them should download them with their own MDIS account.
+
+### Where the MDIS data is stored
+
+The raw MDIS files (downloaded Oct 14, 2026, public-use versions) are stored locally
+in **`~/MDIS_data`** on the Mac used for the analysis. That folder is outside the
+shared course folder and outside git, and only that computer's user account can
+open it. The scripts in `bunching/` read the files from there.
+
+| File | Contents |
+|---|---|
+| `연간자료_조사기반_20261014_62010_데이터.zip` | 소상공인실태조사, survey-based, 2018–2020 (with column names) |
+| `연간자료_등록기반_20261014_38507_데이터.zip` | 소상공인실태조사, register-sampled, 2020–2024 (with column names; sales in 2020–23) |
+| `연간자료_20261014_52894_데이터.zip` | 전국사업체조사 2000–2004 (no column names) |
+| `연간자료_20261014_03868_데이터.zip` | 전국사업체조사 2005–2009 |
+| `연간자료_20261014_78290_데이터.zip` | 전국사업체조사 2010–2014 |
+| `연간자료_20261014_40487_데이터.zip` | 전국사업체조사 2015–2019 |
+| `연간자료_20261014_14068_데이터.zip` | 전국사업체조사 2020–2024 |
+| `agg_mfg_size_hist.csv` | Our aggregate output: manufacturing plant counts by size, 2000–2024 (no individual records) |
+
+MDIS terms of use: no disclosure of individual records, use only for the stated
+purpose, no sharing or copying, cite the source, and **delete the raw files when
+the project ends**.
