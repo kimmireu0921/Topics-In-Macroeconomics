@@ -2,14 +2,19 @@
 title: "Who Gets the Guest Workers? Size-Dependent Allocation in Korea’s Employment Permit System and Manufacturing Productivity"
 ---
 
-<p class="authors">Sara Ambre Chekroune (2025462014) · Yitang Donny Chen (2025461008) · Mireu Kim (2025462112)<br>Julian Henry Raymundo (2025462075) · Zachary Benjamin Yoo (2025461053)<br>
+<p class="authors"><span class="nw">Sara Ambre Chekroune (2025462014)</span> · <span class="nw">Yitang Donny Chen (2025461008)</span><br><span class="nw">Mireu Kim (2025462112)</span> · <span class="nw">Julian Henry Raymundo (2025462075)</span><br><span class="nw">Zachary Benjamin Yoo (2025461053)</span><br>
 ISA6327 Topics in Macroeconomics · Prof. Sewon Hur · Research proposal · October 23, 2026</p>
 
 ## 1. The Idea and Its Motivation
 
 **Research question.** Korea’s Employment Permit System (EPS) ties a manufacturing plant’s access to foreign workers to its size. Does this size-dependent allocation keep low-productivity plants in business and lower aggregate productivity, and how much would output change if the *same* national quota were allocated without regard to plant size?
 
-**Why it matters.** Small Korean manufacturers depend on guest workers because they cannot hire Koreans for manual jobs: 82.6% of SMEs employing foreigners cite a domestic labor shortage, against 13.4% citing labor costs (KBIZ 2026), and 53% of EPS firms report receiving “no applicants” for such jobs (Lee, Peri, and Yang 2026). The government has responded by expanding the E-9 quota from 52,000 in 2021 to 165,000 in 2024. Access, however, is rationed by size. Only plants with fewer than 300 workers (or capital of ₩8bn or less) are eligible, and the statutory cap rises in steps with Korean employment: Koreans + 10 for plants with 1–10 Korean workers, 30 for 11–50, up to 60 for 201–300. The maximum foreign share therefore falls from 81% at a plant with 3 Korean workers to 19% at one with 250. The EPS acts as a size-dependent subsidy concentrated on the smallest plants. The stakes became visible in 2020–21, when border closures cut the stock of EPS workers by 22%: moving from zero to full exposure raised a plant’s probability of closing by 12.4–17.7 percentage points, against a baseline of 4.4% (Lee, Peri, and Yang 2026). Access to guest workers matters for which plants survive. Whether the size rule allocates that access efficiently is an open policy question as the quota keeps growing.
+**Why it matters.** Small Korean manufacturers depend on guest workers because they cannot hire Koreans for manual jobs: 82.6% of SMEs employing foreigners cite a domestic labor shortage, against 13.4% citing labor costs (KBIZ 2026), and 53% of EPS firms report receiving “no applicants” for such jobs (Lee, Peri, and Yang 2026). The government has responded by expanding the E-9 quota from 52,000 in 2021 to 165,000 in 2024. Access, however, is rationed by size. Only plants with fewer than 300 workers (or capital of ₩8bn or less) are eligible, and the statutory cap rises in steps with Korean employment: Koreans + 10 for plants with 1–10 Korean workers, 30 for 11–50, up to 60 for 201–300. The maximum foreign share therefore falls from 81% at a plant with 3 Korean workers to 19% at one with 250 (Figure 1). The EPS acts as a size-dependent subsidy concentrated on the smallest plants. The stakes became visible in 2020–21, when border closures cut the stock of EPS workers by 22%: moving from zero to full exposure raised a plant’s probability of closing by 12.4–17.7 percentage points, against a baseline of 4.4% (Lee, Peri, and Yang 2026). Access to guest workers matters for which plants survive. Whether the size rule allocates that access efficiently is an open policy question as the quota keeps growing.
+
+<figure>
+<img src="fig_caps.svg" alt="Maximum foreign-worker share by number of Korean workers under the 2019 and 2024 EPS caps">
+<figcaption><b>Figure 1.</b> Maximum share of foreign workers a manufacturing plant may employ under the EPS caps, by number of Korean insured workers. The share falls steeply with plant size under both schedules. Sources: eps.go.kr (2024 schedule); Lee, Peri, and Yang (2026, Table 4) for 2019.</figcaption>
+</figure>
 
 ## 2. State of the Literature
 
@@ -37,7 +42,26 @@ Four features, each motivated by the evidence above: (i) a recruiting premium fo
 
 **Counterfactuals.** (1) No EPS; (2) the same quota allocated without the size rule, by a common price (tradable permits) or by points without the cap; (3) the quota expanded or cut by 50%; (4) the 2019 versus 2024 cap schedules. Outcomes: entry and exit, the size distribution, aggregate TFP and net output, and Korean wages.
 
-**Feasibility and preliminary results.** We have calibrated all 13 parameters, computing the 2020–21 closure response under the 2019 caps then in force. Allocating the same quota without the size rule raises manufacturing net output by about **0.4%**, roughly one-ninth of the gain from a 50% larger quota (+3.7%); removing EPS lowers it by 7.5%. An earlier calibration that matched the closure evidence less carefully gave 1.0%, so the magnitude is sensitive to calibration, and robustness is the core of the remaining work. The mechanism is the one hypothesized: under the current rule, EPS workers are spread across twice as many plants (7.2% vs. 3.5%), and manual-intensive plants make up 7.7% of plants instead of 5.7%. The model’s closure response, measured as in Lee, Peri, and Yang (2026), is 0.107 if plants expect the shock to last two years and 0.195 if five, bracketing their estimate of 0.124–0.177. Doubling the caps from the 2019 to the 2024 schedule at a fixed quota changes output by less than 0.1%: with a binding quota, who gets the workers matters more than the size of each plant’s cap. Remaining tasks are to close the fit gaps (average plant size, the share of plants using EPS and the EPS share among users are below target) and to test robustness to the substitution parameter ρ, the expected shock length and the cap schedule. **Kill condition:** if the allocation gain is not positive across robustness checks (substitution parameter, expected shock length, cap schedule), or falls below one-tenth of the gain from a 50% quota expansion, we refocus the project on the quantity margin.
+**Feasibility and preliminary results.** We have calibrated all 13 parameters, computing the 2020–21 closure response under the 2019 caps then in force; Table 1 reports the counterfactuals. Allocating the same quota without the size rule raises manufacturing net output by about **0.4%**, roughly one-ninth of the gain from a 50% larger quota. An earlier calibration that matched the closure evidence less carefully gave 1.0%, so the magnitude is sensitive to calibration, and robustness is the core of the remaining work. The mechanism is the one hypothesized: under the current rule, EPS workers are spread across twice as many plants, a fifth of them go to plants with fewer than 5 Korean workers, and more manual-intensive plants survive (Figure 2). The model’s closure response, measured as in Lee, Peri, and Yang (2026), is 0.107 if plants expect the shock to last two years and 0.195 if five, bracketing their estimate of 0.124–0.177. With a binding quota, the cap schedule itself matters little (last row of Table 1): who gets the workers matters more than the size of each plant’s cap. Remaining tasks are to close the fit gaps (average plant size, the share of plants using EPS and the EPS share among users are below target) and to test robustness to the substitution parameter ρ, the expected shock length and the cap schedule. **Kill condition:** if the allocation gain is not positive across robustness checks (substitution parameter, expected shock length, cap schedule), or falls below one-tenth of the gain from a 50% quota expansion, we refocus the project on the quantity margin.
+
+<table class="results">
+<caption><b>Table 1.</b> Preliminary counterfactuals from the recalibrated model (manufacturing)</caption>
+<thead><tr><th>Scenario</th><th>Net output vs. current rule</th><th>Plants using EPS</th><th>Manual-intensive plants</th></tr></thead>
+<tbody>
+<tr><td>Current rule (2024 caps)</td><td>—</td><td>7.2%</td><td>7.7%</td></tr>
+<tr class="key"><td>Same quota, no size rule (allocated by price)</td><td>+0.42%</td><td>3.5%</td><td>5.7%</td></tr>
+<tr><td>Quota +50%</td><td>+3.67%</td><td>7.8%</td><td>8.3%</td></tr>
+<tr><td>Quota −50%</td><td>−3.82%</td><td>5.9%</td><td>6.5%</td></tr>
+<tr><td>No EPS</td><td>−7.47%</td><td>0%</td><td>5.4%</td></tr>
+<tr><td>2019 caps, same quota</td><td>−0.02%</td><td>7.3%</td><td>7.8%</td></tr>
+</tbody>
+</table>
+<p class="note">Net output is output minus fixed, entry and recruiting costs. Korean labor supply is fixed in all scenarios; the national quota is fixed except in the ±50% rows.</p>
+
+<figure class="fig2">
+<img src="fig_alloc.svg" alt="Share of EPS workers by Korean workers at the plant, current rule versus same quota without the size rule">
+<figcaption><b>Figure 2.</b> Where the EPS workers go in the model: share of all EPS workers by the number of Korean workers at the plant. Without the size rule, the same quota moves to larger plants, and output per worker at plants using EPS is 5.5% higher.</figcaption>
+</figure>
 
 <p class="disclosure"><b>AI use.</b> The team used Claude (Anthropic) for literature search, data processing, model coding and calibration, and drafting. All results were produced by our own code, and sources were checked by the team. Code, calibration results and a day-by-day project log: github.com/kimmireu0921/Topics-In-Macroeconomics (private repository; access available on request).</p>
 

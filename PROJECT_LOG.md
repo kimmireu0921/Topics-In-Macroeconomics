@@ -295,6 +295,14 @@ Statistics, 국가데이터처). Includes the kill condition above, the course-l
 framing (we extend Hopenhayn 1992; AHKR was reproduced, not extended), and a link
 to this repository. Due Fri Oct 23, 11:59 PM, uploaded to LearnUs by one member.
 
+**Figures and table added (Oct 19):** Figure 1 plots the maximum foreign-worker share
+by plant size under the 2019 and 2024 caps; Table 1 lists the counterfactuals;
+Figure 2 shows where the EPS workers go in the model. Under the current rule, 20% of
+EPS workers are at plants with fewer than 5 Korean workers and 17% at plants with
+20 or more; with the same quota and no size rule, these become 0% and 46%, and output
+per worker at plants using EPS is 5.5% higher. Figures are built by
+`proposal/make_fig.py`; Figure 2's numbers come from `eps_model/eps_by_size.py`.
+
 **A concern raised in the team** (that both final ideas had limited sources and
 might not show significant effects): confirmed for card fees (no bunching), not for
 EPS. The EPS result is a model counterfactual, so its uncertainty comes from
@@ -353,9 +361,10 @@ calibration and robustness rather than statistical significance.
 |---|---|
 | `hopenhayn_project/eps_model/eps_model.py` | EPS model (version 4) |
 | `hopenhayn_project/eps_model/run_eps.py` | Calibration and experiments |
-| `proposal/` | Research proposal (Markdown source, CSS, PDF) |
+| `proposal/` | Research proposal (Markdown source, CSS, PDF; `make_fig.py` builds Figures 1–2) |
 | `hopenhayn_project/eps_model/recal_best.json` | **Current** calibration (Oct 19, 13 parameters) |
 | `hopenhayn_project/eps_model/eps_results_recal.json` | Fit and experiment results for the current calibration |
+| `hopenhayn_project/eps_model/eps_by_size.py`, `eps_by_size.json` | EPS workers by plant size, current rule vs. no size rule (Figure 2) |
 | `hopenhayn_project/eps_model/local_best.json` | Oct 15 calibration (superseded) |
 | `hopenhayn_project/eps_model/experiments_localbest.json` | Oct 15 experiment results (superseded) |
 | `hopenhayn_project/eps_model/top_draws.json` | Top 20 draws from the version-4 random search |
