@@ -28,12 +28,20 @@ python3 run_eps.py eps_results.json refine 200     # full re-calibration (~1 hou
 
 `closure_response()` returns two slopes: `slope` (all plants, actual EPS share; not
 comparable to Lee–Peri–Yang) and `slope_lpy` (EPS users only, statutory exposure;
-their design). **Use `slope_lpy` as the calibration target** in the next run;
-`run_eps.py` still targets `slope`.
+their design). Since Oct 19, `run_eps.py` targets `slope_lpy`, computed together with
+the EPS share among users under the **2019 caps** (`cap_2019`, Lee–Peri–Yang Table 4);
+the other moments use the 2024 caps. Recalibration:
+
+```
+python3 run_eps.py eps_results_recal.json recal 150   # starts from local_best.json (~1.5 h)
+```
+
+Current calibration: `recal_best.json`; results: `eps_results_recal.json`.
 
 ## Known issues
 
-- `run_eps.py` targets `slope`, not `slope_lpy`, and uses 2024 caps for the 2020 shock (should be 2019).
-- Average plant size 5.7 vs 7.5; EPS share among users 28% vs 37%.
-- Parameters at range limits: ρ = 0.8, δ = 0.05, ν_top = 0.9.
+- Fit gaps: average plant size 5.9 vs 7.5; share of plants using EPS 7.2% vs 10%; EPS share among users 29% vs 37%.
+- Parameters at range limits: δ = 0.05, ν_top = 0.9, ξ = 0.1, cf_A = 0.4.
 - The cap is applied to core Koreans h, approximating the statutory count h + k.
+- The same national quota M is assumed under the 2019 and 2024 caps.
+- Robustness (ρ, shock length, taste-shock scale) not yet run; it decides the kill condition.

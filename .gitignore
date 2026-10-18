@@ -14,3 +14,8 @@ Topics in Macroeconomics.pdf
 
 # MDIS microdata (licensed; never commit)
 bunching/data/
+
+# Instructor handouts, run logs, generated HTML
+Topic in Macroeconomics _Proposal Format and Requirements.pdf
+hopenhayn_project/eps_model/*.log
+proposal/proposal.html

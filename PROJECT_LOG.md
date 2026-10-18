@@ -4,18 +4,20 @@ Team: Sara Ambre Chekroune · Yitang Donny Chen · Mireu Kim · Julian Henry Ray
 Instructor: Prof. Sewon Hur
 
 This log records what we did, what we found, and what each result meant for the
-project, day by day. The work was done by Mireu Kim with the AI assistant Claude
-(Anthropic), used for literature search, fact-checking, coding, model runs and
-drafting, in line with the course AI policy. All numbers below were produced by
-the code in this repository or verified against the cited sources; anything not
-verified is marked as such.
+project, day by day. The team worked with the AI assistant Claude (Anthropic),
+used for literature search, fact-checking, coding, model runs and drafting, in
+line with the course AI policy. All numbers below were produced by the code in
+this repository or verified against the cited sources; anything not verified is
+marked as such.
 
-**Where things stand (Oct 15):** we are pursuing **Idea 1, Korea's Employment
-Permit System (EPS)**. A calibrated firm-dynamics model says that allocating
-the same number of guest workers *without* the size-based rule would raise
-manufacturing net output by about **1%**, roughly a quarter of what a 50% larger
-quota would achieve. The model reproduces Lee, Peri and Yang's (2026) closure
-response when measured with their design. Details and caveats below.
+**Where things stand (Oct 19):** we are pursuing **Idea 1, Korea's Employment
+Permit System (EPS)**. In the recalibrated firm-dynamics model, allocating the
+same number of guest workers *without* the size-based rule raises manufacturing
+net output by about **0.4%**, roughly one-ninth of what a 50% larger quota would
+achieve (+3.7%). The model's response to the 2020–21 EPS sudden stop brackets
+Lee, Peri and Yang's (2026) estimate. An earlier calibration gave 1.0%, so the
+magnitude is sensitive to calibration; robustness is the main remaining work.
+The research proposal (due Oct 23) is in `proposal/`.
 
 ---
 
@@ -27,6 +29,7 @@ response when measured with their design. Details and caveats below.
 - [Oct 13 — Presentation script and GitHub setup](#oct-13)
 - [Oct 14 — Prof. Hur's feedback: checking the data for bunching](#oct-14)
 - [Oct 15 — Building and calibrating the EPS model](#oct-15)
+- [Oct 18–19 — Recalibration and the research proposal](#oct-18)
 - [What worked and what didn't](#what-worked)
 - [Open questions and next steps](#next-steps)
 - [Files and data](#files)
@@ -114,7 +117,7 @@ for the card-fee thresholds.
 **Data.** Downloaded MDIS public-use microdata (Statistics Korea):
 - 소상공인실태조사 (small-business survey): survey-based 2018–2020, register-sampled 2020–2024. Annual sales (millions of won) are in 2018–2023.
 - 전국사업체조사 (business census), 2000–2024, all establishments. No column names; we identified the columns from accounting identities (total workers = male + female).
-- Raw files are kept **outside** the repository (`~/MDIS_data` on Mireu's computer) under the MDIS terms of use (no sharing, delete after use, cite the source). Only aggregate numbers appear here.
+- Raw files are kept **outside** the repository (on a team member's computer, outside the shared folder) under the MDIS terms of use (no sharing, delete after use, cite the source). Only aggregate numbers appear here.
 
 **Method.** Standard bunching estimator (Kleven–Waseem): count firms in 1-unit
 bins, fit a smooth polynomial with dummies for round numbers, and measure excess
@@ -186,6 +189,8 @@ fixed in version 4.)
   size, share of 1–4 worker plants, exit, EPS users, EPS share among users,
   users' size, and Lee–Peri–Yang's closure response.
 
+*Note: the Oct 15 numbers below are superseded by the Oct 19 recalibration (next section).*
+
 **Fit (best saved calibration, `local_best.json`):**
 
 | Moment | Model | Data |
@@ -224,6 +229,71 @@ stable so far.
 
 ---
 
+<a id="oct-18"></a>
+## Oct 18–19 — Recalibration and the research proposal
+
+**Proposal requirements** (handout): 2–3 pages single-spaced excluding references,
+PDF, due **Fri Oct 23, 11:59 PM** on LearnUs; groups of up to 4 unless approved by
+the instructor (our team has 5, so approval is needed). Required sections: idea and
+motivation, literature (3–5+ papers and the gap), contribution, methodology (model
+approach preferred), references. We drafted the proposal (`proposal/`), using the
+progress-update deck as source material.
+
+**Why recalibrate.** The Oct 15 calibration targeted the closure response measured
+over all plants with the actual EPS share, which is not what Lee, Peri and Yang
+estimate, and it used the 2024 caps for a shock that happened under the 2019 caps.
+Under the 2019 caps, that calibration's closure slope (their design) was only 0.027,
+so the earlier statement that the model "reproduces" their closures was not correct.
+
+**What changed.**
+- Closure target measured their way: EPS users only, statutory (imputed) exposure, target 0.15.
+- The 2020–21 shock and the EPS share among users (measured Jan 2020) are computed
+  under the **2019 cap schedule** (Lee–Peri–Yang Table 4); other moments under the 2024 schedule.
+- Local search, then Nelder–Mead from the Oct 15 best; loss fell from 0.84 to 0.36.
+
+**Fit (`recal_best.json`):**
+
+| Moment | Model | Data |
+|---|---|---|
+| Average plant size | 5.9 | 7.5 |
+| Share of plants with 1–4 workers | 0.66 | 0.70 |
+| Exit rate | 6.3% | 8% |
+| Share of plants using EPS | 7.2% | 10% |
+| EPS users' average size | 16.1 | 13 |
+| EPS share among users (2019 caps) | 29% | 37% |
+| Closure slope, their design, 2-year shock | 0.107 | 0.124–0.177 |
+| Closure slope, their design, 5-year shock | 0.195 | 0.124–0.177 |
+
+**Experiments (net output vs. the current rule, `eps_results_recal.json`):**
+
+| Experiment | Net output | Notes |
+|---|---|---|
+| No EPS | −7.5% | |
+| **Same quota, no size rule (by price)** | **+0.42%** | EPS users 3.5% of plants (vs 7.2%); manual-intensive plants 5.7% (vs 7.7%) |
+| Quota +50% | +3.7% | |
+| Quota −50% | −3.8% | |
+| 2019 caps instead of 2024, same quota | −0.02% | With a binding quota, the cap schedule hardly matters |
+
+**What it meant.**
+- The allocation gain is smaller than first estimated (0.4% vs 1.0%) but rests on a
+  calibration that fits the closure evidence better. It is about one-ninth of the
+  quota effect, just above the kill threshold we set (one-tenth).
+- The model's closure response brackets Lee–Peri–Yang's estimate between a 2-year
+  and a 5-year expected shock.
+- The magnitude is sensitive to calibration, so robustness is the core of the remaining work.
+
+**Kill condition (adopted in the proposal):** if the allocation gain is not positive
+across robustness checks (substitution parameter, expected shock length, cap
+schedule), or falls below one-tenth of the gain from a 50% quota expansion, we
+refocus on the quantity margin.
+
+**A concern raised in the team** (that both final ideas had limited sources and
+might not show significant effects): confirmed for card fees (no bunching), not for
+EPS. The EPS result is a model counterfactual, so its uncertainty comes from
+calibration and robustness rather than statistical significance.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
@@ -244,6 +314,7 @@ stable so far.
 - Coarse grids with strict exit decisions: the closure response jumped between 0 and 0.2 and the optimizer stalled. Fixed with a logit exit shock.
 - An exit-rate formula error in versions 1–3 (fixed in version 4).
 - Comparing our model's closure slope with Lee–Peri–Yang's on a different basis, which briefly led to a wrong conclusion that credit constraints were needed.
+- Using today's (2024) caps for the 2020 shock, which overstated the model's closure response (0.116 vs 0.027 under the 2019 caps) until the recalibration fixed it.
 - Bunching tests with public data: card-fee sales are self-reported and rounded; the census cannot separate Korean and foreign workers.
 
 ---
@@ -251,13 +322,13 @@ stable so far.
 <a id="next-steps"></a>
 ## Open questions and next steps
 
-1. **Recalibrate with the closure target measured Lee–Peri–Yang's way** (EPS users
-   only, statutory exposure) and the **2019 caps** for the 2020 shock (the shock
-   happened under the 2019 schedule, about half today's caps). Then rerun the experiments.
-2. **Remaining fit gaps:** average plant size (5.7 vs 7.5) and EPS share among
-   users (28% vs 37%). Several parameters sit at the edge of their ranges
-   (ρ = 0.8, δ = 0.05, ν = 0.9).
-3. **Robustness:** CES parameter ρ, shock length (2 vs 5 years), the exit taste-shock scale.
+1. ~~Recalibrate with the closure target measured Lee–Peri–Yang's way and the 2019
+   caps~~ — done Oct 19.
+2. **Remaining fit gaps:** average plant size (5.9 vs 7.5), share of plants using EPS
+   (7.2% vs 10%), EPS share among users (29% vs 37%). Several parameters sit at the
+   edge of their ranges (δ = 0.05, ν_top = 0.9, ξ = 0.1, cf_A = 0.4).
+3. **Robustness (decides the kill condition):** CES parameter ρ, shock length (2 vs 5
+   years), cap schedule, the exit taste-shock scale.
 4. **Optional extensions:** a COVID demand shock in the closure experiment; credit
    constraints (links to Song–Storesletten–Zilibotti and our rung 4 code); a
    counterfactual with size-neutral *rationing* (points without the cap) besides allocation by price.
@@ -274,8 +345,11 @@ stable so far.
 |---|---|
 | `hopenhayn_project/eps_model/eps_model.py` | EPS model (version 4) |
 | `hopenhayn_project/eps_model/run_eps.py` | Calibration and experiments |
-| `hopenhayn_project/eps_model/local_best.json` | Best saved calibration (13 parameters) |
-| `hopenhayn_project/eps_model/experiments_localbest.json` | Experiment results for that calibration |
+| `proposal/` | Research proposal (Markdown source, CSS, PDF) |
+| `hopenhayn_project/eps_model/recal_best.json` | **Current** calibration (Oct 19, 13 parameters) |
+| `hopenhayn_project/eps_model/eps_results_recal.json` | Fit and experiment results for the current calibration |
+| `hopenhayn_project/eps_model/local_best.json` | Oct 15 calibration (superseded) |
+| `hopenhayn_project/eps_model/experiments_localbest.json` | Oct 15 experiment results (superseded) |
 | `hopenhayn_project/eps_model/top_draws.json` | Top 20 draws from the version-4 random search |
 | `hopenhayn_project/eps_model/NOTES.md` | Model notes and how to rerun |
 | `bunching/` | Bunching estimator, census histogram script, `RESULTS.md` |

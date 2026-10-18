@@ -10,6 +10,7 @@ Group project repository for ISA6327 Topics in Macroeconomics at Yonsei Universi
 
 | Folder | What it is |
 |---|---|
+| `proposal/` | Research proposal (due Oct 23): Markdown source and PDF. |
 | `hopenhayn_project/eps_model/` | Our project model: Hopenhayn with Korea's Employment Permit System (calibration and experiments). |
 | `bunching/` | Bunching tests at the card-fee and EPS thresholds (MDIS microdata; aggregate results only). |
 | `hopenhayn_project/` | Hopenhayn (1992) and Asturias, Hur, Kehoe and Ruhl (2023) models, worked through the four rungs of the course's project ladder. See its own README. |
