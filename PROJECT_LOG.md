@@ -287,6 +287,14 @@ across robustness checks (substitution parameter, expected shock length, cap
 schedule), or falls below one-tenth of the gain from a 50% quota expansion, we
 refocus on the quantity margin.
 
+**Final proposal (Oct 19, `proposal/proposal.pdf`):** A4, 11pt, single-spaced,
+1-inch margins; body on pages 1–3, references on page 4. All 12 references checked
+against publisher and RePEc records; Korean sources cited with their original
+titles; the statistics agency cited under its current name (Ministry of Data and
+Statistics, 국가데이터처). Includes the kill condition above, the course-ladder
+framing (we extend Hopenhayn 1992; AHKR was reproduced, not extended), and a link
+to this repository. Due Fri Oct 23, 11:59 PM, uploaded to LearnUs by one member.
+
 **A concern raised in the team** (that both final ideas had limited sources and
 might not show significant effects): confirmed for card fees (no bunching), not for
 EPS. The EPS result is a model counterfactual, so its uncertainty comes from
