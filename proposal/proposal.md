@@ -27,7 +27,7 @@ We provide the first quantitative firm-dynamics model of the EPS allocation rule
 
 ## 4. Methodology (Quantitative Approach)
 
-**Building blocks.** We extend the Hopenhayn (1992) / Asturias et al. (2023) model from Week 2, following Mandelman, Mehra, and Shen (2025) in adding foreign labor to a Hopenhayn–Rogerson framework.
+**Building blocks.** We extend the Hopenhayn (1992) model from Week 2, keeping its core (persistent productivity shocks, a fixed operating cost, endogenous exit and free entry), and follow Mandelman, Mehra, and Shen (2025) in adding foreign labor to a Hopenhayn–Rogerson framework. The project follows the course’s project ladder: we first replicated Hopenhayn (1992), then reproduced Asturias et al.’s (2023) balanced growth path and used it for a Korean entry-reform experiment, and then added the EPS as a new feature.
 
 **What we add.** Plants with productivity *s* combine core work *h*, done by Korean workers, and manual work ℓ, done by Korean manual workers *k* or EPS workers *m*:
 <span class="eq">*y* = *s* (*h*<sup>ρ</sup> + λ<sub>*t*</sub> ℓ<sup>ρ</sup>)<sup>α/ρ</sup>,   ℓ = *k* + *m*.</span>
@@ -39,7 +39,7 @@ Four features, each motivated by the evidence above: (i) a recruiting premium fo
 
 **Feasibility and preliminary results.** We have calibrated all 13 parameters, computing the 2020–21 closure response under the 2019 caps then in force. Allocating the same quota without the size rule raises manufacturing net output by about **0.4%**, roughly one-ninth of the gain from a 50% larger quota (+3.7%); removing EPS lowers it by 7.5%. An earlier calibration that matched the closure evidence less carefully gave 1.0%, so the magnitude is sensitive to calibration, and robustness is the core of the remaining work. The mechanism is the one hypothesized: under the current rule, EPS workers are spread across twice as many plants (7.2% vs. 3.5%), and manual-intensive plants make up 7.7% of plants instead of 5.7%. The model’s closure response, measured as in Lee, Peri, and Yang (2026), is 0.107 if plants expect the shock to last two years and 0.195 if five, bracketing their estimate of 0.124–0.177. Doubling the caps from the 2019 to the 2024 schedule at a fixed quota changes output by less than 0.1%: with a binding quota, who gets the workers matters more than the size of each plant’s cap. Remaining tasks are to close the fit gaps (average plant size, the share of plants using EPS and the EPS share among users are below target) and to test robustness to the substitution parameter ρ, the expected shock length and the cap schedule. **Kill condition:** if the allocation gain is not positive across robustness checks (substitution parameter, expected shock length, cap schedule), or falls below one-tenth of the gain from a 50% quota expansion, we refocus the project on the quantity margin.
 
-<p class="disclosure"><b>AI use.</b> The team used Claude (Anthropic) for literature search, data processing, model coding and calibration, and drafting. All results were produced by our own code, and sources were checked by the team.</p>
+<p class="disclosure"><b>AI use.</b> The team used Claude (Anthropic) for literature search, data processing, model coding and calibration, and drafting. All results were produced by our own code, and sources were checked by the team. Code, calibration results and a day-by-day project log: github.com/kimmireu0921/Topics-In-Macroeconomics (private repository; access available on request).</p>
 
 ## References
 

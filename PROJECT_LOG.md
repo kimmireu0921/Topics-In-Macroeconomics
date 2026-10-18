@@ -354,7 +354,7 @@ calibration and robustness rather than statistical significance.
 | `hopenhayn_project/eps_model/NOTES.md` | Model notes and how to rerun |
 | `bunching/` | Bunching estimator, census histogram script, `RESULTS.md` |
 | `hopenhayn_project/rung1_hopenhayn/`, `ahkr_model/` | Earlier Hopenhayn/AHKR ladder exercises |
-| `aiyagari_replication/` | Aiyagari (1994) Table 2 replication |
+| `course_exercises/aiyagari_replication/` | Aiyagari (1994) Table 2 replication (Week 3 exercise; not part of the EPS project) |
 
 Data source: Statistics Korea, MDIS — 소상공인실태조사 (2018–2024) and
 전국사업체조사 (2000–2024). Raw files are not in this repository; teammates who
