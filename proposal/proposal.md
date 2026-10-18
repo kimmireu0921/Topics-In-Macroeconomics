@@ -59,14 +59,14 @@ Hsieh, Chang-Tai, and Peter J. Klenow. 2009. “Misallocation and Manufacturing 
 
 İmrohoroğlu, Selahattin, Sagiri Kitao, and Tomoaki Yamada. 2017. “Can Guest Workers Solve Japan’s Fiscal Problems?” *Economic Inquiry* 55 (3): 1287–1307.
 
-KBIZ (Korea Federation of SMEs). 2026. *2025 Survey on Difficulties in Employing Foreign Workers* (외국인력 고용 관련 종합애로 실태조사). Seoul: KBIZ.
+KBIZ (Korea Federation of SMEs, 중소기업중앙회). 2026. *2025 Survey on Difficulties in Employing Foreign Workers* (2025년 외국인력 고용 관련 종합애로 실태조사). Released January 11, 2026. Seoul: KBIZ.
 
-Kim, Seonbin, Jongsuk Han, and Jae-Hwa Hong. 2022. “Macroeconomic Effects of Utilizing Foreign Labor Force in Population Aging” (외국인력 활용의 거시경제 효과 분석). *한국경제의 분석* 28 (3): 111–58.
+Kim, Seonbin, Jongsuk Han, and Jae-Hwa Hong. 2022. “Macroeconomic Effects of Utilizing Foreign Labor Force in Population Aging” (외국인력 활용의 거시경제 효과 분석). *한국경제의 분석* (Korean Economic Analysis) 28 (3): 111–58.
 
 Lee, Jongkwan, Giovanni Peri, and Hee-Seung Yang. 2026. “The Effects of a Sudden Stop in Low-Skilled Immigration: Evidence from Korea’s Guest Worker Program.” NBER Working Paper 34927.
 
 Mandelman, Federico, Mishita Mehra, and Hewei Shen. 2025. “Skilled Immigration Frictions as a Barrier for Young Firms.” *Journal of Monetary Economics* 155: 103811.
 
-Statistics Korea. 2000–2024. 전국사업체조사 (Census on Establishments) and 소상공인실태조사 (Survey on Small Business). Microdata Integrated Service (MDIS).
+Ministry of Data and Statistics (국가데이터처, formerly Statistics Korea). 2000–2024. 전국사업체조사 (Census on Establishments) and 소상공인실태조사 (Survey on Small Businesses). Microdata Integrated Service (MDIS). Accessed October 14, 2026.
 
 </div>

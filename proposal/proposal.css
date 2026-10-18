@@ -1,4 +1,4 @@
-@page { size: Letter; margin: 1in; }
+@page { size: A4; margin: 1in; }
 html { font-family: "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.22; color: #000; }
 body { margin: 0; }
 header { text-align: center; margin: 0 0 4pt; }
