@@ -38,7 +38,27 @@ python3 run_eps.py eps_results_recal.json recal 150   # starts from local_best.j
 
 Current calibration: `recal_best.json`; results: `eps_results_recal.json`.
 
-## Known issues
+## Version 5 (Oct 28): Pareto tail and bunching
+
+`eps_model_v5.py` subclasses the version-4 model: productivity s = x·z with x drawn
+at entry from Pareto(1, γ) and z the AR(1) above; the size grid includes each cap
+step, a point just past it, and a point just under 300. `run_v5.py` adds the target
+share of plants with 50+ workers (2.1%).
+
+```
+python3 run_v5.py time recal_best.json   # one evaluation (~13 s)
+python3 run_v5.py calib 120 300          # parallel local search (8 cores) + Nelder-Mead -> v5_best.json
+python3 run_v5.py results                # experiments + bunching -> v5_results.json
+python3 make_bunch_fig.py v5_results_fine.json   # bunching_v5.png/.svg
+```
+
+`v5_results_fine.json` re-solves the current rule and the no-size-rule case with
+nx = 48, nz = 21 (four times as many productivity levels) for the histogram; with
+the calibration grid (24 × 11) single productivity levels can land on a step by
+chance. Results: no size rule +0.99% (finer grid +1.01%); quota +50% +4.0%. See
+`PROJECT_LOG.md`, Oct 27–28.
+
+## Known issues (version 4)
 
 - Fit gaps: average plant size 5.9 vs 7.5; share of plants using EPS 7.2% vs 10%; EPS share among users 29% vs 37%.
 - Parameters at range limits: δ = 0.05, ν_top = 0.9, ξ = 0.1, cf_A = 0.4.

@@ -10,14 +10,16 @@ line with the course AI policy. All numbers below were produced by the code in
 this repository or verified against the cited sources; anything not verified is
 marked as such.
 
-**Where things stand (Oct 19):** we are pursuing **Idea 1, Korea's Employment
-Permit System (EPS)**. In the recalibrated firm-dynamics model, allocating the
-same number of guest workers *without* the size-based rule raises manufacturing
-net output by about **0.4%**, roughly one-ninth of what a 50% larger quota would
-achieve (+3.7%). The model's response to the 2020–21 EPS sudden stop brackets
-Lee, Peri and Yang's (2026) estimate. An earlier calibration gave 1.0%, so the
-magnitude is sensitive to calibration; robustness is the main remaining work.
-The research proposal (due Oct 23) is in `proposal/`.
+**Where things stand (Oct 28):** we are pursuing **Idea 1, Korea's Employment
+Permit System (EPS)**. After Prof. Hur's Oct 27 feedback, model version 5 gives
+plant productivity a Pareto tail and lets plants bunch at the cap steps, which they
+now do. In this version, allocating the same number of guest workers *without* the
+size-based rule raises manufacturing net output by about **1.0%**, about a quarter
+of what a 50% larger quota would achieve (+4.0%). Version 4, presented on Oct 27,
+gave 0.4% because its plants were too small to reach the cap steps. The model's
+response to the 2020–21 EPS sudden stop still matches Lee, Peri and Yang's (2026)
+estimate. Robustness is the main remaining work. The research proposal (submitted
+Oct 23, with the version-4 numbers) is in `proposal/`.
 
 ---
 
@@ -30,6 +32,7 @@ The research proposal (due Oct 23) is in `proposal/`.
 - [Oct 14 — Prof. Hur's feedback: checking the data for bunching](#oct-14)
 - [Oct 15 — Building and calibrating the EPS model](#oct-15)
 - [Oct 18–19 — Recalibration and the research proposal](#oct-18)
+- [Oct 27–28 — Presentation feedback and model version 5](#oct-27)
 - [What worked and what didn't](#what-worked)
 - [Open questions and next steps](#next-steps)
 - [Files and data](#files)
@@ -310,6 +313,86 @@ calibration and robustness rather than statistical significance.
 
 ---
 
+<a id="oct-27"></a>
+## Oct 27–28 — Presentation feedback and model version 5
+
+**Prof. Hur's feedback on the Oct 27 update**:
+- The census bunching test is *inconclusive*, not evidence against bunching: the
+  data cannot separate Korean and foreign workers.
+- With continuous hiring and a size-based cap, profit-maximizing plants should bunch
+  at the cap steps. "If not in the data, you should definitely see it in the model";
+  if the model shows none, it is not doing something correctly.
+- To get more large plants without changing the average size, use a fatter tail.
+  His model draws productivity from a Pareto distribution; ours had no tail parameter.
+- The 0.4% looked small to him. If plants bunch, removing the size rule lets them grow
+  to their optimal scale, so he expected a bigger result.
+- He asked whether the quota experiments change the population (they do: Korean
+  labor is fixed and EPS workers are added or removed) and whether the wage is solved
+  in general equilibrium (it is: free entry pins the Korean wage). He warned that
+  unstated assumptions may have been made by the AI without the team knowing.
+
+**Diagnosis of version 4.** It showed no bunching. The largest plant had about 81
+Korean workers, so the steps at 100, 150, 200 and 300 were never reached; near 50 the
+size grid was too coarse (41, 49, 51, 58 workers); and with plants getting about a
+fifth of their cap, crossing 50 was worth about one EPS worker.
+
+**Version 5** (`eps_model_v5.py`, `run_v5.py`):
+- Productivity is s = x·z: x is permanent, drawn at entry from a Pareto distribution
+  with tail parameter γ (as in AHKR); z is the version-4 persistent shock. γ replaces ν_top.
+- The size grid includes every cap step and a point just past it, and a point just
+  under 300, so a plant can locate exactly where the rule rewards it.
+- New target: the share of plants with 50 or more workers (2.1%, census 2024).
+- Faster solver (dominated grid points pruned; Brent's method), which allowed a
+  parallel local search (8 candidates per round) and Nelder–Mead. Nelder–Mead was
+  stopped by hand on Oct 28, when improvements had fallen below 0.01.
+
+**Fit (`v5_best.json`, loss 0.150 on 8 targets; version 4: 0.36 on 7):**
+
+| Moment | v5 | v4 | Data |
+|---|---|---|---|
+| Average plant size | 7.8 | 5.9 | 7.5 |
+| Share of plants with 1–4 workers | 0.65 | 0.66 | 0.70 |
+| Plants with 50+ workers | 1.6% | 0.5% | 2.1% |
+| Exit rate | 9.1% | 6.3% | 8% |
+| Share of plants using EPS | 9.6% | 7.2% | 10% |
+| EPS users' average size | 15.1 | 16.1 | 13 |
+| EPS share among users (2019 caps) | 30% | 29% | 37% |
+| Closure slope, their design, 2-year shock | 0.140 | 0.107 | 0.124–0.177 |
+
+Calibrated γ = 4.43. ρ = 0.797 sits at the upper edge of its range (0.8) and ξ = 0.10
+at the lower edge; both need a robustness check.
+
+**Bunching in the model (`v5_results_fine.json`, `bunching_v5.png`).** Under the
+current rule there are 1.5–1.7 times as many plants just past each cap step (50, 100,
+150, 200) as just before it, and plants pile up just under 300 (0.56 times as many
+just past it). With the same quota and no size rule the ratios are about 1
+(0.79–1.03). This check uses four times as many productivity levels as the
+calibration, because with the coarser grid a single productivity level can land on
+a step by chance.
+
+**Experiments (net output vs. the current rule, `v5_results.json`):**
+
+| Experiment | v5 | v4 |
+|---|---|---|
+| No EPS | −8.8% | −7.5% |
+| **Same quota, no size rule (by price)** | **+0.99%** (+1.01% with the finer grid) | +0.42% |
+| Quota +50% | +4.0% | +3.7% |
+| Quota −50% | −4.2% | −3.8% |
+| 2019 caps instead of 2024, same quota | −0.13% | −0.02% |
+
+Without the size rule, EPS users fall from 9.6% to 4.2% of plants and their average
+size rises from 15 to 25 workers; the Korean wage is 2.6% lower (0.697 → 0.679).
+
+**What it meant.**
+- Prof. Hur's prediction holds: once plants can bunch, removing the size rule gives
+  a larger gain, more than double version 4's, and about a quarter of a 50% quota
+  expansion, well above the kill threshold (one-tenth).
+- The histogram he asked for is now a model prediction that the data could test, if
+  EPS counts by number of Korean workers become available.
+- The proposal (submitted Oct 23) reports the version-4 numbers.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
@@ -340,17 +423,24 @@ calibration and robustness rather than statistical significance.
 
 1. ~~Recalibrate with the closure target measured Lee–Peri–Yang's way and the 2019
    caps~~ — done Oct 19.
-2. **Remaining fit gaps:** average plant size (5.9 vs 7.5), share of plants using EPS
-   (7.2% vs 10%), EPS share among users (29% vs 37%). Several parameters sit at the
-   edge of their ranges (δ = 0.05, ν_top = 0.9, ξ = 0.1, cf_A = 0.4).
+2. **Remaining fit gaps (version 5):** plants with 50+ workers (1.6% vs 2.1%), EPS
+   share among users (30% vs 37%), EPS users' size (15 vs 13). ρ (0.797, bound 0.8)
+   and ξ (0.10, bound 0.1) sit at the edge of their ranges.
 3. **Robustness (decides the kill condition):** CES parameter ρ, shock length (2 vs 5
-   years), cap schedule, the exit taste-shock scale.
-4. **Optional extensions:** a COVID demand shock in the closure experiment; credit
+   years), cap schedule, the exit taste-shock scale, and the Pareto tail γ.
+4. **State the model's assumptions explicitly** (Prof. Hur, Oct 27): no households
+   (no consumption, saving or remittances; we measure output, not welfare), fixed
+   Korean labor, EPS workers paid a Korean wage, the Korean manual premium as a
+   resource cost, the cap on core Koreans h rather than h + k, equal θ for every plant,
+   the permit fee as a transfer, steady-state comparisons only.
+5. **Data for the bunching test:** EPS workers by number of Korean workers per plant
+   (MOEL, HRD Korea and KEIS hold the records; only aggregates are public).
+6. **Optional extensions:** a COVID demand shock in the closure experiment; credit
    constraints (links to Song–Storesletten–Zilibotti and our rung 4 code); a
    counterfactual with size-neutral *rationing* (points without the cap) besides allocation by price.
-5. **Check with Prof. Hur:** quantity rationing vs. price wedge; whether
+7. **Check with Prof. Hur:** quantity rationing vs. price wedge; whether
    identifying the model from the COVID shock (instead of bunching) is acceptable.
-6. Verify the exit-rate target (8%) against KOSIS business demography statistics.
+8. Verify the exit-rate target (8%) against KOSIS business demography statistics.
 
 ---
 
@@ -362,8 +452,12 @@ calibration and robustness rather than statistical significance.
 | `hopenhayn_project/eps_model/eps_model.py` | EPS model (version 4) |
 | `hopenhayn_project/eps_model/run_eps.py` | Calibration and experiments |
 | `proposal/` | Research proposal (Markdown source, CSS, PDF; `make_fig.py` builds Figures 1–2) |
-| `hopenhayn_project/eps_model/recal_best.json` | **Current** calibration (Oct 19, 13 parameters) |
-| `hopenhayn_project/eps_model/eps_results_recal.json` | Fit and experiment results for the current calibration |
+| `hopenhayn_project/eps_model/eps_model_v5.py`, `run_v5.py` | EPS model version 5 (Pareto tail, bunching-ready size grid): calibration, experiments, bunching check |
+| `hopenhayn_project/eps_model/v5_best.json` | **Current** calibration (Oct 28, version 5, 13 parameters) |
+| `hopenhayn_project/eps_model/v5_results.json`, `v5_results_fine.json` | Version-5 fit, experiments and bunching; the finer-grid check |
+| `hopenhayn_project/eps_model/make_bunch_fig.py`, `bunching_v5.png/.svg` | Bunching histogram in the model, current rule vs. no size rule |
+| `hopenhayn_project/eps_model/recal_best.json` | Version-4 calibration (Oct 19; numbers in the proposal and the Oct 27 slides) |
+| `hopenhayn_project/eps_model/eps_results_recal.json` | Fit and experiment results for the version-4 calibration |
 | `hopenhayn_project/eps_model/eps_by_size.py`, `eps_by_size.json` | EPS workers by plant size, current rule vs. no size rule (Figure 2) |
 | `hopenhayn_project/eps_model/local_best.json` | Oct 15 calibration (superseded) |
 | `hopenhayn_project/eps_model/experiments_localbest.json` | Oct 15 experiment results (superseded) |
