@@ -10,16 +10,15 @@ line with the course AI policy. All numbers below were produced by the code in
 this repository or verified against the cited sources; anything not verified is
 marked as such.
 
-**Where things stand (Oct 28):** we are pursuing **Idea 1, Korea's Employment
-Permit System (EPS)**. After Prof. Hur's Oct 27 feedback, model version 5 gives
-plant productivity a Pareto tail and lets plants bunch at the cap steps, which they
-now do. In this version, allocating the same number of guest workers *without* the
-size-based rule raises manufacturing net output by about **1.0%**, about a quarter
-of what a 50% larger quota would achieve (+4.0%). Version 4, presented on Oct 27,
-gave 0.4% because its plants were too small to reach the cap steps. The model's
-response to the 2020–21 EPS sudden stop still matches Lee, Peri and Yang's (2026)
-estimate. Robustness is the main remaining work. The research proposal (submitted
-Oct 23, with the version-4 numbers) is in `proposal/`.
+**Where things stand (Nov 1):** we are pursuing **Idea 1, Korea's Employment
+Permit System (EPS)**. The proposal received an A+. We found firm-level EPS data (772
+manufacturers) and corrected three calibration targets that did not match how Lee,
+Peri and Yang measure them. In the recalibration so far (**preliminary**, still
+running), allocating the same number of guest workers *without* the size-based rule
+raises manufacturing net output by about **0.36%**, about 0.097 of what a 50% larger
+quota would achieve (+3.7%). That is at the kill threshold of one-tenth, and robustness
+checks will decide. Version 5's 1.0% used the targets now corrected. The research
+proposal (submitted Oct 23, with the version-4 numbers) is in `proposal/`.
 
 ---
 
@@ -33,6 +32,7 @@ Oct 23, with the version-4 numbers) is in `proposal/`.
 - [Oct 15 — Building and calibrating the EPS model](#oct-15)
 - [Oct 18–19 — Recalibration and the research proposal](#oct-18)
 - [Oct 27–28 — Presentation feedback and model version 5](#oct-27)
+- [Oct 29–Nov 1 — Proposal comments, the EPS survey and corrected targets](#nov-1)
 - [What worked and what didn't](#what-worked)
 - [Open questions and next steps](#next-steps)
 - [Files and data](#files)
@@ -393,6 +393,94 @@ size rises from 15 to 25 workers; the Korean wage is 2.6% lower (0.697 → 0.679
 
 ---
 
+<a id="nov-1"></a>
+## Oct 29–Nov 1 — Proposal comments, the EPS survey and corrected targets
+
+**Prof. Hur's comments on the proposal** (Oct 29): A+. He questioned the cap numbers
+and Figure 1, and asked us to re-check the schedule and redraw the figure. He noted
+that H-1B frictions may in practice depend on firm size, since visa processes can be
+daunting for small firms. He liked re-creating Lee, Peri and Yang's experiment inside
+the model, and struck out the sentence on the card-fee test.
+
+**Cap schedule.** eps.go.kr confirms the code and Figure 1: Koreans + 10 for 1–10
+Korean workers; 30 for 11–50, at most twice the Korean workers; then 35, 40, 50, 60.
+The proposal's sentence left out the limit. So 10 Koreans may hire 20 (67%) and 11 may
+hire 22 (67%); 30 is first reached at 15.
+
+**New data.** The replication file of Dong, Lee and Yang (2024, *Oxford Economic
+Papers*) holds the KDI–World Bank survey behind Lee, Peri and Yang (2026): 772
+manufacturers from a stratified sample of 51,619 EPS firms, fielded August–October
+2019, with a 27.6% response rate. It has EPS and Korean workers per firm, wages, dorm and meal costs and
+how many more EPS workers the firm wants. It covers EPS users only, under the 2019
+caps; the January 2021 wave is not in the file. Script: `bunching/eps_survey.py`;
+the file stays in `~/EPS_data`, and only aggregates are reported.
+
+| From the survey | Value |
+|---|---|
+| Workers per firm: total, Korean, EPS | 20.5, 15.5, 5.0 |
+| EPS share: simple average; employment-weighted | 37.8%; 24.4% |
+| Share of the 2019 cap used: mean; by size bin | 62%; 58–74%, about 60% in most |
+| Under half the cap; at or above it | 42%; 18% |
+| Would hire more with no limit | 44% |
+| Wage plus dorm and meals vs. Korean wage | 96% |
+| EPS productivity (Korean = 100), by experience | 74, 87, 96 |
+
+Dong, Lee and Yang also describe rules the model lacks: firms ranked by points with a
+cut-off, and at most 3–6 new permits per round.
+
+**Bunching in the data.** The survey counts Korean workers, which the census could not.
+Counts dip at 5 and jump at 6, where the 2019 cap rises from 5 to 7: 1.4–1.6 times a
+smooth trend (z = 2.1–2.9). There is no clear spike past 10, 30 or 50, and counts of
+14 and 15, which are not steps, reach similar z. This is suggestive only: users only,
+few firms past 50.
+
+**Corrected targets** (`run_v6.py`; the model code is unchanged). All three are now
+computed under the 2019 caps:
+
+| Target | Before | Now |
+|---|---|---|
+| EPS share at EPS firms | Employment-weighted, against 37% | Simple average across firms, against 36.9% |
+| EPS firms' size | Total workers against 13, under 2024 caps | Total workers against 20.78 |
+| Closure slope | No size control, against 0.15 | Average of size-bin and cubic controls, against 0.152 (their Table 6, cols 4–5) |
+
+| Moment | Data | v5 parameters, corrected measures | Recalibrated (preliminary) |
+|---|---|---|---|
+| EPS share at EPS firms | 36.9% | 45.0% | 35.8% |
+| Workers per EPS firm | 20.8 | 15.0 | 20.7 |
+| Closure slope, size controls | 0.15 | 0.25 | 0.145 |
+| Plants with 1–4 workers | 0.70 | 0.65 | 0.75 |
+| Average plant size | 7.5 | 7.8 | 7.6 |
+| Plants with 50+ workers | 2.1% | 1.6% | 1.7% |
+| Exit rate (assumed) | 8% | 9.1% | 7.4% |
+| Plants using EPS | 10% | 9.6% | 10.4% |
+
+Loss on these targets: 0.64 with the v5 parameters, 0.056 at this point. ρ and ξ are
+no longer at their bounds (0.61, 0.23).
+
+**Preliminary results** (`v6_results.json`, from the round 52 point of a calibration
+interrupted by a restart, loss 0.056; the search has since continued, and these numbers
+will be replaced when it finishes):
+
+| Experiment, net output vs. current rule | Version 5 | Corrected |
+|---|---|---|
+| Same quota, no size rule | +0.99% | +0.36% |
+| Quota +50% | +3.97% | +3.73% |
+| Quota −50% | −4.18% | −3.66% |
+| No EPS | −8.84% | −7.29% |
+
+**What it meant.**
+- The gain is about 0.097 of a 50% quota expansion, at the kill threshold of one-tenth.
+  We keep the threshold as set in the proposal; robustness and realistic rationing decide it.
+- Equal rationing holds up on average: the model gives 47% of the cap and the survey 62%,
+  roughly flat by size. It is too strong across firms, and in the model every user wants
+  more, while 56% in the survey do not.
+- The model's EPS firms are still too small in the middle: 10% with 20–49 workers vs. 25%.
+- We still need outside data for all plants and the 2024 caps (MOEL, HRD Korea, KEIS), and for
+  closures in the 2021 wave (Prof. Lee, Prof. Yang). We plan to raise this with Prof. Hur on
+  Nov 3 before contacting anyone; nothing has been sent.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
@@ -423,23 +511,27 @@ size rises from 15 to 25 workers; the Korean wage is 2.6% lower (0.697 → 0.679
 
 1. ~~Recalibrate with the closure target measured Lee–Peri–Yang's way and the 2019
    caps~~ — done Oct 19.
-2. **Remaining fit gaps (version 5):** plants with 50+ workers (1.6% vs 2.1%), EPS
-   share among users (30% vs 37%), EPS users' size (15 vs 13). ρ (0.797, bound 0.8)
-   and ξ (0.10, bound 0.1) sit at the edge of their ranges.
+2. **Finish the recalibration** to the corrected targets, then replace the preliminary
+   numbers. Remaining gaps so far: EPS firms with 20–49 workers (10% vs 25%), the spread of
+   EPS shares (0.14 vs 0.22), plants with 50+ workers (1.7% vs 2.1%).
 3. **Robustness (decides the kill condition):** CES parameter ρ, shock length (2 vs 5
    years), cap schedule, the exit taste-shock scale, and the Pareto tail γ.
 4. **State the model's assumptions explicitly** (Prof. Hur, Oct 27): no households
    (no consumption, saving or remittances; we measure output, not welfare), fixed
-   Korean labor, EPS workers paid a Korean wage, the Korean manual premium as a
-   resource cost, the cap on core Koreans h rather than h + k, equal θ for every plant,
-   the permit fee as a transfer, steady-state comparisons only.
-5. **Data for the bunching test:** EPS workers by number of Korean workers per plant
-   (MOEL, HRD Korea and KEIS hold the records; only aggregates are public).
+   Korean labor and no population growth, EPS workers paid a Korean wage (the survey
+   supports this: 96%) and equally productive as Korean manual workers (the survey says
+   74–96%), the Korean manual premium as a resource cost, the cap on core Koreans h
+   rather than h + k, equal θ for every plant, every user wanting more, no points ranking
+   or new-permit limit, the permit fee as a transfer, steady-state comparisons only.
+5. **Data still needed:** EPS workers by number of Korean workers for all plants and the
+   2024 caps (MOEL, HRD Korea and KEIS hold the records); the January 2021 survey wave
+   (Prof. Lee, Prof. Yang). Ask Prof. Hur first. Also make rationing realistic using the survey.
 6. **Optional extensions:** a COVID demand shock in the closure experiment; credit
    constraints (links to Song–Storesletten–Zilibotti and our rung 4 code); a
    counterfactual with size-neutral *rationing* (points without the cap) besides allocation by price.
-7. **Check with Prof. Hur:** quantity rationing vs. price wedge; whether
-   identifying the model from the COVID shock (instead of bunching) is acceptable.
+7. **Check with Prof. Hur:** how to model rationing; whether identifying the model from
+   the COVID shock (instead of bunching) is acceptable; whether refocusing on the quota
+   is acceptable if the gain stays below the threshold.
 8. Verify the exit-rate target (8%) against KOSIS business demography statistics.
 
 ---
@@ -453,7 +545,9 @@ size rises from 15 to 25 workers; the Korean wage is 2.6% lower (0.697 → 0.679
 | `hopenhayn_project/eps_model/run_eps.py` | Calibration and experiments |
 | `proposal/` | Research proposal (Markdown source, CSS, PDF; `make_fig.py` builds Figures 1–2) |
 | `hopenhayn_project/eps_model/eps_model_v5.py`, `run_v5.py` | EPS model version 5 (Pareto tail, bunching-ready size grid): calibration, experiments, bunching check |
-| `hopenhayn_project/eps_model/v5_best.json` | **Current** calibration (Oct 28, version 5, 13 parameters) |
+| `hopenhayn_project/eps_model/run_v6.py` | Version-5 model recalibrated to the corrected Lee–Peri–Yang targets |
+| `hopenhayn_project/eps_model/v6_results.json` | **Preliminary** fit, experiments and bunching (round 52 point; parameters inside the file) |
+| `hopenhayn_project/eps_model/v5_best.json` | Version-5 calibration (Oct 28; targets since corrected) |
 | `hopenhayn_project/eps_model/v5_results.json`, `v5_results_fine.json` | Version-5 fit, experiments and bunching; the finer-grid check |
 | `hopenhayn_project/eps_model/make_bunch_fig.py`, `bunching_v5.png/.svg` | Bunching histogram in the model, current rule vs. no size rule |
 | `hopenhayn_project/eps_model/recal_best.json` | Version-4 calibration (Oct 19; numbers in the proposal and the Oct 27 slides) |
@@ -463,13 +557,20 @@ size rises from 15 to 25 workers; the Korean wage is 2.6% lower (0.697 → 0.679
 | `hopenhayn_project/eps_model/experiments_localbest.json` | Oct 15 experiment results (superseded) |
 | `hopenhayn_project/eps_model/top_draws.json` | Top 20 draws from the version-4 random search |
 | `hopenhayn_project/eps_model/NOTES.md` | Model notes and how to rerun |
-| `bunching/` | Bunching estimator, census histogram script, `RESULTS.md` |
+| `bunching/` | Bunching estimator, census histogram script, `RESULTS.md`, EPS survey aggregates (`eps_survey.py`) |
 | `hopenhayn_project/rung1_hopenhayn/`, `ahkr_model/` | Earlier Hopenhayn/AHKR ladder exercises |
 | `course_exercises/aiyagari_replication/` | Aiyagari (1994) Table 2 replication (Week 3 exercise; not part of the EPS project) |
 
 Data source: Statistics Korea, MDIS — 소상공인실태조사 (2018–2024) and
 전국사업체조사 (2000–2024). Raw files are not in this repository; teammates who
 need them should download them with their own MDIS account.
+
+### Where the EPS survey file is stored
+
+The replication file of Dong, Lee and Yang (2024) comes from the article's "Supplementary
+data" on the Oxford University Press site: `eps.dta`, `eps.do`, `Appendix_EPS.pdf`. We keep
+it in **`~/EPS_data`**, outside the repository, and report only aggregates. Teammates can
+download it from the publisher's page (through the Yonsei library if needed).
 
 ### Where the MDIS data is stored
 

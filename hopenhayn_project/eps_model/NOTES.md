@@ -58,6 +58,22 @@ the calibration grid (24 × 11) single productivity levels can land on a step by
 chance. Results: no size rule +0.99% (finer grid +1.01%); quota +50% +4.0%. See
 `PROJECT_LOG.md`, Oct 27–28.
 
+## Corrected targets (Nov 1, `run_v6.py`)
+
+The model is unchanged. Three Lee–Peri–Yang targets are now measured their way, all under
+the 2019 caps: the simple average of the EPS share across EPS firms (0.369), total workers
+at EPS firms (20.78), and the closure slope with size controls (average of size-bin and
+cubic, 0.152). Use the Anaconda Python, which has numpy and scipy (`/opt/anaconda3/bin/python3`).
+
+```
+python3 run_v6.py time v5_best.json   # any parameter file on the corrected measures
+python3 run_v6.py calib 120 150       # resumes from v6_best.json if it exists
+python3 run_v6.py results             # v6_results.json
+python3 run_v6.py fine                # v6_results_fine.json, finer grid for the histogram
+```
+
+`v6_results.json` is preliminary until the calibration finishes. See `PROJECT_LOG.md`.
+
 ## Known issues (version 4)
 
 - Fit gaps: average plant size 5.9 vs 7.5; share of plants using EPS 7.2% vs 10%; EPS share among users 29% vs 37%.

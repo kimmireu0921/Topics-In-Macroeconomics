@@ -15,6 +15,13 @@ Topics in Macroeconomics.pdf
 # MDIS microdata (licensed; never commit)
 bunching/data/
 
+# EPS survey replication file stays in ~/EPS_data. Published papers and the
+# instructor's annotated proposal are not ours to redistribute.
+eps.dta
+Lee_Peri_Yang_2026_NBER_w34927.pdf
+How Does Low-Skilled Immigration*.pdf
+Professor's feedback*.pdf
+
 # Instructor handouts, run logs, generated HTML
 Topic in Macroeconomics _Proposal Format and Requirements.pdf
 hopenhayn_project/eps_model/*.log
