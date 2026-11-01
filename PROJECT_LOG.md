@@ -483,6 +483,13 @@ every plant gets the same share of its cap, which may explain this.
 - The closure slope with size controls relies on small differences within size bins, and it
   falls from 0.15 to 0.05 on the finer grid. It is within about 1.5 standard errors of their
   estimate (se about 0.07), but it is not a clean match. Re-fitting on a finer grid is next.
+- The gain is a cost saving. Without the size rule, gross output falls 0.9% (1.6% in version 5),
+  while fixed, entry and recruiting costs fall 5.5%, so net output rises. We have not split the
+  saving by source.
+- EPS users now get smaller without the size rule (22 to 14 workers); in version 5 they got
+  larger (15 to 25). We do not know why yet. Manual-intensive plants fall from 10.8% to 8.1%,
+  and total plants by 0.9%.
+- σ_s is at 0.051, next to its lower bound of 0.05. To check in the robustness runs.
 - Equal rationing holds up on average: the model gives 49% of the cap and the survey 62%,
   roughly flat by size. It is too strong across firms, and in the model every user wants
   more, while 56% in the survey do not.
@@ -566,6 +573,8 @@ on Nov 3.
 | `hopenhayn_project/eps_model/run_v6.py` | Version-5 model recalibrated to the corrected Lee–Peri–Yang targets |
 | `hopenhayn_project/eps_model/v6_best.json` | **Current** calibration (Nov 1, 13 parameters) |
 | `hopenhayn_project/eps_model/v6_results.json`, `v6_results_fine.json` | Fit, experiments and bunching; finer-grid check |
+| `presentations/nov3/SCRIPT.md` | Nov 3 script by presenter (Benjamin away: Julian 27–29, Mimi 30–32, Sara 33–35, Donny 36–38) |
+| `presentations/nov3/build.py`, `notes.py`, `export_script.py` | Generate the Nov 3 slides, speaker notes and script from the results files |
 | `hopenhayn_project/eps_model/v6_fine_extra.py`, `v6_fine_extra.json` | Finer grid: quota +50%, and EPS users by Korean workers under the 2019 caps |
 | `hopenhayn_project/eps_model/v5_best.json` | Version-5 calibration (Oct 28; targets since corrected) |
 | `hopenhayn_project/eps_model/v5_results.json`, `v5_results_fine.json` | Version-5 fit, experiments and bunching; the finer-grid check |
