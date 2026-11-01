@@ -72,7 +72,8 @@ python3 run_v6.py results             # v6_results.json
 python3 run_v6.py fine                # v6_results_fine.json, finer grid for the histogram
 ```
 
-`v6_results.json` is preliminary until the calibration finishes. See `PROJECT_LOG.md`.
+`v6_best.json` is the current calibration (search stopped by hand, Nov 1). The closure slope
+matches on this grid (0.15) but not on the finer one (0.05). See `PROJECT_LOG.md`.
 
 ## Known issues (version 4)
 
