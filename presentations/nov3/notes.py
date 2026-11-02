@@ -148,7 +148,11 @@ HANDOFF = {"nov3-caps": "Mimi will now show the new data we found.",
 for sid, line in HANDOFF.items():
     N[sid] += f'<br><br>[Hand over]<br>"{line}"'
 
+# Edited by hand on the deck page; the live versions are the source for these slides.
+PAGE_EDITED = {"nov3-cover", "nov3-feedback"}
 for sid, text in N.items():
+    if sid in PAGE_EDITED:
+        continue
     assert len(text) <= 4000, sid
     p = os.path.join(ROOT, "project/slides", sid + ".html")
     t = open(p).read()

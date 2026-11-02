@@ -109,7 +109,12 @@ def section(id_, body, notes, style=None):
     return f'<section id="{id_}" data-transition="fade" style="{style}">\n{body}\n<aside>{notes}</aside>\n</section>\n'
 
 
+PAGE_EDITED = {"nov3-cover", "nov3-feedback"}                # edited by hand on the deck page; keep the live versions
+
+
 def write(id_, html):
+    if id_ in PAGE_EDITED:
+        return
     assert html.count("Presenter: [name]") == 1
     html = html.replace("Presenter: [name]", "Presenter: " + PRESENTERS[id_])
     assert len(re.findall("<svg", html)) < 12

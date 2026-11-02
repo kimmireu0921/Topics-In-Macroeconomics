@@ -17,6 +17,9 @@ for i, sid in enumerate(order, 1):
     title = re.sub(r"<br>", " ", re.search(r"<h[12][^>]*>(.*?)</h[12]>", html, re.S).group(1))
     out += ["", f"### Slide {i}: {re.sub(r'<[^>]+>', '', title)}"]
     for block in re.search(r"<aside>(.*?)</aside>", html, re.S).group(1).split("<br><br>"):
-        where, line = block.split("<br>", 1)
-        out += ["", f"**{where}**", "", line]
+        if block.startswith("["):
+            where, line = block.split("<br>", 1)
+            out += ["", f"**{where}**", "", line]
+        else:                                                    # a note added by hand on the deck page
+            out += ["", block.replace("<br>", "\n\n")]
 open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "SCRIPT.md"), "w").write("\n".join(out) + "\n")

@@ -8,7 +8,7 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 **[Title]**
 
-"Good afternoon. Benjamin can't join us today, so the four of us will present. We'll show what we did with your feedback from October 27 and your comments on the proposal."
+"Good afternoon. Benjamin can't join us today, so the four of us will present. We'll show what we did with your feedback from last week and your comments on the proposal."
 
 **[Research question]**
 
@@ -16,7 +16,7 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 **[Subtitle]**
 
-"We'll cover the cap schedule, a new data source, bunching, three targets we corrected, and our result. The short version: the gain from removing the size rule is now about 0.3 percent, right at the line we set in the proposal."
+"We'll cover the cap schedule, a new data source, bunching, three targets we corrected, and our result. "
 
 ### Slide 28: Your feedback: what you asked, and what we did
 
@@ -44,17 +44,29 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 "On population: Korean labor is fixed, and the experiments only add or remove EPS workers. We don't have a population growth rate yet."
 
-**[Row 8]**
+Note for speaker: Why 0.4% looked small: Prof. Hur argued that if the size rule makes plants bunch at the cap steps, it's distorting how big they grow. Removing the rule should let them reach their best size, so he expected a bigger gain. Version 4 also had no bunching at all, which suggested the model was missing this effect.
 
-"We also list all our assumptions, on slide 37."
+Why it rose to 1%: we fixed that in version 5, the model began to show bunching, and the gain more than doubled, which fit his intuition.
 
-**[Footer]**
+Why it fell to 0.33%: then we found that three of our targets didn't match how the data measure them:
 
-"One thing to check with you. Your written summary mentioned about 0.5 percent from removing EPS, but our October 27 slide said 7.5 percent. It's now 7.2 percent. We want to be sure we mean the same number."
+EPS share: we compared the wrong kind of average.
 
-**[If asked: Helpman-style]**
+EPS firm size: we used 13 workers, but the data say about 21.
 
-"Your note said Helpman-style. Our model builds on Hopenhayn 1992, so we took it to mean that."
+Closure slope: our measure didn't control for firm size.
+
+We recalibrated the model to the correct numbers, and most of the gain disappeared.
+
+What "still open" means: the other rows on slide 28 are marked "Done", but this one isn't, because his question hasn't been answered. We ended up even lower than the 0.4% he thought was too small, and we can't yet say whether that's the true answer. Three things are unresolved:
+
+The result sits right at our kill line (0.089 to 0.101, against a line of 0.10).
+
+The closure slope doesn't hold on the finer grid, and re-fitting it could move the gain.
+
+The model doesn't yet have realistic rationing, which is how EPS workers are actually limited across firms.
+
+In plain words, the line says: "You thought our number was too small. Your suggested fix did raise it, but correcting our own mistakes brought it back down, so we still don't know if the small number is right."
 
 ### Slide 29: Cap schedule: re-checked at the source and redrawn
 
