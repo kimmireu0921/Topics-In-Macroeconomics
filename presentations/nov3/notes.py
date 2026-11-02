@@ -72,7 +72,7 @@ N["nov3-capuse"] = script(
     ("Last card", "The survey also asks how many more workers firms would hire with no limit. 44 percent would hire more, so most would not. That's 60 percent of firms exactly at their cap, but also 41 percent of firms using under half."),
     ("Blue box", "In our model, every user wants more. That's the assumption we most need to fix."),
     ("If asked: why below the cap but wanting more", "Dong, Lee and Yang describe a points ranking with a cut-off and a limit of 3 to 6 new permits per round. Our model has neither. We'd like to ask the authors whether that's the reason."),
-    ("If asked: how firms exceed the cap", "11 percent are above it. One known reason is that root industries may hire 20 percent more. We haven't checked the others."),
+    ("If asked: how firms exceed the cap", "11 percent are above it. About half of those are within 20 percent of the cap, and root industries may legally hire 20 percent more. We can't test that, because the public file only says manufacturing. The other half, about 5 percent of all firms, we can't explain yet. Timing explains few of them: most stay above the cap whether we use the February or the August count of Korean workers."),
     ("If asked: other gaps from the survey", "The model has too few EPS firms with 20 to 49 workers, 10 percent against 25. It also has too little spread in EPS shares, a standard deviation of 0.15 against 0.22."))
 
 N["nov3-databunch"] = script(

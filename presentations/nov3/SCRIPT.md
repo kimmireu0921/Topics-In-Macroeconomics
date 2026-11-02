@@ -150,7 +150,7 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 **[If asked: how firms exceed the cap]**
 
-"11 percent are above it. One known reason is that root industries may hire 20 percent more. We haven't checked the others."
+"11 percent are above it. About half of those are within 20 percent of the cap, and root industries may legally hire 20 percent more. We can't test that, because the public file only says manufacturing. The other half, about 5 percent of all firms, we can't explain yet. Timing explains few of them: most stay above the cap whether we use the February or the August count of Korean workers."
 
 **[If asked: other gaps from the survey]**
 

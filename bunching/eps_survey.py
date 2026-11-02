@@ -32,6 +32,9 @@ print(f"wage + dorm and meals, as a share of the Korean wage: {(df.q13_3a + df.q
 print(f"EPS productivity, Korean = 100 (under 1 year, 1-2, 3-5): {df.q14_1.mean():.1f}, {df.q14_2.mean():.1f}, {df.q14_3.mean():.1f}")
 print(f"share of cap used: mean {use.mean():.3f}, median {use.median():.3f}; under half {(use < .5).mean():.3f}; "
       f"at or above {(use >= 1).mean():.3f}; above {(use > 1).mean():.3f}")
+over_survey = eps > cap_2019(korean)
+print(f"above the cap: within 20% {((use > 1) & (use <= 1.2)).mean():.3f}, beyond 20% {(use > 1.2).mean():.3f}, "
+      f"more than double {(use > 2).mean():.3f}; firms above on the list count {(use > 1).sum()}, also above on the survey count {((use > 1) & over_survey).sum()}")
 print(f"would hire more with no limit: {(extra > 0).mean():.3f} (mean {extra.mean():.2f}); "
       f"among firms under half their cap {(extra[use < .5] > 0).mean():.3f}; exactly at the cap {(extra[use == 1] > 0).mean():.3f}")
 
