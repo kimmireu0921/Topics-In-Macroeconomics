@@ -560,10 +560,31 @@ outputs in `hopenhayn_project/eps_model/baseline/`; the model and calibration ar
   bind. Limits: 2019 firms and answers, users only, and the quota and ranking may still limit firms.
 - Without the size rule only a middle band of plants uses EPS (productivity 1.4 to 2.7). The top 1%
   plant goes from 11 EPS workers to none and from 317 to 329 workers. Version 5's premium is flatter:
-  plants stop using EPS only past about 2,000 core Koreans, and users got larger. The direction may
-  depend on how fast the premium falls with size, which nothing measures directly. Consistent with
-  this comparison, not proven, since the versions differ in other parameters too.
+  plants stop using EPS only past about 2,000 core Koreans, and users got larger. We first thought
+  the direction might depend on how fast the premium falls with size; the Nov 10 test below does not
+  support that.
 - "Every user wants more" on slides 31 and 37 is 98% in the model.
+
+**Checks for Nov 10** (`v6_free_flat.py`, outputs `baseline/free_flat.json`, `premium_slope.json`,
+`bumpy_line.json`; no parameter or feature changes; slides 39–53, generator in `presentations/nov10/`):
+- Splitting the no-size-rule experiment. Same quota, free permits, one limit for every plant (3.9
+  workers): gross output +1.0% (price version −0.9%), net +0.19%, or +0.09% on the finer grid (price
+  +0.33%, +0.37%), which is 0.02–0.05 of a 50% larger quota, below the 0.10 line. 62% of EPS goes to
+  plants with 0–5 Koreans, more plants survive and costs rise. The top 1% plant does not grow (317 to
+  308). This changes the way permits are shared as well as the charge, so it does not isolate the charge.
+- Premium slope, nothing recalibrated. Across six (ξ, ψ) pairs, including version 5's, gross output
+  falls (−0.7% to −2.2%), net rises (+0.33% to +0.77%), and a top 1% plant changes size by at most
+  about 7%. With version 5's premium it keeps EPS (10 to 69 workers) but stays at about 200 workers.
+  Why: k and m are perfect substitutes and large plants' next worker is Korean, so a limited permit
+  only saves money, and with more permits they swap rather than grow.
+- The bumpy no-rule line is mostly grid error, as Prof. Hur suspected. With prices held at the 48 × 21
+  solution, roughness falls from 0.68 to 0.22 on a 96 × 41 productivity grid with 1,280 size points,
+  and changes of direction fall from 24 to 4. The current-rule line stays jagged (0.60), since its steps
+  are real. Step ratios barely move (no rule 0.8–0.9, current rule 1.6–1.9). Full equilibrium was not
+  solved on the finest grid.
+- Quota: a Dec 2024 report projected about 80,000 E-9 workers against a 165,000 quota for 2024, across
+  all sectors, so the quota may not always bind, contrary to the model. Low-scoring firms were still
+  waitlisted in 2026 round 4. Ministry request text: `data_requests/moel_disclosure_requests.md`.
 
 **Corrections to what was said in class.** The EPS share (36.9%) is the average, across EPS firms,
 of EPS workers ÷ that firm's workers. It is not the share of workers in the economy (5.5%) or the
