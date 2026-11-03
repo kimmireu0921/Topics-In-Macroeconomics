@@ -484,11 +484,19 @@ every plant gets the same share of its cap, which may explain this.
   falls from 0.15 to 0.05 on the finer grid. It is within about 1.5 standard errors of their
   estimate (se about 0.07), but it is not a clean match. Re-fitting on a finer grid is next.
 - The gain is a cost saving. Without the size rule, gross output falls 0.9% (1.6% in version 5),
-  while fixed, entry and recruiting costs fall 5.5%, so net output rises. We have not split the
-  saving by source.
+  while fixed, entry and recruiting costs fall 5.5%, so net output rises. By source, with gross
+  output = 100 (`v6_why_no_rule.py`, calibration grid): fixed costs −0.67, entry −0.20, the fixed
+  cost of using EPS −0.17, recruiting premium −0.13.
 - EPS users now get smaller without the size rule (22 to 14 workers); in version 5 they got
-  larger (15 to 25). We do not know why yet. Manual-intensive plants fall from 10.8% to 8.1%,
-  and total plants by 0.9%.
+  larger (15 to 25), which we have not explained. In version 6 this is mainly who counts as a user:
+  at the permit price (p = 0.34) a Korean manual worker is cheaper than an EPS worker once a plant
+  has about 28 core Koreans, so plants past that stop using EPS (their share of EPS goes from 11%
+  to 0). Manual-intensive plants as a group get larger (29 to 37 workers), partly because weak ones
+  exit. Manual-intensive plants fall from 10.8% to 8.1%, and total plants by 0.9%.
+- The no-size-rule experiment changes two things at once: it removes the link to size and it
+  charges for permits that are free today (revenue about 1.5% of gross output, a transfer). The
+  fall in manual-intensive plants, the largest source of saving, may come from the charge rather
+  than from size-neutrality. Not yet separated: this needs size-neutral rationing with free permits.
 - The ±50% quota results are nearly symmetric because net output is close to linear in the quota
   (`v6_quota_check.py`; both labor and quota markets clear). ±50% is about ±2.8% of all workers. On
   the calibration grid +50% slightly exceeds −50% (3.72 vs. 3.68), against diminishing returns; on
