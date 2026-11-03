@@ -549,6 +549,22 @@ on Nov 3.
   plants with about 28 or more core Koreans prefer Korean manual workers. By assumption, EPS is worth
   most at small plants. This may be why the result runs against his logic. Not yet tested.
 
+**Baseline diagnostics** (`baseline_diagnostics.py`, `make_baseline_figs.py`, `bunching/eps_binding.py`,
+outputs in `hopenhayn_project/eps_model/baseline/`; the model and calibration are unchanged):
+- In the model, 98% of users would hire more and 82% are at θ × cap (91% under 2019 caps), but none
+  reach the legal cap. The quota does the limiting, through θ; the legal cap decides how it is shared.
+- With free, unlimited permits at today's wage, manual-intensive plants would be 1.4 to 1.9 times
+  larger, and demand would be 8.5 times the quota. In the survey, firms want 1.28 times what they have.
+- Survey: 18% of firms are at or above the 2019 cap and 24% would go past it, at every size. With the
+  2024 caps on the same firms and answers, both are about 1%. So the current legal cap may barely
+  bind. Limits: 2019 firms and answers, users only, and the quota and ranking may still limit firms.
+- Without the size rule only a middle band of plants uses EPS (productivity 1.4 to 2.7). The top 1%
+  plant goes from 11 EPS workers to none and from 317 to 329 workers. Version 5's premium is flatter:
+  plants stop using EPS only past about 2,000 core Koreans, and users got larger. The direction may
+  depend on how fast the premium falls with size, which nothing measures directly. Consistent with
+  this comparison, not proven, since the versions differ in other parameters too.
+- "Every user wants more" on slides 31 and 37 is 98% in the model.
+
 **Corrections to what was said in class.** The EPS share (36.9%) is the average, across EPS firms,
 of EPS workers ÷ that firm's workers. It is not the share of workers in the economy (5.5%) or the
 share of firms using EPS (10.7%). In the model, λ is the manual-work weight by plant type. The
