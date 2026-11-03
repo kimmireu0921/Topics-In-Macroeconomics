@@ -466,8 +466,8 @@ longer at their bounds (0.65, 0.23). γ = 3.85.
 |---|---|---|---|
 | Same quota, no size rule | +0.99% | +0.33% | +0.37% |
 | Quota +50% | +3.97% | +3.72% | +3.65% |
-| Quota −50% | −4.18% | −3.68% | not run |
-| No EPS | −8.84% | −7.22% | not run |
+| Quota −50% | −4.18% | −3.68% | −3.70% |
+| No EPS | −8.84% | −7.22% | −7.25% |
 | No size rule ÷ quota +50% | 0.25 | 0.089 | 0.101 |
 
 **Bunching, model vs. data.** On the finer grid the model bunches at the upper cap steps
@@ -489,6 +489,12 @@ every plant gets the same share of its cap, which may explain this.
 - EPS users now get smaller without the size rule (22 to 14 workers); in version 5 they got
   larger (15 to 25). We do not know why yet. Manual-intensive plants fall from 10.8% to 8.1%,
   and total plants by 0.9%.
+- The ±50% quota results are nearly symmetric because net output is close to linear in the quota
+  (`v6_quota_check.py`; both labor and quota markets clear). ±50% is about ±2.8% of all workers. On
+  the calibration grid +50% slightly exceeds −50% (3.72 vs. 3.68), against diminishing returns; on
+  the finer grid the order is as expected (3.65 vs. 3.70), so that reversal is grid noise. Steps of
+  the same size differ by about 0.1 to 0.2 on the calibration grid, so 0.089 vs. 0.101 is not a
+  clean difference.
 - σ_s is at 0.051, next to its lower bound of 0.05. To check in the robustness runs.
 - Equal rationing holds up on average: the model gives 49% of the cap and the survey 62%,
   roughly flat by size. It is too strong across firms, and in the model every user wants
