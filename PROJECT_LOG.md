@@ -35,6 +35,7 @@ version-4 numbers) is in `proposal/`.
 - [Oct 18–19 — Recalibration and the research proposal](#oct-18)
 - [Oct 27–28 — Presentation feedback and model version 5](#oct-27)
 - [Oct 29–Nov 1 — Proposal comments, the EPS survey and corrected targets](#nov-1)
+- [Nov 3 — Presentation feedback: understand the model first](#nov-3)
 - [What worked and what didn't](#what-worked)
 - [Open questions and next steps](#next-steps)
 - [Files and data](#files)
@@ -517,6 +518,42 @@ allocation; check that the model bunches and compare it with the data histogram;
 parameter to match plants with 50+ workers; the COVID shock may help identify parameters. His
 summary mentions about −0.5% from removing EPS; our Oct 27 slide showed −7.5%, which we correct
 on Nov 3.
+
+---
+
+<a id="nov-3"></a>
+## Nov 3 — Presentation feedback: understand the model first
+
+**Prof. Hur's feedback**:
+- Before any policy experiment, understand the baseline: plot policy functions, and show which
+  plants use EPS, which do not and why, which are at their optimal scale, and where they would be
+  with no size restriction. Check that the model's EPS users look like the data's.
+- Is the cap binding? How many firms are at or near it, by size, under 2019 and 2024? If no one is
+  constrained, there is no paper. 18% at or above the cap is not small.
+- He expected large, productive plants to be constrained, so removing the rule should raise their
+  EPS use, their size and gross output. Our table shows the opposite, and he doubts it.
+- The no-size-rule line in the bunching chart should be smoother; check for approximation error,
+  and always compare on the same grid.
+- Do not make the model more complicated. Do not get too worked up when the survey contradicts an
+  assumption; survey answers are not always reliable.
+- Each presentation needs a short refresher: the question, the model's ingredients, the data.
+- Contact the Ministry and be persistent, using the formal request process. Do not say the work is
+  for his class.
+- He warned against reporting tables and slides from an LLM without understanding the model.
+
+**What we can answer from the model** (`v6_why_no_rule.py`, calibration grid):
+- Why only 10.7% use EPS: light plants, 89% of plants, have almost no use for manual work and none
+  use EPS, while 99% of manual-intensive plants do. The user share (10.7%) is close to the
+  manual-intensive share (10.8%), so it is set mostly by the type mix, not by the cap.
+- Why large plants do not expand: the recruiting premium falls with size, so at the permit price
+  plants with about 28 or more core Koreans prefer Korean manual workers. By assumption, EPS is worth
+  most at small plants. This may be why the result runs against his logic. Not yet tested.
+
+**Corrections to what was said in class.** The EPS share (36.9%) is the average, across EPS firms,
+of EPS workers ÷ that firm's workers. It is not the share of workers in the economy (5.5%) or the
+share of firms using EPS (10.7%). In the model, λ is the manual-work weight by plant type. The
+statements that firms may go above the cap by request, by at most 3–6, or only past 300 Korean
+workers have no source we can find; 3–6 is the limit on new permits in Dong, Lee and Yang's Table 1.
 
 ---
 
