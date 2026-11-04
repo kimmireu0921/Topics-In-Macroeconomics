@@ -524,7 +524,7 @@ on Nov 3.
 <a id="nov-3"></a>
 ## Nov 3 — Presentation feedback: understand the model first
 
-**Prof. Hur's feedback**:
+**Prof. Hur's feedback** (our notes may not cover the end of the discussion):
 - Before any policy experiment, understand the baseline: plot policy functions, and show which
   plants use EPS, which do not and why, which are at their optimal scale, and where they would be
   with no size restriction. Check that the model's EPS users look like the data's.
