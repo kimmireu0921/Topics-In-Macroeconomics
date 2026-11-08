@@ -14,7 +14,8 @@ for sid in order:
     who.setdefault(re.search(r"Presenter: ([^<]+)<", t).group(1), []).append(order.index(sid) + 39)
 span = lambda v: f"{v[0]}–{v[-1]}" if len(v) > 1 else f"{v[0]}"
 out = ["# Nov 10 script", "",
-       "Generated from the deck's speaker notes. Read the quoted lines aloud. \"If asked\" entries are backup answers, read only "
+       "Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the "
+       "slides word for word, so learn each point and say it in your own words. \"If asked\" entries are backup answers, used only "
        "if the topic comes up. Presenters: " + ", ".join(f"{n} {span(v)}" for n, v in who.items()) + ".", ""]
 for i, sid in enumerate(order):
     t = open(os.path.join(ROOT, "project/slides", sid + ".html"), encoding="utf-8").read()

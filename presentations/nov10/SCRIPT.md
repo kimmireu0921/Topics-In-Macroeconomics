@@ -1,6 +1,6 @@
 # Nov 10 script
 
-Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked" entries are backup answers, read only if the topic comes up. Presenters: Sara 39–41, Donny 42–45, Julian 46–48, Benjamin 49–52, Mimi 53.
+Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the slides word for word, so learn each point and say it in your own words. "If asked" entries are backup answers, used only if the topic comes up. Presenters: Sara 39–41, Donny 42–45, Julian 46–48, Benjamin 49–52, Mimi 53.
 
 ### Slide 39: EPS project update: understanding the baseline
 
@@ -24,7 +24,7 @@ Presenter: Sara
 
 **[Model]**
 
-"It's a Hopenhayn model. A plant has productivity s and hires core Koreans h and manual workers. Manual work can be done by Koreans, k, or EPS workers, m. Korean manual workers cost a premium that is smaller at larger plants. Under the current rule, a plant can have up to a share theta of its legal cap. In the no-size-rule experiment, plants pay a price p instead."
+"It's a Hopenhayn model. A plant has productivity s and hires core Koreans h and manual workers. Manual work can be done by Koreans, k, or EPS workers, m. Korean manual workers cost a premium that is smaller at larger plants. Under the current rule, a plant can have up to a share theta of its legal cap. In the model the cap and eligibility depend on core Koreans only; the law counts all Korean workers. In the no-size-rule experiment, plants pay a price p instead."
 
 **[Data]**
 
@@ -52,7 +52,7 @@ Presenter: Sara
 
 **[Correction on the survey]**
 
-"On slides 31 and 37 we said every user wants more. In the model that is 98 percent."
+"On slides 31 and 37 we said every user wants more. In the model that is 98%. In the survey it is 44%: the other 56% would not hire more even with no limit."
 
 **[Hand over]**
 
@@ -101,6 +101,10 @@ Presenter: Donny
 **[Left columns]**
 
 "The miss is in where users are. The model has 55% of EPS firms under 10 workers, against 41% in the survey, and too few at 20 to 49."
+
+**[Also a miss]**
+
+"From 20 workers up, the model's EPS share is lower than the survey's at every size, for example 18% against 26% at 20 to 49. It is the same gap as on slide 47: larger plants have fewer EPS workers in the model than in the data. One θ for every plant may be the reason, but we haven't tested it."
 
 **[If asked: why the miss]**
 
@@ -161,6 +165,10 @@ Presenter: Donny
 **[If asked: 82 percent versus 98 percent]**
 
 "The others sit just below their limit but would still hire more. Part of this may be the grid for manual workers, and we haven't checked. Under the 2019 caps, 91% are at the limit."
+
+**[If asked: why do plants with 300+ Korean workers use EPS]**
+
+"These rows count all Korean workers, core and manual. In the model, eligibility depends on core Koreans only, so a plant with 300 or more Korean workers in total can still be eligible if it has fewer than 300 core Koreans."
 
 **[If asked: who else is below optimal scale]**
 
@@ -316,11 +324,11 @@ Presenter: Benjamin
 
 **[Other rows]**
 
-"With an equal limit, more plants use EPS, and 62% of EPS workers are at plants with 5 or fewer Koreans. That means more plants survive, and costs rise. So the net gain falls to +0.19%, or +0.09% on the finer grid."
+"With an equal limit, more plants use EPS, and 62% of EPS workers are at plants with 5 or fewer Koreans. That means more plants survive, and costs rise. So the net gain falls to +0.19%, or +0.09% on the finer 48 by 21 grid."
 
 **[Last row]**
 
-"A top 1 percent plant doesn't grow in either version. Only with no limit does it reach 479, and that takes 8.5 times the quota. At the same quota, more for large plants means less for small ones."
+"A top 1 percent plant barely changes size in either version: 328 workers with a price and 308 with an equal limit, against 317 today. Only with no limit does it reach 479, and that takes 8.5 times the quota. At the same quota, more for large plants means less for small ones."
 
 **[Kill line]**
 
@@ -368,7 +376,7 @@ Presenter: Benjamin
 
 **[Table]**
 
-"Roughness measures how much the line jumps between bins. For the no-rule line it falls from 0.68 to 0.22. For the current rule it stays around 0.6, because its jumps are real: they are the cap steps."
+"Roughness measures how much the line jumps between bins. For the no-rule line it falls from 0.68 to 0.22. For the current rule it falls less, from 0.83 to 0.60, and levels off near 0.6, because its jumps are real: they are the cap steps."
 
 **[Last columns]**
 
@@ -376,7 +384,7 @@ Presenter: Benjamin
 
 **[If asked: does the +0.33 change on this grid]**
 
-"We haven't solved the full equilibrium on the finest grid. On the 48 by 21 grid it is +0.37 percent. These runs hold prices fixed, so they check the shape of the distribution, not the gain."
+"We haven't solved the full equilibrium on the finest grid. Our +0.33 percent is on the 24 by 11 calibration grid. On the 48 by 21 grid, the one behind last week's chart, it is +0.37 percent. These runs hold prices fixed, so they check the shape of the distribution, not the gain."
 
 **[Hand over]**
 
