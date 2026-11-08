@@ -163,5 +163,22 @@
    "share_of_firms": 0.007772020725388601,
    "eps_share": 0.06428958760784502
   }
+ },
+ "by_cap_use": {
+  "under_half": {
+   "share_of_firms": 0.422279792746114,
+   "want_more": 0.41411042944785276,
+   "firms": 326
+  },
+  "half_to_cap": {
+   "share_of_firms": 0.4015544041450777,
+   "want_more": 0.44193548387096776,
+   "firms": 310
+  },
+  "at_or_above": {
+   "share_of_firms": 0.17616580310880828,
+   "want_more": 0.5,
+   "firms": 136
+  }
  }
 }

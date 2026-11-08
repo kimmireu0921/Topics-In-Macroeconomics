@@ -58,6 +58,11 @@ res["by_total_workers"] = {f"{a}-{b}": dict(share_of_firms=float(((total >= a) &
                                             eps_share=float(share[(total >= a) & (total < b)].mean()))
                            for a, b in tot_bins}
 
+# Do firms far below their cap still want more? If so, something other than the cap limits them.
+use19, wants = eps / cap_2019(listed), extra > 0
+res["by_cap_use"] = {lab: dict(share_of_firms=float(s.mean()), want_more=float(wants[s].mean()), firms=int(s.sum()))
+                     for lab, s in [("under_half", use19 < .5), ("half_to_cap", (use19 >= .5) & (use19 < 1)), ("at_or_above", use19 >= 1)]}
+
 hdr = ("firms", "eps", "cap_2019_use", "under_half", "near_cap_90", "at_or_above", "want_more", "want_more_if_at",
        "want_past_2019", "cap_2024_use", "at_or_above_2024", "want_past_2024")
 print("bin      " + " ".join(f"{h[:11]:>11}" for h in hdr))

@@ -592,6 +592,38 @@ share of firms using EPS (10.7%). In the model, λ is the manual-work weight by 
 statements that firms may go above the cap by request, by at most 3–6, or only past 300 Korean
 workers have no source we can find; 3–6 is the limit on new permits in Dong, Lee and Yang's Table 1.
 
+**Nov 8: slides checked against Prof. Hur's written feedback.** Presenters: Sara 39–41, Donny 42–45,
+Julian 46–48, Benjamin 49–52, Mimi 53. Added to the slides and notes (`presentations/nov10/build.py`,
+script exported by `export_script.py`):
+- Average size of EPS users falls from 21.6 to 13.8 workers with a price because large plants stop
+  using EPS; the top 1% plant grows from 317 to 328. Gross output falls to 99.1 while costs fall from
+  21.0 to 19.9.
+- Optimal scale: light plants (89% of plants) are at it; 98% of EPS users are below it, held back
+  by the quota through θ; manual-intensive plants with 300+ core Koreans (0.1%) are ineligible.
+- Three EPS shares defined. Average across EPS firms of EPS ÷ that firm's workers: 36.9% (Lee, Peri
+  and Yang, Table 3) and 37.2% in the model. EPS ÷ all manufacturing workers: 5.5%, which sets M.
+  Share of plants using EPS: about 10%, and 10.7% in the model.
+- Survey (`bunching/eps_binding.py`, `by_cap_use`): firms below half their 2019 cap (42% of firms)
+  want more workers about as often (41%) as firms at or above the cap (18% of firms, 50%); firms in
+  between, 44%. For most firms the cap is not what holds them back.
+- Weak plants: the current rule keeps 0.9% more plants than a price (exit rate 8.08% vs 8.02%); an
+  equal limit keeps 2.3% more than today.
+- EPS productivity (survey: 74–96% of a Korean worker): at 74%, EPS work costs 1.35 × w per unit,
+  more than a Korean manual worker at a plant with 150 core Koreans (1.29 × w). Arithmetic only.
+
+**Problems found while checking (not yet fixed):**
+- The 5.5% and 10% targets have no recorded source. They date from the first model (Oct 15). The
+  5.5% sets the quota M and so θ.
+- Net output counts the Korean manual premium as a resource cost. If it is a wage paid to Korean
+  workers, as Prof. Hur's "raise the wage" suggests, it is a transfer, and the +0.33% net gain, which
+  comes from lower costs, could largely disappear; gross output falls 0.9%.
+- In the model the quota is shared in proportion to each plant's cap, so the cap's shape decides
+  who gets workers even though no plant reaches its cap. In the survey, wanting more does not depend
+  on cap use, which suggests real allocation (quota, ranking, per-round limits) is not proportional
+  to the cap. If so, our "size rule" works through a channel the data may not have.
+- With one θ for every plant, the model cannot put any plant at its cap; in the survey 18% are at or
+  above the 2019 cap.
+
 ---
 
 <a id="what-worked"></a>

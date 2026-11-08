@@ -44,7 +44,7 @@ Presenter: Sara
 
 **[Correction]**
 
-"First, some corrections to what we told you. The EPS share of 36.9 percent is the average, across firms using EPS, of EPS workers divided by that firm's workers. It is not the share in the economy, which is 5.5 percent, or the share of firms using EPS, which is about 10 percent."
+"First, some corrections to what we told you. The EPS share of 36.9 percent is the average, across firms using EPS, of EPS workers divided by that firm's workers. It is not the share in the economy, which is 5.5 percent, or the share of firms using EPS, which is about 10 percent. Slide 43 shows all three, in the model and the data."
 
 **[Correction on the cap]**
 
@@ -82,6 +82,10 @@ Presenter: Donny
 
 "Probably not literally. It is a two-type simplification. Real plants have some manual work. We need the data to say how far off it is."
 
+**[If asked: why hire EPS workers if they cost the same and are less productive]**
+
+"Because Korean manual workers only come at a higher price, and the premium in equation 2 is that price. A Korean manual worker costs about 1.6 times the wage at a plant with 7 core Koreans and 1.3 times at 150. Employers rate EPS workers at 74 to 96 percent of a Korean worker. Even at 74 percent, an EPS worker costs about 1.35 times the wage per unit of work: still cheaper at small plants, but not at large ones. So lower productivity would make large plants want EPS even less, which supports our result."
+
 ### Slide 43: Do model users match the data? The shape, but not the small end
 
 Presenter: Donny
@@ -101,6 +105,14 @@ Presenter: Donny
 **[If asked: why the miss]**
 
 "We don't know yet. The model's plant sizes under 10 come from a target for the share of very small plants. The survey covers EPS users only, so we can't test this on non-users."
+
+**[Bottom table]**
+
+"You asked us to define the EPS share. There are three. First, the average across EPS firms of each firm's EPS workers divided by its workers: 36.9 percent in Lee, Peri and Yang, 37.2% in the model, measured the same way. Second, EPS workers as a share of all manufacturing workers: 5.5 percent, which sets the quota in the model. Third, the share of plants that use EPS: about 10 percent, and 10.7% in the model."
+
+**[If asked: where do 5.5 and 10 percent come from]**
+
+"They are our calibration targets. We are still checking their sources and will confirm them."
 
 ### Slide 44: Policy functions for manual-intensive plants
 
@@ -140,7 +152,7 @@ Presenter: Donny
 
 **[Cards]**
 
-"98% of users would hire more, and 82% are at their limit. But that limit is theta times the cap, and theta is 0.21. No plant reaches the legal cap. In the model, the quota does the limiting, and the legal cap decides how it is shared."
+"Optimal scale means the size a plant would choose with no limit, at today's prices. Light plants, 89% of all plants, are already there. 98% of EPS users would hire more, so they are below it, and 82% are at their limit. But that limit is theta times the cap, and theta is 0.21. No plant reaches the legal cap. In the model, the quota does the limiting, and the legal cap decides how it is shared."
 
 **[Table]**
 
@@ -149,6 +161,10 @@ Presenter: Donny
 **[If asked: 82 percent versus 98 percent]**
 
 "The others sit just below their limit but would still hire more. Part of this may be the grid for manual workers, and we haven't checked. Under the 2019 caps, 91% are at the limit."
+
+**[If asked: who else is below optimal scale]**
+
+"The 0.1% of plants that are manual-intensive but have 300 or more core Koreans, so they are not eligible for EPS."
 
 **[If asked: is theta realistic]**
 
@@ -178,9 +194,17 @@ Presenter: Julian
 
 "Green applies the 2024 caps, which are much higher, to the same firms and answers. Now about 1% would go past. So after the 2024 change, the legal cap may barely bind."
 
+**[Box]**
+
+"You also asked whether the caps bind at all, since firms use only 62% of their cap on average and 42% use less than half. If the cap were what limits firms, firms far below it should not want more. But 41% of them do, almost as many as at the cap, 50%. So for most firms something else limits them, like the quota, the points ranking or the limit on new permits per round. That matches the model, where the quota limits plants, not the cap. And 56% of firms want no more workers at all: they are at their optimal scale."
+
 **[Why it matters]**
 
 "This matters for our question. You said that if no one is constrained there is no paper. Under the 2019 caps there clearly is a constraint. Under the 2024 caps we need newer data. Firms may also have wanted more after 2019, and the quota or the score may still limit them."
+
+**[If asked: then what limits them]**
+
+"The survey can't tell us. The candidates are the national quota, the points ranking and the 3 to 6 new permits per round. The Ministry tables we requested would separate them."
 
 **[If asked: how firms are above the cap]**
 
@@ -260,7 +284,15 @@ Presenter: Benjamin
 
 **[Point 3]**
 
-"A top 1 percent plant goes from 11 EPS workers to none and stays about the same size. That is why EPS users get smaller on average."
+"A top 1 percent plant goes from 11 EPS workers to none and stays about the same size. You noticed that the average EPS user gets smaller, from 21.6 to 13.8 workers. That is because large plants leave the group of EPS users, not because they shrink."
+
+**[If asked: so why does gross output fall]**
+
+"With a price, permits move away from small plants, which lose cheap workers and produce less, and large plants swap EPS workers for Koreans instead of growing. So gross output falls to 99.1. Costs fall more, from 21.0 to 19.9, so net output rises. In our model the size rule mainly raises costs rather than limiting output, because EPS and Korean manual workers are perfect substitutes."
+
+**[If asked: what if EPS workers are less productive]**
+
+"Employers rate them at 74 to 96 percent of a Korean worker. At 74 percent, EPS work costs about 1.35 times the wage per unit, more than a Korean manual worker at a large plant, about 1.29. So large plants would want EPS even less, and our result would get stronger."
 
 **[If asked: isn't the premium the key assumption]**
 
@@ -365,6 +397,10 @@ Presenter: Mimi
 **[Bottom]**
 
 "Next we follow up on the Ministry request, contact Prof. Lee and Prof. Yang, and measure what we can."
+
+**[If asked: does the size rule keep weak plants alive]**
+
+"Only slightly. The current rule keeps about 0.9 percent more plants than a price would, and the exit rate is 8.08 against 8.02 percent. An equal limit would keep 2.3 percent more plants than today. So the gain comes mainly from lower costs, not from weak plants exiting."
 
 **[Close]**
 
