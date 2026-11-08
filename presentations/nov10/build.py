@@ -23,7 +23,8 @@ PG = {k: FIRST + i for i, k in enumerate(ORDER)}
 SERIF, SANS = "'Source Serif 4', Georgia, serif", "'IBM Plex Sans', Arial, sans-serif"
 NAVY, INK, BODY, MUTED, RUST, STEEL = "#14213d", "#1f2a3c", "#3d4756", "#5f6876", "#a8432c", "#2f5d8a"
 LOGO = "/_blob/921ccfeb3c9f6d9c3ed1cc4a5be8bdd4"
-PRESENTER = "[name]"
+PRESENTER = {s: n for n, ss in [("Sara", ["nov10-cover", "nov10-refresh", "nov10-answers"]), ("Donny", ["nov10-who", "nov10-size", "nov10-policy", "nov10-scale"]), ("Julian", ["nov10-binding", "nov10-wants", "nov10-quota"]), ("Benjamin", ["nov10-margin", "nov10-split", "nov10-premium", "nov10-bumpy"]), ("Mimi", ["nov10-next"])] for s in ss}
+HANDOVER = { "nov10-answers": "Donny will now show who uses EPS in the model, and the policy functions.", "nov10-scale": "Julian will now show whether the cap binds, in the survey and in the model.", "nov10-quota": "Benjamin will now explain why large plants barely grow, and the checks we ran.", "nov10-bumpy": "Mimi will sum up and ask our questions." }
 EQS = ["(1) y = s·(h^ρ + λₜ ℓ^ρ)^(α/ρ), ℓ = k + m", "(2) cost of k = w·(1 + ψ(1 + h)^−ξ)", "(3) Current rule: m ≤ θ·q(h), cost ≈ w",
        "(4) No size rule: cost of m = w + p", "(5) Exit if β(1−δ)E[V(s′)] &lt; 0; Σν V = cₑ", "(6) Σμ(h + k) = N, Σμ m = M"]
 
@@ -45,9 +46,9 @@ def logo():
     return f'<img src="{LOGO}" alt="Logo" style="position:absolute; right:8px; bottom:952.01px; width:112.01px; height:114.78px">'
 
 
-def presenter(dark=False):
+def presenter(id_, dark=False):
     return (f'<p style="position:absolute; top:64px; right:128px; width:480px; font-family:{SANS}; font-size:24px; font-weight:600; '
-            f'text-align:right; color:{"#c9d1de" if dark else MUTED}">Presenter: {PRESENTER}</p>')
+            f'text-align:right; color:{"#c9d1de" if dark else MUTED}">Presenter: {PRESENTER[id_]}</p>')
 
 
 def foot(text):
@@ -114,8 +115,10 @@ def notes(blocks):
 
 
 def write(id_, body, blocks, on=(), band=True):
+    if id_ in HANDOVER:
+        blocks = blocks + [("Hand over", f'"{HANDOVER[id_]}"')]
     html = (f'<section id="{id_}" data-transition="fade" style="display:flex; flex-direction:column; gap:28px; padding:128px 128px {220 if band else 160}px; background:#ffffff">\n'
-            f'{body}{eqs(on) if band else ""}{presenter()}{page(id_)}{logo()}{notes(blocks)}\n</section>\n')
+            f'{body}{eqs(on) if band else ""}{presenter(id_)}{page(id_)}{logo()}{notes(blocks)}\n</section>\n')
     open(os.path.join(SL, id_ + ".html"), "w").write(html)
 
 
@@ -162,7 +165,7 @@ open(os.path.join(SL, "nov10-cover.html"), "w").write(f'''<section id="nov10-cov
 <p style="position:absolute; top:376px; left:128px; width:1664px; font-family:{SANS}; font-size:36px; line-height:1.4; color:#c9d1de">November 10, 2026 · Who uses EPS, who is held back, and what removing the size rule really does</p>
 <h2 style="position:absolute; top:490px; left:128px; width:1664px; font-family:{SERIF}; font-size:52px; color:#f7f5f0"><b>Research Topic: Does tying EPS workers to plant size keep weak plants alive, and how much would output change if the same quota ignored plant size?</b></h2>
 <p style="position:absolute; bottom:96px; left:128px; width:1664px; font-family:{SANS}; font-size:26px; line-height:1.5; color:#c9d1de">Sara Ambre Chekroune · Yitang Donny Chen · Mireu Kim · Julian Henry Raymundo · Zachary Benjamin Yoo<br>ISA6327 Topics in Macroeconomics · Prof. Sewon Hur · November 10, 2026</p>
-{presenter(True)}{page("nov10-cover", True)}{logo()}{notes([("Title", '"Good afternoon. Last week you asked us to understand the baseline model before running more experiments. So today nothing in the model has changed. We\'ll show how it behaves."'),
+{presenter("nov10-cover", True)}{page("nov10-cover", True)}{logo()}{notes([("Title", '"Good afternoon. Last week you asked us to understand the baseline model before running more experiments. So today nothing in the model has changed. We\'ll show how it behaves."'),
  ("Plan", '"We start with a short refresher, then cover who uses EPS, whether the limit binds, and why removing the size rule does not make large plants grow. We also ran the checks you asked for."')])}
 </section>
 ''')

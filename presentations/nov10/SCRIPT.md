@@ -1,8 +1,10 @@
 # Nov 10 script
 
-Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked" entries are backup answers, read only if the topic comes up. Presenters are not assigned yet.
+Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked" entries are backup answers, read only if the topic comes up. Presenters: Sara 39–41, Donny 42–45, Julian 46–48, Benjamin 49–52, Mimi 53.
 
 ### Slide 39: EPS project update: understanding the baseline
+
+Presenter: Sara
 
 **[Title]**
 
@@ -13,6 +15,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 "We start with a short refresher, then cover who uses EPS, whether the limit binds, and why removing the size rule does not make large plants grow. We also ran the checks you asked for."
 
 ### Slide 40: Refresher: the question, the model and the data
+
+Presenter: Sara
 
 **[Question]**
 
@@ -32,6 +36,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 41: Your questions from last week, and the short answers
 
+Presenter: Sara
+
 **[Title]**
 
 "Here is what you asked last week, with our short answers. The next slides show each one."
@@ -48,7 +54,13 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 "On slides 31 and 37 we said every user wants more. In the model that is 98 percent."
 
+**[Hand over]**
+
+"Donny will now show who uses EPS in the model, and the policy functions."
+
 ### Slide 42: Who uses EPS: manual-intensive plants, and no light plants
+
+Presenter: Donny
 
 **[Title]**
 
@@ -72,6 +84,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 43: Do model users match the data? The shape, but not the small end
 
+Presenter: Donny
+
 **[Title]**
 
 "You asked us to check that the model's EPS users look like the data's. Here they are by total workers, under the 2019 caps, which is when the survey was done."
@@ -89,6 +103,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 "We don't know yet. The model's plant sizes under 10 come from a target for the share of very small plants. The survey covers EPS users only, so we can't test this on non-users."
 
 ### Slide 44: Policy functions for manual-intensive plants
+
+Presenter: Donny
 
 **[Title]**
 
@@ -116,6 +132,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 45: Who is held back: almost every user, by the quota, not the cap
 
+Presenter: Donny
+
 **[Title]**
 
 "You asked who is constrained, and where they would be without the limit."
@@ -136,7 +154,13 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 "Theta is a simple stand-in for rationing. It gives every plant the same share of its cap. Real rationing uses a score and a cut-off, and we kept the model simple as you advised."
 
+**[Hand over]**
+
+"Julian will now show whether the cap binds, in the survey and in the model."
+
 ### Slide 46: Is the cap binding? Yes for 2019 caps, barely for 2024 caps
+
+Presenter: Julian
 
 **[Title]**
 
@@ -164,6 +188,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 47: How much do plants want? Far more in the model than the survey
 
+Presenter: Julian
+
 **[Title]**
 
 "Here is the same comparison in levels: what plants have and what they want. Log scale, 2019 caps in both."
@@ -186,6 +212,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 48: The real limit, cap or quota? The model assumes the quota
 
+Presenter: Julian
+
 **[Title]**
 
 "In the model the quota always binds. Theta adjusts until total EPS demand equals the quota. We looked into whether that is true."
@@ -206,7 +234,13 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 "Then theta would be 1 and only the legal cap would limit plants, and that would change our experiment. With the 2024 caps few firms reach the cap. That is why this is on our list of questions for you."
 
+**[Hand over]**
+
+"Benjamin will now explain why large plants barely grow, and the checks we ran."
+
 ### Slide 49: Why large plants barely grow: their next worker is Korean
+
+Presenter: Benjamin
 
 **[Title]**
 
@@ -234,6 +268,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 50: Splitting the experiment: the size link and the permit charge
 
+Presenter: Benjamin
+
 **[Title]**
 
 "Last week's no-size-rule experiment changed two things at once: it removed the size link, and it charged for permits. So we split them. This is a new experiment, with no new features in the model."
@@ -260,6 +296,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 ### Slide 51: Does the premium drive the result? The direction holds
 
+Presenter: Benjamin
+
 **[Title]**
 
 "The premium is the assumption everything seems to depend on, and we can't measure it directly yet. So we varied it, holding everything else at our calibration."
@@ -281,6 +319,8 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 "These rows are not recalibrated, so the levels don't match the targets. They show direction only. To really test this we would need to measure the premium by size, or relax the perfect-substitutes assumption, and we would like your view on whether that is worth it."
 
 ### Slide 52: The bumpy no-rule line was grid error; the bunching result holds
+
+Presenter: Benjamin
 
 **[Title]**
 
@@ -306,7 +346,13 @@ Generated from the deck's speaker notes. Read the quoted lines aloud. "If asked"
 
 "We haven't solved the full equilibrium on the finest grid. On the 48 by 21 grid it is +0.37 percent. These runs hold prices fixed, so they check the shape of the distribution, not the gain."
 
+**[Hand over]**
+
+"Mimi will sum up and ask our questions."
+
 ### Slide 53: What we learned, and where we would like your advice
+
+Presenter: Mimi
 
 **[Left]**
 
