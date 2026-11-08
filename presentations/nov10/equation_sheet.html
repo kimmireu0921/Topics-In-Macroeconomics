@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Equation sheet</title><style>
+@page { size: A4; margin: 12mm 11mm; }
+:root { --ink:#17233d; --body:#3b4558; --mute:#6b7487; --line:#dfe3ea; --bg:#f4f5f8; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--body); font: 9.6pt/1.42 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.top { font-size:8pt; letter-spacing:.08em; text-transform:uppercase; color:var(--mute); font-weight:600; }
+h1 { font: 600 24pt/1.15 "STIX Two Text", Georgia, serif; color:var(--ink); margin:4px 0 6px; }
+.intro { margin:0 0 10px; max-width:150mm; }
+.row { display:flex; gap:9px; align-items:stretch; margin-bottom:9px; break-inside:avoid; }
+.row > .card { flex:1 1 0; margin-bottom:0; }
+.card { background:#fff; border:1px solid var(--line); border-radius:9px; padding:10px 12px; break-inside:avoid; margin-bottom:9px; }
+.nw { white-space:nowrap; }
+.c4in { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; }
+.lead { background:#eef2f9; }
+.card h2 { font: 600 13.5pt/1.2 "STIX Two Text", Georgia, serif; color:var(--ink); margin:0 0 7px; display:flex; align-items:center; gap:7px; }
+.n { display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; background:var(--ink); color:#fff;
+  font:600 9pt "Helvetica Neue", sans-serif; flex:none; }
+h3 { font-size:9pt; margin:8px 0 4px; color:var(--ink); }
+p { margin:4px 0; }
+.eq { font: 14pt/1.9 "STIX Two Text", Georgia, serif; color:var(--ink); margin:2px 0 6px; }
+.eq.sm, .row .eq.sm { font-size:11pt; }
+.row .eq, .c4in .eq { font-size:12.5pt; }
+.sm2 { font-size:10pt; font-style:italic; color:var(--mute); margin-left:4px; }
+.eq sup { font-size:68%; vertical-align: 0.55em; }
+.eq sup .v { padding:0 2px; }
+.where { font-style:italic; margin:0 6px 0 14px; font-size:11pt; color:var(--mute); }
+.v { display:inline-block; font-family:"STIX Two Text", Georgia, serif; font-style:italic; border:1px solid; border-radius:4px;
+  padding:0 3px; line-height:1.25; margin:0 1px; }
+.v sub { font-size:65%; font-style:italic; }
+.out { background:#eaf1fc; border-color:#9bb8e6; color:#21457e; }
+.core { background:#1d2a44; border-color:#1d2a44; color:#fff; }
+.kor { background:#fdf0e4; border-color:#eab48a; color:#8a4410; }
+.eps { background:#e4f6f3; border-color:#7cc8bb; color:#0f5e52; }
+.man { background:#fbf4dc; border-color:#d9bf6a; color:#6b5410; }
+.wage { background:#e9f6e6; border-color:#94c98a; color:#2a6020; }
+.price { background:#fceaf1; border-color:#e59bb8; color:#8a1f4a; }
+.lam { background:#f1ebfb; border-color:#b49ae0; color:#4f2e8c; }
+.shape { background:#f6f7f9; border:1px dashed #9aa3b3; color:#4a5468; }
+.dyn { background:#fff7d6; border-color:#e0c560; color:#6d5600; }
+.fix { background:#eef0f3; border-color:#a9b1bf; color:#3b4558; }
+.say { background:#f2f4f8; border-left:3px solid var(--ink); padding:5px 8px; margin:4px 0 6px; font-size:9pt; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.steps > div { border:1px solid var(--line); border-radius:7px; padding:6px 7px; font-size:8.6pt; }
+.steps b { font-size:7.8pt; text-transform:uppercase; letter-spacing:.05em; color:var(--ink); }
+.mini { font: 12pt/1.9 "STIX Two Text", Georgia, serif; margin:2px 0; }
+.mini sup { font-size:68%; }
+.later, .note { font-size:8.6pt; color:var(--body); }
+table { border-collapse:collapse; }
+.sym { width:100%; margin:3px 0; font-size:8.6pt; }
+.sym td { padding:2px 4px; vertical-align:top; }
+.sym td:first-child { width:52px; white-space:nowrap; }
+.grid { font-size:8.4pt; margin:5px 0; }
+.grid th, .grid td { border-bottom:1px solid var(--line); padding:2px 7px; text-align:left; }
+.grid th { color:var(--ink); }
+.cmp { width:100%; }
+.hl { border:1px solid #eab48a; background:#fff8f1; border-radius:7px; padding:6px 8px; margin-top:6px; font-size:8.6pt; }
+.chart { width:100%; height:auto; margin:4px 0 0; }
+.chart .gl { stroke:#e6e9ef; stroke-width:1; }
+.chart .tk { font:9px "Helvetica Neue", sans-serif; fill:#6b7487; }
+.chart .lb { font:10px "Helvetica Neue", sans-serif; fill:#3b4558; }
+.chart .cv { fill:none; stroke:#c0581f; stroke-width:2; }
+.chart .pl { stroke:#c2185b; stroke-width:1.5; stroke-dasharray:5 4; }
+.chart .dl { stroke:#6b7487; stroke-width:1; stroke-dasharray:2 3; }
+.chart .dot { fill:#17233d; stroke:#fff; stroke-width:2; }
+.key { display:grid; grid-template-columns:repeat(4,1fr); gap:6px 10px; font-size:8.2pt; }
+.chips { margin-bottom:1px; }
+.dark { background:var(--ink); color:#e6e9f0; border-color:var(--ink); }
+.dark h2 { color:#fff; } .dark .n { background:#fff; color:var(--ink); }
+.flow { margin:0; padding-left:18px; } .flow li { margin:3px 0; }
+.two { display:grid; grid-template-columns:1.25fr 1fr; gap:12px; align-items:start; }
+.par { width:100%; } .par tr.grp th { background:#f2f4f8; font-size:8pt; text-transform:uppercase; letter-spacing:.04em; }
+.mix { margin:0; padding-left:16px; } .mix li { margin:2px 0; }
+.pb { break-before: page; }
+</style></head><body>
+<div class="top">EPS project · Nov 10 update · slide 40</div>
+<h1>The model, one equation at a time</h1>
+<p class="intro">Each symbol keeps one colour in every equation, so you can follow it as the model is built up. Numbers
+are from the calibrated model (v6) used on the slides.</p>
+<section class="card"><div class="key"><div><div class="chips"><span class="v out">y</span><span class="v out">s</span></div><div>Output and plant productivity</div></div><div><div class="chips"><span class="v core">h</span></div><div>Core Korean workers</div></div><div><div class="chips"><span class="v kor">k</span><span class="v kor">ψ</span><span class="v kor">ξ</span></div><div>Korean manual workers and their premium</div></div><div><div class="chips"><span class="v eps">m</span><span class="v eps">θ</span><span class="v eps">q</span></div><div>EPS workers and the rule that limits them</div></div><div><div class="chips"><span class="v man">ℓ</span></div><div>Manual work in total: ℓ = k + m, any mix</div></div><div><div class="chips"><span class="v wage">w</span></div><div>Wage of a Korean worker</div></div><div><div class="chips"><span class="v price">p</span></div><div>Permit price (no-size-rule experiment)</div></div><div><div class="chips"><span class="v lam">λ</span></div><div>Weight on manual work, by plant type</div></div><div><div class="chips"><span class="v shape">ρ</span><span class="v shape">α</span></div><div>Shape of the production function</div></div><div><div class="chips"><span class="v dyn">β</span><span class="v dyn">δ</span><span class="v dyn">V</span><span class="v dyn">ν</span><span class="v dyn">μ</span></div><div>Entry, exit and counting plants</div></div><div><div class="chips"><span class="v fix">c</span></div><div>Fixed costs: of running a plant, using EPS, entering</div></div></div></section>
+<section class="card lead"><h2>The model in one paragraph</h2><p>The economy has many manufacturing plants. Each plant has a productivity <span class="v out">s</span>
+and a type: <b>light</b> (manual work barely matters) or <b>manual-intensive</b> (casting, plastics, textiles).
+Every year a plant hires workers to make as much profit as it can (equations 1–4), then decides whether to stay
+or close (5). New plants enter until entering is no longer worth it (5). Two national totals are fixed: Korean
+workers <span class="v core">N</span> and the EPS quota <span class="v eps">M</span> (6). We solve for the long run, where all of this is steady, once under
+today's rule (3) and once with a permit price (4), and compare output.</p></section><section class="card wide"><h2><span class="n">1</span>Production: what a plant makes</h2>
+<div class="eq"><span class="v out">y</span> = <span class="v out">s</span> · ( <span class="v core">h</span><sup><span class="v shape">ρ</span></sup> + <span class="v lam">λ<sub>t</sub></span> <span class="v man">ℓ</span><sup><span class="v shape">ρ</span></sup> )<sup><span class="v shape">α</span>/<span class="v shape">ρ</span></sup>
+<span class="where">where</span> <span class="v man">ℓ</span> = <span class="v kor">k</span> + <span class="v eps">m</span></div>
+<div class="say"><b>Say it:</b> “A plant's output is its productivity times a mix of core Korean workers and manual work. Manual work matters much more for some plants, and it can be done by a Korean worker or an EPS worker.”</div>
+<h3>How it builds up</h3>
+<div class="steps">
+<div><b>Step 1 · Productivity</b><div class="mini"><span class="v out">s</span> = <span class="v out">x</span> · <span class="v out">z</span></div>
+<p><span class="v out">x</span> is drawn when the plant is born and never changes: most plants get a low <span class="v out">x</span>, a few get a very high one
+(a Pareto draw). <span class="v out">z</span> changes from year to year, but slowly.</p></div>
+<div><b>Step 2 · Two kinds of work</b><div class="mini"><span class="v core">h</span><sup><span class="v shape">ρ</span></sup> + <span class="v lam">λ<sub>t</sub></span> <span class="v man">ℓ</span><sup><span class="v shape">ρ</span></sup></div>
+<p>Core work <span class="v core">h</span> is done only by Koreans. Manual work <span class="v man">ℓ</span> gets weight <span class="v lam">λ<sub>t</sub></span>: 0.019 for light plants,
+1.47 for manual-intensive plants.</p></div>
+<div><b>Step 3 · Who does manual work</b><div class="mini"><span class="v man">ℓ</span> = <span class="v kor">k</span> + <span class="v eps">m</span></div>
+<p>A Korean manual worker <span class="v kor">k</span> or an EPS worker <span class="v eps">m</span>. They are <b>perfect substitutes</b>: one EPS worker does exactly
+the work of one Korean manual worker, no more.</p></div>
+<div><b>Step 4 · Shape</b><div class="mini">( … )<sup><span class="v shape">α</span>/<span class="v shape">ρ</span></sup></div>
+<p><span class="v shape">ρ</span> = 0.645: core and manual work are fairly easy to swap. <span class="v shape">α</span> = 0.69 is below 1, so each extra
+worker adds a bit less (decreasing returns). That is what stops a plant from growing forever.</p></div>
+</div>
+<p class="later"><b>Where it shows up later.</b> With λ this small, light plants hire almost no manual workers, so
+EPS has nothing to save them and no light plant uses it (slide 42). 89% of plants are light because
+82% of new plants are light and manual-intensive plants close more often (their fixed cost is
+higher). Perfect substitutes are why, at a large plant, an extra permit replaces a Korean worker instead of making
+the plant bigger (slides 49 and 51).</p></section>
+<div class="row pb"><section class="card "><h2><span class="n">2</span>Cost of a Korean manual worker</h2>
+<div class="eq">cost of <span class="v kor">k</span> = <span class="v wage">w</span> · ( 1 + <span class="v kor">ψ</span> (1 + <span class="v core">h</span>)<sup>−<span class="v kor">ξ</span></sup> )</div>
+<div class="say"><b>Say it:</b> “A Korean manual worker costs the wage plus a premium. The premium is large at small plants, which struggle to find Koreans for manual jobs, and shrinks slowly as the plant grows.”</div>
+<table class="sym"><tr><td><span class="v wage">w</span></td><td>Wage of a Korean worker. Core workers cost exactly w.</td></tr><tr><td><span class="v kor">ψ</span></td><td>Premium at a plant with no core Koreans: 0.915, so a manual Korean costs about 1.9 times the wage there</td></tr><tr><td><span class="v kor">ξ</span></td><td>How fast the premium shrinks as h grows: 0.231, which is slow</td></tr><tr><td><span class="v core">h</span></td><td>Core Korean workers at the plant</td></tr></table>
+<table class="grid"><tr><th>h</th><td>0</td><td>7</td><td>28</td><td>150</td></tr><tr><th>Cost of k ÷ w</th><td>1.92</td><td>1.57</td><td>1.42</td><td>1.29</td></tr></table>
+<p class="note">In the model the premium is a real cost (time and money spent finding and keeping workers), not extra
+pay. Whether it should count that way is an open question in the project log.</p></section><section class="card "><h2><span class="n">3</span>Current rule: EPS limited by size</h2>
+<div class="eq"><span class="nw"><span class="v eps">m</span> ≤ <span class="v eps">θ</span> · <span class="v eps">q</span>(<span class="v core">h</span>),</span> <span class="nw sm2">for 1 ≤ <span class="v core">h</span> &lt; 300</span><br><span class="nw">cost of <span class="v eps">m</span> = <span class="v wage">w</span></span></div>
+<div class="say"><b>Say it:</b> “Under today's rule a plant can hire EPS workers up to a share theta of its legal cap, and the cap depends on its Korean workers. An EPS worker costs just the wage, so each one saves the premium.”</div>
+<table class="sym"><tr><td><span class="v eps">m</span></td><td>EPS workers the plant hires</td></tr><tr><td><span class="v eps">q(h)</span></td><td>Legal cap, from the 2024 table below</td></tr><tr><td><span class="v eps">θ</span></td><td>The share of the cap every plant can actually get, 0.21. It is the same for every plant and adjusts until total EPS use equals the quota M</td></tr><tr><td><span class="v wage">w</span></td><td>An EPS worker costs the wage, with no premium. Using EPS at all also costs a fixed c<sub>m</sub></td></tr></table>
+<table class="grid"><tr><th>Core Koreans h</th><th>Cap q(h), 2024</th></tr><tr><td>1–10</td><td>h + 10</td></tr><tr><td>11–50</td><td>min(30, 2h)</td></tr><tr><td>51–100</td><td>35</td></tr><tr><td>101–150</td><td>40</td></tr><tr><td>151–200</td><td>50</td></tr><tr><td>201–299</td><td>60</td></tr><tr><td>300 or more</td><td>not eligible</td></tr></table>
+<p class="note"><b>h, not h + k.</b> The law counts all insured Korean workers, h + k. The model counts only core
+Koreans h, a simplification: hiring Korean manual workers does not raise a plant's cap. Example: a plant with
+h = 20 has cap 30 and may hire up to 0.21 × 30 ≈ 6.4 EPS workers.</p>
+<div class="hl"><b>Why plants want EPS: compare equations 2 and 3</b>
+<div class="eq sm"><span class="nw">saving per EPS worker = <span class="v wage">w</span> × <span class="v kor">ψ</span>(1 + <span class="v core">h</span>)<sup>−<span class="v kor">ξ</span></sup></span></div>
+<p>That is the premium from equation 2. A plant uses EPS if the saving on all its EPS workers is larger than the
+fixed cost <span class="v fix">c<sub>m</sub></span> (slide 42).</p></div></section></div>
+<section class="card wide"><h2><span class="n">4</span>No-size-rule experiment: a price instead</h2>
+<div class="c4in"><div>
+<div class="eq"><span class="nw">cost of <span class="v eps">m</span> = <span class="v wage">w</span> + <span class="v price">p</span>,</span> <span class="nw sm2">no cap, any plant with <span class="v core">h</span> ≥ 1</span></div>
+<div class="say"><b>Say it:</b> “In the experiment the size cap disappears. Every plant pays the same permit price p, and p moves until the same quota is used up.”</div>
+<table class="sym"><tr><td><span class="v price">p</span></td><td>Price of one permit, the same for every plant: 0.34, about 42% of the wage. The money goes to whoever sells the permits, not to the plant</td></tr></table>
+<svg viewBox="0 0 480 222" class="chart" role="img" aria-label="Value of a permit falls with core Korean workers and crosses the permit price at about 28">
+<line x1="50" x2="470" y1="180.0" y2="180.0" class="gl"/><text x="44" y="184.0" class="tk" text-anchor="end">0.0</text><line x1="50" x2="470" y1="138.8" y2="138.8" class="gl"/><text x="44" y="142.8" class="tk" text-anchor="end">0.2</text><line x1="50" x2="470" y1="97.5" y2="97.5" class="gl"/><text x="44" y="101.5" class="tk" text-anchor="end">0.4</text><line x1="50" x2="470" y1="56.3" y2="56.3" class="gl"/><text x="44" y="60.3" class="tk" text-anchor="end">0.6</text><text x="50.0" y="196" class="tk" text-anchor="middle">0</text><text x="190.0" y="196" class="tk" text-anchor="middle">50</text><text x="330.0" y="196" class="tk" text-anchor="middle">100</text><text x="470.0" y="196" class="tk" text-anchor="middle">150</text>
+<line x1="50" x2="470" y1="109.0" y2="109.0" class="pl"/>
+<path d="M50.0,26.0 L51.4,39.7 L52.8,48.8 L54.2,55.4 L55.6,60.5 L57.0,64.7 L58.4,68.2 L59.8,71.2 L61.2,73.8 L62.6,76.1 L64.0,78.2 L65.4,80.0 L66.8,81.7 L68.2,83.3 L69.6,84.7 L71.0,86.1 L72.4,87.3 L73.8,88.4 L75.2,89.5 L76.6,90.5 L78.0,91.5 L80.8,93.3 L87.4,96.8 L94.0,99.6 L100.6,102.1 L107.2,104.1 L113.8,105.9 L120.4,107.5 L127.0,109.0 L133.6,110.3 L140.2,111.4 L146.8,112.5 L153.4,113.5 L160.0,114.4 L166.6,115.3 L173.2,116.1 L179.7,116.8 L186.3,117.5 L192.9,118.2 L199.5,118.8 L206.1,119.4 L212.7,120.0 L219.3,120.5 L225.9,121.0 L232.5,121.5 L239.1,122.0 L245.7,122.5 L252.3,122.9 L258.9,123.3 L265.5,123.7 L272.1,124.1 L278.7,124.5 L285.3,124.8 L291.9,125.2 L298.5,125.5 L305.1,125.8 L311.7,126.1 L318.3,126.5 L324.9,126.7 L331.5,127.0 L338.1,127.3 L344.7,127.6 L351.3,127.9 L357.9,128.1 L364.5,128.4 L371.1,128.6 L377.6,128.8 L384.2,129.1 L390.8,129.3 L397.4,129.5 L404.0,129.7 L410.6,130.0 L417.2,130.2 L423.8,130.4 L430.4,130.6 L437.0,130.8 L443.6,131.0 L450.2,131.1 L456.8,131.3 L463.4,131.5 L470.0,131.7" class="cv"/>
+<line x1="127.2" x2="127.2" y1="109.0" y2="180" class="dl"/>
+<circle cx="127.2" cy="109.0" r="4.5" class="dot"/>
+<text x="64" y="62.2" class="lb">Saving from one permit = w × premium</text>
+<text x="466" y="102.0" class="lb" text-anchor="end">Permit price p = 0.34</text>
+<text x="133.2" y="174" class="lb">h ≈ 28</text>
+<text x="260" y="214" class="tk" text-anchor="middle">core Korean workers h</text>
+</svg></div><div>
+<p class="note">Saving per permit is now w × premium − p. Left of the dot the premium saved is bigger than the price, so
+the plant uses EPS (if the total also covers <span class="v fix">c<sub>m</sub></span>). Right of it a Korean manual worker is cheaper, so plants with more
+than about 28 core Koreans drop EPS. That is why EPS users get smaller on average, from
+21.6 to 13.8 workers (slide 49).</p>
+<table class="grid cmp"><tr><th></th><th>Current rule (3)</th><th>Experiment (4)</th></tr>
+<tr><th>What limits EPS</th><td>A cap that depends on h</td><td>A price, no link to size</td></tr>
+<tr><th>Who may use EPS</th><td>1 ≤ h &lt; 300</td><td>h ≥ 1</td></tr>
+<tr><th>Cost of an EPS worker</th><td><span class="v wage">w</span> (plus <span class="v fix">c<sub>m</sub></span> once)</td><td><span class="v wage">w</span> + <span class="v price">p</span> (plus <span class="v fix">c<sub>m</sub></span> once)</td></tr>
+<tr><th>What adjusts to fit M</th><td><span class="v eps">θ</span> = 0.21</td><td><span class="v price">p</span> = 0.34</td></tr>
+<tr><th>Money for permits</th><td>None: permits are free</td><td>p per permit, paid to the permit seller</td></tr></table>
+<p class="note"><b>Careful:</b> the experiment changes two things at once: it removes the size link and it charges for
+permits. Slide 50 separates them.</p></div></div></section>
+<section class="card wide"><h2><span class="n">★</span>Profit: equations 1–4 together</h2>
+<div class="eq">π = <span class="v out">y</span> − <span class="v wage">w</span>·<span class="v core">h</span> − (cost of <span class="v kor">k</span>)·<span class="v kor">k</span> − (cost of <span class="v eps">m</span>)·<span class="v eps">m</span> − <span class="v fix">c<sub>m</sub></span>·1[<span class="v eps">m</span> &gt; 0] − <span class="v fix">c<sub>f,t</sub></span></div>
+<div class="say"><b>Say it:</b> “Profit is output minus what the plant pays: core Koreans, Korean manual workers with their premium, EPS workers, a fixed cost if it uses EPS at all, and a fixed cost of running the plant.”</div>
+<table class="sym"><tr><td><span class="v fix">c<sub>m</sub></span></td><td>Fixed cost of using any EPS workers: 0.383 (recruiting, paperwork)</td></tr><tr><td><span class="v fix">c<sub>f,t</sub></span></td><td>Fixed cost of running the plant each year: 0.40 light, 2.68 manual-intensive</td></tr><tr><td>1[m &gt; 0]</td><td>Equals 1 if the plant uses EPS, 0 if not</td></tr></table>
+<p class="note">Each year the plant picks h, k and m to make π as large as possible, given w and the rule (3) or the
+price (4). This is the “policy function” slides 44–45 show.</p></section>
+<div class="row"><section class="card "><h2><span class="n">5</span>Plants exit and enter</h2>
+<div class="eq"><span class="nw"><span class="v dyn">V</span>(<span class="v out">s</span>) = π(<span class="v out">s</span>) + max{ 0, <span class="v dyn">β</span>(1 − <span class="v dyn">δ</span>) E[<span class="v dyn">V</span>(<span class="v out">s</span>′)] }</span><br><span class="nw">Exit if <span class="v dyn">β</span>(1 − <span class="v dyn">δ</span>) E[<span class="v dyn">V</span>(<span class="v out">s</span>′)] &lt; 0</span><br><span class="nw">Entry: Σ <span class="v dyn">ν</span> <span class="v dyn">V</span> = <span class="v fix">c<sub>e</sub></span></span></div>
+<div class="say"><b>Say it:</b> “A plant's value is this year's profit plus the better of closing, worth zero, or staying. A plant closes when its future is not worth it. New plants keep entering until the value of entering equals the entry cost, and that pins down the wage.”</div>
+<table class="sym"><tr><td><span class="v dyn">V</span></td><td>Value of a plant. E[…] is its expected value next year, given today's s</td></tr><tr><td><span class="v out">s′</span></td><td>Next year's productivity</td></tr><tr><td><span class="v dyn">β</span></td><td>Discount factor, 0.96: how much next year counts</td></tr><tr><td><span class="v dyn">δ</span></td><td>Chance a plant is closed by an outside shock anyway: 0.036 a year</td></tr><tr><td><span class="v dyn">ν</span></td><td>Where new plants start: x from a Pareto draw with tail 3.85, z from its usual range. 17.6% of new plants are manual-intensive</td></tr><tr><td><span class="v fix">c<sub>e</sub></span></td><td>Cost of entering, 14.7. The entrant pays it before it knows its type or productivity</td></tr></table>
+<p class="note"><b>Why entry sets w.</b> If w were lower, plants would earn more, entering would be worth more than
+<span class="v fix">c<sub>e</sub></span>, and more plants would come in. Only one wage makes entering exactly worth <span class="v fix">c<sub>e</sub></span>: 0.830 under today's rule,
+0.816 in the experiment. In the code a small random shock also enters the close-or-stay choice, so closing is a
+probability that rises smoothly as the value falls; this only smooths the decision.</p></section><section class="card "><h2><span class="n">6</span>Markets clear: the totals are fixed</h2>
+<div class="eq"><span class="nw">Σ <span class="v dyn">μ</span> (<span class="v core">h</span> + <span class="v kor">k</span>) = <span class="v core">N</span></span><br><span class="nw">Σ <span class="v dyn">μ</span> <span class="v eps">m</span> = <span class="v eps">M</span></span></div>
+<div class="say"><b>Say it:</b> “Add up every plant. All the Korean workers they use equal the fixed supply N, and all the EPS workers they use equal the quota M.”</div>
+<table class="sym"><tr><td><span class="v dyn">μ</span></td><td>How many plants there are of each type and productivity. Size follows from productivity. Σ adds over all of them</td></tr><tr><td><span class="v core">N</span></td><td>Korean workers, core plus manual, set to 1</td></tr><tr><td><span class="v eps">M</span></td><td>EPS quota, set so EPS workers are 5.5% of all workers: M ≈ 0.058 (source of 5.5% being checked)</td></tr></table>
+<p class="note">The wage is already fixed by entry (5), so Korean labor is matched to <span class="v core">N</span> by the <b>number of new
+plants</b>: more entrants, more plants, more Koreans hired. The quota is matched to <span class="v eps">M</span> by <span class="v eps">θ</span> (today) or <span class="v price">p</span>
+(experiment).</p></section></div>
+<div class="row"><section class="card dark"><h2><span class="n">★</span>How the six fit together</h2><ol class="flow">
+<li><b>Guess</b> <span class="v eps">θ</span> (or <span class="v price">p</span>).</li>
+<li><b>Each plant</b> picks h, k, m to maximize profit (1–4) and decides to stay or close (5).</li>
+<li><b>Wage.</b> Find the w at which entering is worth exactly <span class="v fix">c<sub>e</sub></span> (5).</li>
+<li><b>Number of plants.</b> Scale entry until Korean workers add up to <span class="v core">N</span> (6).</li>
+<li><b>Quota.</b> If plants use more EPS workers than <span class="v eps">M</span>, lower <span class="v eps">θ</span> (or raise <span class="v price">p</span>); if fewer, the other way. Repeat from 2.</li>
+<li><b>Compare</b> plant sizes and output under today's rule and under the permit price.</li></ol></section><section class="card wide"><h2>Easy to mix up</h2><ul class="mix">
+<li><b><span class="v man">ℓ</span> is not half Korean, half EPS.</b> It is any mix: k + m. The plant chooses the split.</li>
+<li><b>The cap counts h only</b> in the model; the law counts h + k. The 2024 survey data do not separate core and manual Koreans.</li>
+<li><b><span class="v eps">θ</span> is one number for every plant.</b> It is not a plant's own choice; it is how the quota gets shared.</li>
+<li><b>“EPS share” has three meanings:</b> 36.9% is the average across EPS plants;
+5.5% is EPS workers in all workers; about 10% is the share of plants using EPS (slide 43).</li>
+<li><b>Light plants never use EPS</b> in the model: they hire almost no manual workers, and they are already at their best size. Manual-intensive plants are the users.</li>
+<li><b>The permit chart is the experiment only.</b> Under today's rule there is no price, only the cap.</li></ul></section></div>
+<section class="card wide"><h2>The numbers behind the symbols</h2><div class="two">
+<table class="grid par"><tr><th>Symbol</th><th>Value</th><th>Meaning</th></tr><tr class="grp"><th colspan="3">Set by us</th></tr><tr><td>α</td><td>0.69</td><td>returns to scale</td></tr><tr><td>β</td><td>0.96</td><td>discount factor</td></tr><tr><td>persistence of z</td><td>0.90</td><td>how slowly z changes</td></tr><tr><td>N, M</td><td>1, 0.058</td><td>labor and quota</td></tr><tr class="grp"><th colspan="3">Calibrated (13 numbers to fit 8 targets)</th></tr><tr><td>ρ</td><td>0.645</td><td>core vs manual</td></tr><tr><td>λ light, manual</td><td>0.019, 1.47</td><td>weight on manual work</td></tr><tr><td>c<sub>f</sub> light, manual</td><td>0.40, 2.68</td><td>fixed cost of running</td></tr><tr><td>manual share at entry</td><td>0.176</td><td></td></tr><tr><td>ψ, ξ</td><td>0.915, 0.231</td><td>Korean premium</td></tr><tr><td>c<sub>m</sub></td><td>0.383</td><td>fixed cost of EPS</td></tr><tr><td>σ of z</td><td>0.051</td><td>size of z shocks</td></tr><tr><td>γ</td><td>3.85</td><td>Pareto tail of x</td></tr><tr><td>c<sub>e</sub></td><td>14.7</td><td>entry cost</td></tr><tr><td>δ</td><td>0.036</td><td>outside exit shock</td></tr><tr class="grp"><th colspan="3">Solved in equilibrium</th></tr><tr><td>w</td><td>0.830 / 0.816</td><td>today / experiment</td></tr><tr><td>θ</td><td>0.212</td><td>today</td></tr><tr><td>p</td><td>0.344</td><td>experiment</td></tr></table>
+<table class="grid par"><tr><th>Target</th><th>Data</th><th>Model</th></tr><tr><td>Average plant size (workers)</td><td>7.5</td><td>8.1</td></tr><tr><td>Plants under 5 workers</td><td>70%</td><td>75%</td></tr><tr><td>Exit rate</td><td>8.0%</td><td>8.1%</td></tr><tr><td>Plants using EPS</td><td>10.0%</td><td>10.7%</td></tr><tr><td>Average EPS share at EPS plants</td><td>36.9%</td><td>37.2%</td></tr><tr><td>Average size of EPS plants</td><td>20.8</td><td>21.4</td></tr><tr><td>Extra closures per unit of exposure, 2020–21</td><td>0.152</td><td>0.150</td></tr><tr><td>Plants with 50+ workers</td><td>2.1%</td><td>1.8%</td></tr></table></div>
+<p class="note">Targets use the 2024 caps, except EPS share, EPS plant size and closures, which use the 2019 caps their
+survey firms faced. The 10% and 5.5% targets have no recorded source yet.</p></section>
+</body></html>
