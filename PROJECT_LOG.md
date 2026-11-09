@@ -623,6 +623,18 @@ script exported by `export_script.py`):
   to the cap. If so, our "size rule" works through a channel the data may not have.
 - With one θ for every plant, the model cannot put any plant at its cap; in the survey 18% are at or
   above the 2019 cap.
+- Nov 9, answering the team's questions (`presentations/nov10/MODEL_QA.md`): the top 1% plant's
+  rise from 317 to 328 workers with a price is the lower wage (0.830 to 0.816), not EPS. At either
+  wage its price plan equals its plan with no EPS at all (308 at today's wage, 328 at the lower one).
+  Under today's rule it sits just past the 150 step (h = 150.00015, cap 40 to 50), one grid point
+  above its no-EPS choice of 141, so the size rule makes it slightly larger. Slide 49 says "goes
+  from 317 to 328 workers" without this.
+- Most of the +0.33% net gain is fixed operating costs saved: manual-intensive plants fall by about a
+  quarter (0.0141 to 0.0105) with a price, each costing 2.68 a year. Per 100 of today's gross
+  output, costs fall 1.16 (fixed 0.67, entry 0.19, EPS fixed 0.17, premium 0.13) while gross output
+  falls 0.90.
+- With the legal cap on h + k, the top 1% plant (306 Koreans) would be ineligible, so it would have
+  no EPS workers today either. The price experiment has no cap and would not change. Not run.
 
 ---
 
