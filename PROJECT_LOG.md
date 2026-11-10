@@ -612,8 +612,14 @@ script exported by `export_script.py`):
   more than a Korean manual worker at a plant with 150 core Koreans (1.29 × w). Arithmetic only.
 
 **Problems found while checking (not yet fixed):**
-- The 5.5% and 10% targets have no recorded source. They date from the first model (Oct 15). The
-  5.5% sets the quota M and so θ.
+- The 5.5% and 10% targets have no source. They date from the first model (Oct 15). The
+  5.5% sets the quota M and so θ. Checked Nov 10: the AI assistant wrote both into `run_eps.py`
+  from rough figures it did not look up (5.5% = "~240k E-9 manufacturing workers / ~4.4m
+  manufacturing workers"; 10% = "~50k EPS manufacturing workplaces / ~510k plants"). No search,
+  data file or team member supplied them. They must be replaced or dropped. Candidates: E-9 workers
+  in manufacturing from Statistics Korea's 이민자 체류실태 및 고용조사 (about 227,000 in press
+  reports, to be confirmed on KOSIS) over manufacturing workers in our MDIS census; no source found
+  yet for the number of manufacturing workplaces using EPS (asked of the Ministry).
 - Net output counts the Korean manual premium as a resource cost. If it is a wage paid to Korean
   workers, as Prof. Hur's "raise the wage" suggests, it is a transfer, and the +0.33% net gain, which
   comes from lower costs, could largely disappear; gross output falls 0.9%.
