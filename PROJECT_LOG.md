@@ -620,6 +620,14 @@ script exported by `export_script.py`):
   in manufacturing from Statistics Korea's 이민자 체류실태 및 고용조사 (about 227,000 in press
   reports, to be confirmed on KOSIS) over manufacturing workers in our MDIS census; no source found
   yet for the number of manufacturing workplaces using EPS (asked of the Ministry).
+  Resolved later on Nov 10: all targets now have sources (`hopenhayn_project/eps_model/TARGETS.md`).
+  EPS share of manufacturing workers 5.29% (219,507 E-9 workers, e-나라지표 1501, end of 2024, over
+  4,147,204 census workers); plants using EPS 8.0% (40,766 workplaces over 509,467 plants); exit
+  6.6% (기업생멸행정통계, 2024p; it was an 8% assumption); average size 8.14 and share 1–4 workers
+  0.713 once masked and 1,000+ plants are counted (`bunching/census_targets.py`). The v6 parameters
+  give loss 0.179 on these targets (0.034 on the old ones): too many EPS users (10.5%), too much
+  exit (8.1%) and too many tiny plants (75.5%). Recalibrating as v7 (`run_v7.py`); the Nov 10 talk
+  moved to Nov 17.
 - Net output counts the Korean manual premium as a resource cost. If it is a wage paid to Korean
   workers, as Prof. Hur's "raise the wage" suggests, it is a transfer, and the +0.33% net gain, which
   comes from lower costs, could largely disappear; gross output falls 0.9%.
