@@ -714,6 +714,12 @@ script exported by `export_script.py`):
    baseline, not the price experiment: the top 1% plant (306 Koreans) becomes ineligible, plants
    with many Korean manual workers get larger caps, and hiring a Korean manual worker raises the
    cap, which is where bunching should appear. Needs a recalibration after the v7 one.
+10. **Course general comments (Nov 15):** (a) write down every sample selection and construction
+    rule and check magnitudes against what we know about the economy before trusting a result;
+    (b) slides must be understandable without the presenter's notes, and a slide that needs five
+    minutes of explanation should be several slides. For us: a data slide listing each source,
+    sample and rule (from `TARGETS.md`), with outside checks; split the slides whose notes run
+    longest (40, 43, 46, 50, 52).
 
 ---
 
