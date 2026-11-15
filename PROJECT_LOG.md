@@ -703,7 +703,16 @@ script exported by `export_script.py`):
 7. **Check with Prof. Hur:** how to model rationing; whether identifying the model from
    the COVID shock (instead of bunching) is acceptable; whether refocusing on the quota
    is acceptable if the gain stays below the threshold.
-8. Verify the exit-rate target (8%) against KOSIS business demography statistics.
+8. ~~Verify the exit-rate target (8%) against KOSIS business demography statistics~~ — done
+   Nov 10: 6.6% (2024p), now the v7 target (`hopenhayn_project/eps_model/TARGETS.md`).
+9. **To do before the Nov 17 talk: put the cap and eligibility on all Korean workers, h + k.**
+   The model uses q(h) and 1 ≤ h < 300; the law and the survey's `korean` variable count all
+   insured Korean workers. No reason was ever recorded for using h; it was a shortcut when the
+   model split Koreans into core and manual workers (v4, Oct 15). With h + k the constraint is
+   m ≤ θ·q(h + ℓ − m), solvable at each grid point because q is a step function. It changes the
+   baseline, not the price experiment: the top 1% plant (306 Koreans) becomes ineligible, plants
+   with many Korean manual workers get larger caps, and hiring a Korean manual worker raises the
+   cap, which is where bunching should appear. Needs a recalibration after the v7 one.
 
 ---
 
