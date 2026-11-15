@@ -720,6 +720,13 @@ script exported by `export_script.py`):
     minutes of explanation should be several slides. For us: a data slide listing each source,
     sample and rule (from `TARGETS.md`), with outside checks; split the slides whose notes run
     longest (40, 43, 46, 50, 52).
+    Done Nov 15 for the Nov 17 talk: 15 slides became 24 (39–62), one point per slide, with a data
+    slide (sources, samples, construction rules) and a targets slide (old vs sourced values, with
+    the check that manufacturing holds 81% of E-9 workers). New slides: the model in two parts, the
+    three EPS shares with a consistency check, cap use vs wanting more, the top 1% plant at each
+    wage (`hopenhayn_project/eps_model/top_plant.py`), the three ways to share the quota, results,
+    the cost breakdown, and bunching on every grid. Results unchanged (v6). Donny is away on Nov 17,
+    so his part (45–49) goes to Mimi.
 
 ---
 

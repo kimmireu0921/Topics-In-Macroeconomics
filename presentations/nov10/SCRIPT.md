@@ -1,6 +1,6 @@
-# Nov 10 script
+# Nov 17 script (the Nov 10 slides, presented Nov 17)
 
-Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the slides word for word, so learn each point and say it in your own words. "If asked" entries are backup answers, used only if the topic comes up. Presenters: Sara 39–41, Donny 42–45, Julian 46–48, Benjamin 49–52, Mimi 53.
+Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the slides word for word, so learn each point and say it in your own words. "If asked" entries are backup answers, used only if the topic comes up. Presenters: Sara 39–44, Mimi 45–49 and 62, Julian 50–53, Benjamin 54–61.
 
 ### Slide 39: EPS project update: understanding the baseline
 
@@ -8,43 +8,91 @@ Presenter: Sara
 
 **[Title]**
 
-"Good afternoon. Last week you asked us to understand the baseline model before running more experiments. So today nothing in the model has changed. We'll show how it behaves."
+"Good afternoon. Last time you asked us to understand the baseline model before running more experiments. The model has not changed since then. Today we show how it behaves."
 
 **[Plan]**
 
-"We start with a short refresher, then cover who uses EPS, whether the limit binds, and why removing the size rule does not make large plants grow. We also ran the checks you asked for."
+"First a short refresher on the model and our data, including a check of where every target comes from. Then who uses EPS, whether the limit binds, why removing the size rule does not make large plants grow, and the checks you asked for."
 
-### Slide 40: Refresher: the question, the model and the data
+### Slide 40: The model (1/2): what a plant makes, and what its workers cost
 
 Presenter: Sara
 
-**[Question]**
+**[Equation 1]**
 
-"A quick reminder. Korea's Employment Permit System, EPS, limits each plant's foreign workers according to its number of Korean workers. We ask whether that keeps weak plants alive, and how much output would change if the same quota ignored size."
+"A plant has productivity s. It needs core Korean workers h and manual work. Manual work can be done by a Korean manual worker or an EPS worker, one for one. Light plants put almost no weight on manual work; manual-intensive plants put a lot."
 
-**[Model]**
+**[Equation 2]**
 
-"It's a Hopenhayn model. A plant has productivity s and hires core Koreans h and manual workers. Manual work can be done by Koreans, k, or EPS workers, m. Korean manual workers cost a premium that is smaller at larger plants. Under the current rule, a plant can have up to a share theta of its legal cap. In the model the cap and eligibility depend on core Koreans only; the law counts all Korean workers. In the no-size-rule experiment, plants pay a price p instead."
-
-**[Data]**
-
-"The census gives plant sizes, the survey covers firms that use EPS, and Lee, Peri and Yang give closures after the 2020–21 stop in new arrivals. We've asked the Ministry for the rest."
+"Korean manual workers cost more than the wage, most of all at small plants. At a plant with no core Koreans the cost is 1.92 times the wage; at 150 it is 1.29. An EPS worker costs the wage, so it saves that premium."
 
 **[If asked: how many parameters]**
 
-"13 parameters and 8 targets, so it is not exactly identified target by target. Some come from the structure and the search over them."
+"13 parameters and 8 targets, so it is not exactly identified target by target."
 
-### Slide 41: Your questions from last week, and the short answers
+### Slide 41: The model (2/2): the size rule, the experiment, entry and exit
+
+Presenter: Sara
+
+**[Rule and experiment]**
+
+"Today a plant can have EPS workers up to a share theta of its legal cap, and theta is the same for every plant. In our experiment the cap is gone and every plant pays the same permit price p. Theta or p adjusts so the quota is used."
+
+**[Entry and exit]**
+
+"Plants close when the future is not worth it, and new plants enter until entry is worth its cost. That pins down the wage. Korean labor and the quota are fixed."
+
+**[Box]**
+
+"One simplification: our cap counts core Koreans only, while the law counts all Korean workers. We will change that for next time."
+
+### Slide 42: Our data: what each source covers, and how we used it
 
 Presenter: Sara
 
 **[Title]**
 
-"Here is what you asked last week, with our short answers. The next slides show each one."
+"Before the results, here is every data source, the sample, and the rules we used to build each number."
+
+**[Rows]**
+
+"The census gives plant sizes. Some headcounts are hidden in size bands, so we give each hidden plant the average of its band. The survey covers only firms that use EPS, in 2019. Lee, Peri and Yang give the closure evidence. The Ministry and Statistics Korea give the EPS totals and the exit rate."
+
+**[If asked: why 2024]**
+
+"It is the latest year in the census, and it matches the 2024 caps in the model."
+
+### Slide 43: Checking our targets: two had no source, so we replaced them
+
+Presenter: Sara
+
+**[Title]**
+
+"We traced every calibration target to its source. Two had none: the EPS share of workers and the share of plants using EPS were rough figures from our first model. The exit rate was an assumption."
+
+**[Table]**
+
+"Here are the sourced values. The EPS share of workers barely changes. The share of plants using EPS falls from 10 to 8 percent, and the exit rate from 8 to 6.6 percent. Average size rises to 8.1 once we count the plants the census masks and the largest plants."
+
+**[Box]**
+
+"Today's results use the old targets. The model has too many EPS users and too much exit against the new values, so we are recalibrating. We will bring the new results next week."
+
+**[If asked: are workplaces and plants the same]**
+
+"Not exactly. The Ministry counts workplaces and the census counts establishments. They are close, but the 8 percent may be off slightly."
+
+### Slide 44: Your questions from last time, and the short answers
+
+Presenter: Sara
+
+**[Title]**
+
+"Here is what you asked, with our short answers. The next slides show each one."
 
 **[Correction]**
 
-"First, some corrections to what we told you. The EPS share of 36.9 percent is the average, across firms using EPS, of EPS workers divided by that firm's workers. It is not the share in the economy, which is 5.5 percent, or the share of firms using EPS, which is about 10 percent. Slide 43 shows all three, in the model and the data."
+"First, a correction. The EPS share of 36.9 percent is the average, across firms using EPS, of EPS workers divided by that firm's workers. It is not the share in the economy. Slide 47 shows all three meanings."
 
 **[Correction on the cap]**
 
@@ -52,15 +100,15 @@ Presenter: Sara
 
 **[Correction on the survey]**
 
-"On slides 31 and 37 we said every user wants more. In the model that is 98%. In the survey it is 44%: the other 56% would not hire more even with no limit."
+"Earlier we said every user wants more. In the model that is 98%. In the survey it is 44%."
 
 **[Hand over]**
 
-"Donny will now show who uses EPS in the model, and the policy functions."
+"Mimi will now show who uses EPS in the model, and the policy functions."
 
-### Slide 42: Who uses EPS: manual-intensive plants, and no light plants
+### Slide 45: Who uses EPS: manual-intensive plants, and no light plants
 
-Presenter: Donny
+Presenter: Mimi
 
 **[Title]**
 
@@ -76,7 +124,7 @@ Presenter: Donny
 
 **[Bottom box]**
 
-"So the 10 percent mostly comes from a number we calibrate, not from the cap. That is a weakness: nothing measures that share directly. It is in our Ministry request."
+"So the 10 percent mostly comes from a number we calibrate, not from the cap. The sourced value is 8 percent of plants, so the model has slightly too many users; the recalibration fixes that."
 
 **[If asked: is 89 percent with no manual workers realistic]**
 
@@ -86,41 +134,45 @@ Presenter: Donny
 
 "Because Korean manual workers only come at a higher price, and the premium in equation 2 is that price. A Korean manual worker costs about 1.6 times the wage at a plant with 7 core Koreans and 1.3 times at 150. Employers rate EPS workers at 74 to 96 percent of a Korean worker. Even at 74 percent, an EPS worker costs about 1.35 times the wage per unit of work: still cheaper at small plants, but not at large ones. So lower productivity would make large plants want EPS even less, which supports our result."
 
-### Slide 43: Do model users match the data? The shape, but not the small end
+### Slide 46: Do model users match the data? The shape, but not the small end
 
-Presenter: Donny
+Presenter: Mimi
 
 **[Title]**
 
-"You asked us to check that the model's EPS users look like the data's. Here they are by total workers, under the 2019 caps, which is when the survey was done."
+"You asked us to check that the model's EPS users look like the data's. Here they are by total workers, under the 2019 caps, when the survey was done."
 
 **[Right columns]**
 
-"The EPS share falls with size in both, from about half at the smallest firms to around 5 percent at the largest. We only targeted the average, so this shape is a check."
+"The EPS share falls with size in both, from about half at the smallest firms to about 5 percent. We only targeted the average, so this shape is a check."
 
 **[Left columns]**
 
-"The miss is in where users are. The model has 55% of EPS firms under 10 workers, against 41% in the survey, and too few at 20 to 49."
-
-**[Also a miss]**
-
-"From 20 workers up, the model's EPS share is lower than the survey's at every size, for example 18% against 26% at 20 to 49. It is the same gap as on slide 47: larger plants have fewer EPS workers in the model than in the data. One θ for every plant may be the reason, but we haven't tested it."
+"The miss is in where users are: 55% of the model's EPS firms are under 10 workers, against 41% in the survey, and too few are at 20 to 49. From 20 workers up, the model's EPS shares are also lower, for example 18% against 26% at 20 to 49."
 
 **[If asked: why the miss]**
 
-"We don't know yet. The model's plant sizes under 10 come from a target for the share of very small plants. The survey covers EPS users only, so we can't test this on non-users."
+"We don't know yet. One theta for every plant may be the reason, but we haven't tested it."
 
-**[Bottom table]**
+### Slide 47: Three different “EPS shares”, in the data and in the model
 
-"You asked us to define the EPS share. There are three. First, the average across EPS firms of each firm's EPS workers divided by its workers: 36.9 percent in Lee, Peri and Yang, 37.2% in the model, measured the same way. Second, EPS workers as a share of all manufacturing workers: 5.5 percent, which sets the quota in the model. Third, the share of plants that use EPS: about 10 percent, and 10.7% in the model."
+Presenter: Mimi
 
-**[If asked: where do 5.5 and 10 percent come from]**
+**[Title]**
 
-"They are our calibration targets. We are still checking their sources and will confirm them."
+"You asked us to define the EPS share. There are three, and they measure different things."
 
-### Slide 44: Policy functions for manual-intensive plants
+**[Table]**
 
-Presenter: Donny
+"The first, 36.9 percent, is the average across EPS firms of each firm's EPS share. The second, about 5 percent, is EPS workers in all manufacturing. It sets the quota. The third, 8 percent, is the share of plants that use EPS. The model has 10.7%, because it was calibrated to the old 10 percent."
+
+**[Box]**
+
+"They are consistent. EPS plants are about two and a half times the average size, so they hold about a fifth of all workers. A quarter of those workers are EPS workers, which gives about 5 percent of all workers."
+
+### Slide 48: Policy functions for manual-intensive plants
+
+Presenter: Mimi
 
 **[Title]**
 
@@ -144,11 +196,11 @@ Presenter: Donny
 
 **[If asked: why the steps]**
 
-"Productivity is on a grid, and the plan changes in steps. The caps also create jumps. Slide 52 checks the grid."
+"Productivity is on a grid, and the plan changes in steps. The caps also create jumps. Slide 60 checks the grid."
 
-### Slide 45: Who is held back: almost every user, by the quota, not the cap
+### Slide 49: Who is held back: almost every user, by the quota, not the cap
 
-Presenter: Donny
+Presenter: Mimi
 
 **[Title]**
 
@@ -156,33 +208,25 @@ Presenter: Donny
 
 **[Cards]**
 
-"Optimal scale means the size a plant would choose with no limit, at today's prices. Light plants, 89% of all plants, are already there. 98% of EPS users would hire more, so they are below it, and 82% are at their limit. But that limit is theta times the cap, and theta is 0.21. No plant reaches the legal cap. In the model, the quota does the limiting, and the legal cap decides how it is shared."
+"Optimal scale is the size a plant would choose with no limit. Light plants are already there. 98% of EPS users would hire more, and 82% are at their limit. But the limit is theta times the cap, with theta 0.21, so no plant reaches the legal cap itself."
 
-**[Table]**
+**[Box]**
 
-"With no limit, plants would be 1.4 to 1.9 times larger. But total demand would be 8.5 times the quota, so this can't happen at the same quota. It is a measure of how much plants want EPS workers."
+"So the quota does the limiting. Without any limit plants would be 1.4 to 1.9 times larger, but they would want 8.5 times the quota."
 
-**[If asked: 82 percent versus 98 percent]**
+**[If asked: 82 versus 98 percent]**
 
-"The others sit just below their limit but would still hire more. Part of this may be the grid for manual workers, and we haven't checked. Under the 2019 caps, 91% are at the limit."
-
-**[If asked: why do plants with 300+ Korean workers use EPS]**
-
-"These rows count all Korean workers, core and manual. In the model, eligibility depends on core Koreans only, so a plant with 300 or more Korean workers in total can still be eligible if it has fewer than 300 core Koreans."
-
-**[If asked: who else is below optimal scale]**
-
-"The 0.1% of plants that are manual-intensive but have 300 or more core Koreans, so they are not eligible for EPS."
+"The others sit just below their limit but would still hire more. Under the 2019 caps, 91% are at the limit."
 
 **[If asked: is theta realistic]**
 
-"Theta is a simple stand-in for rationing. It gives every plant the same share of its cap. Real rationing uses a score and a cut-off, and we kept the model simple as you advised."
+"Theta is a simple stand-in for rationing: every plant gets the same share of its cap. Real rationing uses a score and a cut-off."
 
 **[Hand over]**
 
 "Julian will now show whether the cap binds, in the survey and in the model."
 
-### Slide 46: Is the cap binding? Yes for 2019 caps, barely for 2024 caps
+### Slide 50: Is the cap binding? Yes for 2019 caps, barely for 2024 caps
 
 Presenter: Julian
 
@@ -196,29 +240,37 @@ Presenter: Julian
 
 **[Orange bars]**
 
-"Orange adds what they say they would hire with no limit: 24% would go past the 2019 cap, and that holds at every size."
+"Orange adds what they say they would hire with no limit: 24% would go past the 2019 cap, at every size."
 
 **[Green bars]**
 
-"Green applies the 2024 caps, which are much higher, to the same firms and answers. Now about 1% would go past. So after the 2024 change, the legal cap may barely bind."
-
-**[Box]**
-
-"You also asked whether the caps bind at all, since firms use only 62% of their cap on average and 42% use less than half. If the cap were what limits firms, firms far below it should not want more. But 41% of them do, almost as many as at the cap, 50%. So for most firms something else limits them, like the quota, the points ranking or the limit on new permits per round. That matches the model, where the quota limits plants, not the cap. And 56% of firms want no more workers at all: they are at their optimal scale."
-
-**[Why it matters]**
-
-"This matters for our question. You said that if no one is constrained there is no paper. Under the 2019 caps there clearly is a constraint. Under the 2024 caps we need newer data. Firms may also have wanted more after 2019, and the quota or the score may still limit them."
-
-**[If asked: then what limits them]**
-
-"The survey can't tell us. The candidates are the national quota, the points ranking and the 3 to 6 new permits per round. The Ministry tables we requested would separate them."
+"Green applies the 2024 caps, which are much higher, to the same firms and answers. Then about 1% would go past. So after 2024 the legal cap may barely bind."
 
 **[If asked: how firms are above the cap]**
 
-"We can't fully explain it. Root industries may hire 20 percent more, and the public file doesn't show which firms those are. We've asked the Ministry for the rules and the counts."
+"We can't fully explain it. Root industries may hire 20 percent more, and the public file doesn't show which firms those are. We've asked the Ministry."
 
-### Slide 47: How much do plants want? Far more in the model than the survey
+### Slide 51: Firms far below the cap still want more: something else limits them
+
+Presenter: Julian
+
+**[Title]**
+
+"You also asked whether the caps bind at all, since firms use only 62% of their cap on average."
+
+**[Table]**
+
+"42% of firms use less than half their cap. If the cap were what limits firms, those firms should not want more. But 41% of them do, almost as many as at the cap, 50%."
+
+**[Box]**
+
+"So for most firms something else limits them. That matches the model, where the quota limits plants, not the cap. And 56% of firms want no more workers at all."
+
+**[Why it matters]**
+
+"You said that if no one is constrained there is no paper. Under the 2019 caps there clearly is a constraint. Under the 2024 caps we need newer data."
+
+### Slide 52: How much do plants want? Far more in the model than the survey
 
 Presenter: Julian
 
@@ -242,7 +294,7 @@ Presenter: Julian
 
 "We haven't tried. Productivity differences or EPS workers being imperfect substitutes could lower it, but you advised us to keep the model simple, so we want to discuss it first."
 
-### Slide 48: The real limit, cap or quota? The model assumes the quota
+### Slide 53: The real limit, cap or quota? The model assumes the quota
 
 Presenter: Julian
 
@@ -270,7 +322,7 @@ Presenter: Julian
 
 "Benjamin will now explain why large plants barely grow, and the checks we ran."
 
-### Slide 49: Why large plants barely grow: their next worker is Korean
+### Slide 54: Why large plants barely grow: their next worker is Korean
 
 Presenter: Benjamin
 
@@ -280,61 +332,101 @@ Presenter: Benjamin
 
 **[Point 1]**
 
-"Large plants hire Korean manual workers. Once its EPS permits are used, a large plant's next worker is Korean. So the limit doesn't change what the next worker costs. It only saves money on workers the plant would hire anyway, so it doesn't change the plant's size much."
+"Large plants already hire Korean manual workers. Once their EPS permits are used, the next worker is Korean. So the limit doesn't change what the next worker costs; it only saves money on workers the plant would hire anyway."
 
 **[Chart]**
 
-"The blue line is what one permit is worth: the wage times the premium. It falls with core Koreans, because we assume recruiting is easier at large plants. The orange line is the permit price. They cross at about 28 core Koreans."
+"The line is what one permit saves: the wage times the premium. It falls with core Koreans, because we assume recruiting is easier at large plants. The dashed line is the permit price. They cross at about 28 core Koreans."
 
 **[Point 2]**
 
-"Past that point the permit is not worth its price, so large plants drop EPS. Only a middle band of plants uses it."
-
-**[Point 3]**
-
-"A top 1 percent plant goes from 11 EPS workers to none and stays about the same size. You noticed that the average EPS user gets smaller, from 21.6 to 13.8 workers. That is because large plants leave the group of EPS users, not because they shrink."
-
-**[If asked: so why does gross output fall]**
-
-"With a price, permits move away from small plants, which lose cheap workers and produce less, and large plants swap EPS workers for Koreans instead of growing. So gross output falls to 99.1. Costs fall more, from 21.0 to 19.9, so net output rises. In our model the size rule mainly raises costs rather than limiting output, because EPS and Korean manual workers are perfect substitutes."
+"Past that point a permit is not worth its price, so large plants drop EPS. Only a middle band of plants uses it."
 
 **[If asked: what if EPS workers are less productive]**
 
-"Employers rate them at 74 to 96 percent of a Korean worker. At 74 percent, EPS work costs about 1.35 times the wage per unit, more than a Korean manual worker at a large plant, about 1.29. So large plants would want EPS even less, and our result would get stronger."
+"Employers rate them at 74 to 96 percent of a Korean worker. At 74 percent, EPS work costs about 1.35 times the wage per unit, more than a Korean manual worker at a large plant, about 1.29. So large plants would want EPS even less."
 
-**[If asked: isn't the premium the key assumption]**
-
-"Yes, it is, and we don't measure it directly. Slide 51 tests other values."
-
-### Slide 50: Splitting the experiment: the size link and the permit charge
+### Slide 55: The top 1% plant drops EPS and barely changes size
 
 Presenter: Benjamin
 
 **[Title]**
 
-"Last week's no-size-rule experiment changed two things at once: it removed the size link, and it charged for permits. So we split them. This is a new experiment, with no new features in the model."
+"Here is the top 1 percent plant in detail."
 
-**[New column]**
+**[Rows 1 and 2]**
 
-"Permits stay free, the quota stays the same, and every plant gets the same limit, 3.9 workers. The limit is set so the quota is used."
+"Today it has 11 EPS workers. With a price it has none and hires more Korean manual workers instead. It goes from 317 to 328 workers."
 
-**[Gross row]**
+**[Rows 3 and 4]**
 
-"With a price, gross output falls to 99.1. With a free, equal limit, it rises to 101.0. So your expectation that gross output rises does hold for this version. But it comes from sharing permits differently, and we can't say the charge alone explains it."
+"Why does it grow at all? At today's wage its price plan is exactly its plan with no EPS. So EPS plays no part. The growth comes from the wage, which is lower with a price because fewer manual-intensive plants survive."
+
+**[Box]**
+
+"Under today's rule the plant sits just past the 150 cap step to get the larger cap. That is the size rule making it a little bigger: bunching."
+
+**[If asked: how precise are these sizes]**
+
+"Sizes sit on a grid with steps of a few percent, so 308 against 317 is about one grid step."
+
+### Slide 56: Three ways to share the same quota
+
+Presenter: Benjamin
+
+**[Title]**
+
+"Last time's experiment changed two things at once. So we split it. Here are the three ways of sharing the same quota that we compare."
+
+**[Table]**
+
+"Today each plant gets a share theta of its cap. With a price, any plant can buy permits at 0.34. With an equal limit, permits are free and every plant gets the same 3.9 workers."
+
+**[Box]**
+
+"The equal limit removes the size link but keeps permits free, so comparing the two tells us what the charge does."
+
+### Slide 57: A price raises net output; an equal limit raises gross output. Both gains are small
+
+Presenter: Benjamin
+
+**[Title]**
+
+"Here are the results for the three."
+
+**[Net and gross]**
+
+"With a price, gross output falls to 99.1 but net output rises 0.33%. With an equal limit, gross output rises to 101.0, as you expected, but net output rises only 0.19%, or 0.09% on the finer grid."
 
 **[Other rows]**
 
-"With an equal limit, more plants use EPS, and 62% of EPS workers are at plants with 5 or fewer Koreans. That means more plants survive, and costs rise. So the net gain falls to +0.19%, or +0.09% on the finer 48 by 21 grid."
+"With an equal limit more plants use EPS and most permits go to the smallest plants. A top 1 percent plant barely changes size in any version."
 
-**[Last row]**
+**[Box]**
 
-"A top 1 percent plant barely changes size in either version: 328 workers with a price and 308 with an equal limit, against 317 today. Only with no limit does it reach 479, and that takes 8.5 times the quota. At the same quota, more for large plants means less for small ones."
+"Both gains are small. A price is at our kill line and an equal limit is below it."
 
-**[Kill line]**
+### Slide 58: Where the net gain comes from: fewer costly manual-intensive plants
 
-"Our kill line was 0.10 of the gain from a 50 percent larger quota. With a price we are at 0.09 to 0.10. With an equal limit, 0.02 to 0.05, below the line."
+Presenter: Benjamin
 
-### Slide 51: Does the premium drive the result? The direction holds
+**[Title]**
+
+"So where does the net gain come from? Net output is gross output minus real costs."
+
+**[Table]**
+
+"With a price, gross output falls by 0.9. But costs fall by about 1.2, and the biggest part is the fixed costs of running plants."
+
+**[Box]**
+
+"Those are manual-intensive plants that close when they must pay for permits. Each is expensive to run. So the size rule does keep some costly plants alive. That is your original question, and the answer is yes, but the effect is small."
+
+**[If asked: what if the premium is just higher pay]**
+
+"Then it is a transfer to Korean workers, not a cost, and the gain would be smaller. That is one of the assumptions we want your view on."
+
+### Slide 59: Does the premium drive the result? The direction holds
 
 Presenter: Benjamin
 
@@ -358,57 +450,65 @@ Presenter: Benjamin
 
 "These rows are not recalibrated, so the levels don't match the targets. They show direction only. To really test this we would need to measure the premium by size, or relax the perfect-substitutes assumption, and we would like your view on whether that is worth it."
 
-### Slide 52: The bumpy no-rule line was grid error; the bunching result holds
+### Slide 60: The bumpy no-rule line was grid error, as you suspected
 
 Presenter: Benjamin
 
 **[Title]**
 
-"You said the no-size-rule line should be smoother, and to check for approximation error. Last week we blamed the grid, but both lines used the same grid, so that was not a real answer. So we tested it."
+"You said the no-size-rule line should be smoother and to check for approximation error. You were right."
 
 **[Chart]**
 
-"Blue is last week's line. Orange uses a finer grid for productivity and for plant size. It is much smoother."
+"Blue is last time's line. Orange uses a finer grid for productivity and plant size. It is much smoother."
 
-**[Why]**
+**[Box]**
 
-"On last week's grid, productivity moves in steps of about 5 percent. Plant size moves about three times as much, so a step is wider than our 8 percent histogram bins. That makes bumps. So you were right: this was approximation error."
+"Productivity moves in steps of about 5 percent, and plant size moves about three times as much, so a step is wider than our 8 percent bins. That makes the bumps."
 
-**[Table]**
+### Slide 61: The bunching at the cap steps is real: it holds on every grid
 
-"Roughness measures how much the line jumps between bins. For the no-rule line it falls from 0.68 to 0.22. For the current rule it falls less, from 0.83 to 0.60, and levels off near 0.6, because its jumps are real: they are the cap steps."
+Presenter: Benjamin
+
+**[Title]**
+
+"So is the bunching we showed also grid error? No."
 
 **[Last columns]**
 
-"The step ratios barely move. Under the current rule plants pile up past each step, at about 1.6 to 2. With no size rule the ratio stays near or below 1. So the bunching result holds on every grid."
+"The pile-up just past each cap step is 1.5 to 2 times the density just below it under today's rule, on every grid. With no size rule it stays near or below 1."
+
+**[Roughness]**
+
+"The no-rule line gets smooth on finer grids, from 0.68 to 0.22. Today's rule levels off near 0.6, because its jumps are real: they are the cap steps."
 
 **[If asked: does the +0.33 change on this grid]**
 
-"We haven't solved the full equilibrium on the finest grid. Our +0.33 percent is on the 24 by 11 calibration grid. On the 48 by 21 grid, the one behind last week's chart, it is +0.37 percent. These runs hold prices fixed, so they check the shape of the distribution, not the gain."
+"These runs hold prices fixed, so they check the shape, not the gain. The +0.33 percent is on the 24 by 11 grid; on 48 by 21 it is +0.37 percent."
 
 **[Hand over]**
 
 "Mimi will sum up and ask our questions."
 
-### Slide 53: What we learned, and where we would like your advice
+### Slide 62: What we learned, and where we would like your advice
 
 Presenter: Mimi
 
 **[Left]**
 
-"To sum up: the 10 percent of users mostly comes from the plant type share. The quota does the limiting. Large plants barely grow. And the gain is small and depends on how permits are shared."
+"To sum up: who uses EPS comes mostly from the plant-type share. The quota, not the cap, does the limiting in the model, and something other than the cap limits most firms in the survey. Large plants barely grow without the size rule. And the gain is small."
 
 **[Right]**
 
-"We have four questions. First, should the paper focus on the 2019 caps, which clearly bind, or the 2024 caps, which may barely bind? Second, is this gain enough to continue, or should we refocus on the quota, which matters much more? Third, which comparison is the right one? And fourth, you told us not to complicate the model, so is relaxing perfect substitutes worth it?"
+"We have four questions. Should we focus on the 2019 caps, which clearly bind, or the 2024 caps, which may not? Is this gain enough to continue, or should we refocus on the quota? Which comparison is right? And should the premium count as a real cost?"
 
 **[Bottom]**
 
-"Next we follow up on the Ministry request, contact Prof. Lee and Prof. Yang, and measure what we can."
+"For next week we will recalibrate to the sourced targets, fix the cap to count all Korean workers, and follow up with the Ministry."
 
 **[If asked: does the size rule keep weak plants alive]**
 
-"Only slightly. The current rule keeps about 0.9 percent more plants than a price would, and the exit rate is 8.08 against 8.02 percent. An equal limit would keep 2.3 percent more plants than today. So the gain comes mainly from lower costs, not from weak plants exiting."
+"Slightly. Today's rule keeps about 0.9 percent more plants than a price would, mostly manual-intensive plants that are costly to run."
 
 **[Close]**
 
