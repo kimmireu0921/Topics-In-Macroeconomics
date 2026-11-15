@@ -705,7 +705,8 @@ script exported by `export_script.py`):
    is acceptable if the gain stays below the threshold.
 8. ~~Verify the exit-rate target (8%) against KOSIS business demography statistics~~ — done
    Nov 10: 6.6% (2024p), now the v7 target (`hopenhayn_project/eps_model/TARGETS.md`).
-9. **To do before the Nov 17 talk: put the cap and eligibility on all Korean workers, h + k.**
+9. **To do for the Nov 24 talk (after presenting the Nov 10 slides on Nov 17): put the cap and
+   eligibility on all Korean workers, h + k.**
    The model uses q(h) and 1 ≤ h < 300; the law and the survey's `korean` variable count all
    insured Korean workers. No reason was ever recorded for using h; it was a shortcut when the
    model split Koreans into core and manual workers (v4, Oct 15). With h + k the constraint is
