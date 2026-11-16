@@ -694,7 +694,13 @@ script exported by `export_script.py`):
    74–96%), the Korean manual premium as a resource cost, the cap on core Koreans h
    rather than h + k, equal θ for every plant, every user wanting more, no points ranking
    or new-permit limit, the permit fee as a transfer, steady-state comparisons only.
-5. **Data still needed:** EPS workers by number of Korean workers for all plants and the
+5. **Ministry request (status Nov 16):** the combined disclosure request (`data_requests/moel_disclosure_requests.md`,
+   통합 청구, items 1–14) was filed at open.go.kr, and the Ministry extended the deadline because of
+   its size. Priority if asked to narrow: item 5 (quota, allocations, cut-off score by round), item 6
+   (rules: score table, new-permit limit, over-cap handling), item 4 and items 2–3 in the coarse size
+   groups (규모 B), 2024 first and 2019 if possible. Then items 1–3 by exact Korean headcount (bunching),
+   item 10 (manual-occupation share) and items 11–12 (premium); items 7–9, 13–14 last.
+6. **Data still needed:** EPS workers by number of Korean workers for all plants and the
    2024 caps (MOEL, HRD Korea and KEIS hold the records); the January 2021 survey wave
    (Prof. Lee, Prof. Yang). Ask Prof. Hur first. Also make rationing realistic using the survey.
 6. **Optional extensions:** a COVID demand shock in the closure experiment; credit
