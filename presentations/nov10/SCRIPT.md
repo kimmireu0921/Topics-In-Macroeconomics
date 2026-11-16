@@ -500,7 +500,7 @@ Presenter: Mimi
 
 **[Right]**
 
-"We have four questions. Should we focus on the 2019 caps, which clearly bind, or the 2024 caps, which may not? Is this gain enough to continue, or should we refocus on the quota? Which comparison is right? And should the premium count as a real cost?"
+"We have four questions. Should we focus on the 2019 caps, which clearly bind, or the 2024 caps, which may not? Is this gain enough to continue, or should we refocus on the quota? Which comparison is right? And should we make EPS workers less attractive in the model? Firms in the survey want far fewer than the model says, and adding the dorm and meal costs the survey records would be a simple way to do it."
 
 **[Bottom]**
 
