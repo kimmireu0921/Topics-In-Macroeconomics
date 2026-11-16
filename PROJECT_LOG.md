@@ -700,6 +700,8 @@ script exported by `export_script.py`):
    (rules: score table, new-permit limit, over-cap handling), item 4 and items 2–3 in the coarse size
    groups (규모 B), 2024 first and 2019 if possible. Then items 1–3 by exact Korean headcount (bunching),
    item 10 (manual-occupation share) and items 11–12 (premium); items 7–9, 13–14 last.
+   Expected around Nov 30, so the Nov 24 talk has no Ministry tables (one line on status only);
+   the data go into the talk after that.
 6. **Data still needed:** EPS workers by number of Korean workers for all plants and the
    2024 caps (MOEL, HRD Korea and KEIS hold the records); the January 2021 survey wave
    (Prof. Lee, Prof. Yang). Ask Prof. Hur first. Also make rationing realistic using the survey.
