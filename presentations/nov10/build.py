@@ -298,15 +298,15 @@ write("nov10-size", f"""{h2("Do model users match the data? The shape, but not t
 # ------------------------------------------------------------------ three EPS shares
 e9_share, plants_eps, size_eps, size_all = 0.0529, 0.080, 20.78, 8.14
 at_eps = plants_eps * size_eps / size_all
-write("nov10-shares", f"""{h2("Three different “EPS shares”, in the data and in the model")}
-{table([["What “EPS share” means", "Data", "Source", "Model"],
+write("nov10-shares", f"""{h2("What we mean by “EPS share”, and how the numbers fit")}
+{table([["Number", "Data", "Source", "Model"],
         ["Average, across EPS firms, of EPS workers ÷ that firm's workers", "36.9%", "Lee, Peri and Yang, Table 3", pct(FIT["eps_share_users"], 1)],
         ["EPS workers ÷ all manufacturing workers", "5.3% (we used 5.5%)", "Ministry and census, 2024", pct(C24["summary"]["eps_share"], 1)],
-        ["Share of plants that use EPS", "8.0% (we used 10%)", "Ministry and census, 2024", pct(who["users"], 1)]], [44, 18, 24, 14], 24)}
+        ["Share of plants that use EPS (not a worker share)", "8.0% (we used 10%)", "Ministry and census, 2024", pct(who["users"], 1)]], [44, 18, 24, 14], 24)}
 {box(f"<b>Check that they fit together:</b> 8% of plants use EPS, and they have about {size_eps:.0f} workers against {size_all:.0f} for the average plant, so they employ about {pct(at_eps)} of all workers. EPS workers are 5.3% of all workers, so about {pct(e9_share / at_eps)} of the workers at EPS plants. That is below the 37% average because large EPS firms have lower EPS shares.")}
 {foot("The 37% average counts each firm once; the 26% share weights firms by their workers.")}""",
-      [("Title", '"You asked us to define the EPS share. There are three, and they measure different things."'),
-       ("Table", f'"The first, 36.9 percent, is the average across EPS firms of each firm\'s EPS share. The second, about 5 percent, is EPS workers in all manufacturing. It sets the quota. The third, 8 percent, is the share of plants that use EPS. The model has {pct(who["users"], 1)}, because it was calibrated to the old 10 percent."'),
+      [("Title", '"Last time we used \'EPS share\' loosely. Here are the two worker shares, plus the share of plants that use EPS, and how they fit together."'),
+       ("Table", f'"The first, 36.9 percent, is the average across EPS firms of each firm\'s EPS share. The second, about 5 percent, is EPS workers in all manufacturing. It sets the quota. The third, 8 percent, is not a worker share: it is the share of plants that use EPS. The model has {pct(who["users"], 1)}, because it was calibrated to the old 10 percent."'),
        ("Box", '"They are consistent. EPS plants are about two and a half times the average size, so they hold about a fifth of all workers. A quarter of those workers are EPS workers, which gives about 5 percent of all workers."')],
       on=(3, 6))
 

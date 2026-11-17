@@ -154,17 +154,17 @@ Presenter: Mimi
 
 "We don't know yet. One theta for every plant may be the reason, but we haven't tested it."
 
-### Slide 47: Three different “EPS shares”, in the data and in the model
+### Slide 47: What we mean by “EPS share”, and how the numbers fit
 
 Presenter: Mimi
 
 **[Title]**
 
-"You asked us to define the EPS share. There are three, and they measure different things."
+"Last time we used 'EPS share' loosely. Here are the two worker shares, plus the share of plants that use EPS, and how they fit together."
 
 **[Table]**
 
-"The first, 36.9 percent, is the average across EPS firms of each firm's EPS share. The second, about 5 percent, is EPS workers in all manufacturing. It sets the quota. The third, 8 percent, is the share of plants that use EPS. The model has 10.7%, because it was calibrated to the old 10 percent."
+"The first, 36.9 percent, is the average across EPS firms of each firm's EPS share. The second, about 5 percent, is EPS workers in all manufacturing. It sets the quota. The third, 8 percent, is not a worker share: it is the share of plants that use EPS. The model has 10.7%, because it was calibrated to the old 10 percent."
 
 **[Box]**
 
