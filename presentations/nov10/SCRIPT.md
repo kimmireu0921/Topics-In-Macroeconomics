@@ -140,13 +140,13 @@ Presenter: Mimi
 
 **[Title]**
 
-"You asked us to check that the model's EPS users look like the data's. Here they are by total workers, under the 2019 caps, when the survey was done."
+"You asked us to check that the model's EPS users look like the data's. Here they are by total workers, under the 2019 caps, when the survey was done. Blue is the model, orange the survey."
 
-**[Right columns]**
+**[Right panel]**
 
 "The EPS share falls with size in both, from about half at the smallest firms to about 5 percent. We only targeted the average, so this shape is a check."
 
-**[Left columns]**
+**[Left panel]**
 
 "The miss is in where users are: 55% of the model's EPS firms are under 10 workers, against 41% in the survey, and too few are at 20 to 49. From 20 workers up, the model's EPS shares are also lower, for example 18% against 26% at 20 to 49."
 
