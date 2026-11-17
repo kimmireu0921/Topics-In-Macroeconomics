@@ -46,6 +46,27 @@ for ax, title, f in [(axes[0], "EPS workers, m", lambda p: np.array(p["m"])), (a
     for q in ("50", "90", "99"):
         ax.axvline(pct[q], color=MUTED, lw=1, ls=(0, (2, 3)), zorder=0)
         ax.text(pct[q], 2000, f"p{q}", color=MUTED, fontsize=15, ha="center", va="bottom", clip_on=False)
+# Labelled points at the median (p50) and top 1% (p99) plants: same grid point as the slide text
+for j, f in enumerate([lambda p, i: p["m"][i], lambda p, i: p["k"][i], lambda p, i: p["h"][i] + p["k"][i] + p["m"][i]]):
+    ax = axes[j]
+    for q in ("50", "99"):
+        i = int(np.searchsorted(s, pct[q]))
+        for pol, c, dy in [(free, ORANGE, 1.6), (cur, BLUE, 0.55)]:
+            v = f(pol, i)
+            if v < 0.5 and pol is free and j == 1:
+                continue                      # orange is 0 everywhere in the middle panel
+            ax.plot(s[i], v, "o", ms=9, color=c, markeredgecolor="white", markeredgewidth=1.5, zorder=5)
+            if pol is free:
+                off, ha = (-10, 8), "right"          # orange: above left
+            elif v < 0.5:
+                off, ha = (-10, 10), "right"         # a zero sits on the axis: label above left
+            else:
+                off, ha = (10, -24), "left"          # blue: below right, clear of the rising lines
+            ax.annotate(f"{v:.0f}", (s[i], v), xytext=off, textcoords="offset points", ha=ha, fontsize=15,
+                        fontweight="bold", color=c, zorder=6,
+                        bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.9))
+axes[1].set_facecolor("#EEF3FA")
+axes[1].set_title("Korean manual workers, k  (key panel)", loc="left", fontweight="bold", fontsize=18)
 axes[1].legend(loc="lower right", bbox_to_anchor=(1.0, 0.09), fontsize=16)
 fig.tight_layout()
 fig.savefig("fig_policy.png")

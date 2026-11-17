@@ -176,7 +176,7 @@ Presenter: Mimi
 
 **[Title]**
 
-"These are the policy functions you asked for. Each panel has productivity on the horizontal axis, for manual-intensive plants. Blue is the current rule. Orange is what the plant would choose with no limit and free permits."
+"These are the policy functions you asked for. Each panel has productivity on the horizontal axis, for manual-intensive plants. Blue is the current rule. Orange is what the plant would choose with no limit and free permits. The labelled dots are the median plant, p50, and the top 1 percent plant, p99. The shaded middle panel is the one to focus on."
 
 **[Left panel]**
 
