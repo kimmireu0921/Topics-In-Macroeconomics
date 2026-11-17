@@ -342,9 +342,9 @@ Presenter: Benjamin
 
 "Past that point a permit is not worth its price, so large plants drop EPS. Only a middle band of plants uses it."
 
-**[If asked: what if EPS workers are less productive]**
+**[Table]**
 
-"Employers rate them at 74 to 96 percent of a Korean worker. At 74 percent, EPS work costs about 1.35 times the wage per unit, more than a Korean manual worker at a large plant, about 1.29. So large plants would want EPS even less."
+"What if EPS workers are less productive? Employers rate them at 74 to 96 percent of a Korean worker. At 74 percent, the same amount of work costs about 1.35 times the wage. That is still cheaper than a Korean manual worker at a small plant, 1.57, but dearer than one at a large plant, 1.29. So lower productivity would make large plants want EPS even less, which supports this result."
 
 ### Slide 55: The top 1% plant drops EPS and barely changes size
 
