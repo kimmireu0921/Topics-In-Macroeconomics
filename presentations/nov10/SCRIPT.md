@@ -184,7 +184,7 @@ Presenter: Mimi
 
 **[Middle panel]**
 
-"This is the key panel. The median plant hires no Korean manual workers. A top 1 percent plant hires 156. So for large plants, the next manual worker is Korean. With no limit, all of them switch to EPS."
+"This is the key panel. Take the top 1 percent plant. In the left panel it has used all 11 EPS workers it is allowed, so here it hires 156 Korean manual workers on top. Its next worker is therefore Korean, at about 1.3 times the wage. A few more permits would only swap some Koreans for EPS workers: cheaper, but the plant would not get bigger. The median plant is different. It hires no Koreans, because they would cost it about 1.6 times the wage, so it stops at its EPS limit, and one more permit would let it grow. So the limit holds back small plants, not large ones. The orange line is zero because with free, unlimited permits no plant would hire a Korean manual worker."
 
 **[Right panel]**
 
