@@ -208,7 +208,7 @@ Presenter: Mimi
 
 **[Cards]**
 
-"Optimal scale is the size a plant would choose with no limit. Light plants are already there. 98% of EPS users would hire more, and 82% are at their limit. But the limit is theta times the cap, with theta 0.21, so no plant reaches the legal cap itself."
+"Take the top 1 percent plant from the last slide. Its legal cap is 50, but every plant may use only 21 percent of its cap, so its limit is about 11. It has used all 11, and it would like 357. Almost every user looks like this: 98 percent would hire more EPS workers if they could, and 82 percent have used everything they are allowed. But no plant gets near its full legal cap, because everyone gets only 21 percent of it. Light plants use no EPS, so the limit does not affect them."
 
 **[Box]**
 
