@@ -652,6 +652,39 @@ script exported by `export_script.py`):
 
 ---
 
+## Nov 17 — Presentation feedback: settle the model
+
+What Prof. Hur said:
+
+1. **The θ = 0.21 rule needs data behind it.** He asked for a histogram: among firms with at least
+   one EPS worker, the share of their legal cap they use. If no firm uses more than about 20%, the
+   rule is justified ("an effective cap"). If firms are spread out, use his first suggestion instead:
+   randomly mark some firms EPS-eligible (share set by the data), and let eligible firms hire up to
+   their legal cap. He read our 62% average and the ~20% at or above the cap as evidence against
+   θ = 0.21.
+2. **The economy is all one kind of firm.** It is an aggregate model, so forcing every firm to
+   share the national quota is odd when only about 10% use EPS. Options: a two-sector model (a
+   "boring" representative sector plus the manual-intensive sector), a partial-equilibrium industry
+   model, or random EPS eligibility. Our light plants are close to this, but he did not see them as
+   a separate sector.
+3. **Perfect substitutes cause corner solutions.** The top 1% plant going from 156 Korean manual
+   workers to 0 and 357 EPS workers looks odd; he blamed the lack of curvature but does not want
+   the model made complicated. Add elements one at a time.
+4. **Drop the 2024 "would go past the cap" line.** Applying 2019 answers to 2024 caps is too much of
+   a stretch. The 2019 line computed from data is fine.
+5. **The kill-line comparison (price vs a 50% larger quota) is not very informative.**
+6. **Slide 46 match "looks too good"**; we confirmed it is computed from the survey file.
+7. **Send a complete written model** with the updated slides this week. He will check the model
+   once; after that the model is settled and the work is polishing results and presenting less.
+
+Histogram done the same day (`bunching/cap_use_hist.py`, `cap_use_hist.png`, `.json`; 2019 caps
+from listed Korean workers, 772 firms): median 60% of the cap, mean 62%. 17% of firms are at or below
+21%, 18% are at or above the cap, 20% at 90% or more. The spikes at 20, 40, 60 and 80% come from
+small caps (cap 5). The model puts 82% of users exactly at 21% and none above, so the data do not
+support θ = 0.21 as an effective cap. This points to his random-eligibility version.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
