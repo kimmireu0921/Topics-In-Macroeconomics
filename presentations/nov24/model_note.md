@@ -24,7 +24,7 @@ A plant draws three permanent characteristics at entry, independently of one ano
 * a permanent productivity level $x$, drawn from a Pareto$(1, \gamma)$ distribution;
 * EPS eligibility $\iota$ (1 if eligible, 0 if not), with $\Pr(\iota = 1) = e$.
 
-Productivity is $s = x z$, where $\log z' = \rho_s \log z + \sigma_s \varepsilon'$, $\varepsilon'$ standard normal. Entrants draw $z$ from its stationary distribution; $\nu$ denotes the entrants' distribution of $s$.
+Productivity is $s = x z$, where $\log z' = \rho_s \log z + \sigma_s \varepsilon'$, $\varepsilon'$ standard normal. Entrants draw $z$ from its stationary distribution; $\nu$ denotes the entrants' distribution of $s$. A plant's state is the pair $(x, z)$: below we write functions of $s$ for short, but values, choices and exit are computed for each $(x, z)$, so two plants with the same $s$ and different $x$ are different states.
 
 **Timing within a year.** Incumbents and entrants hire and produce. Each plant then exits exogenously with probability $\delta$; survivors decide whether to stay, subject to a logit taste shock with scale $\sigma_\varepsilon$. New plants pay $c_e$ and enter until the expected value of entry equals $c_e$.
 
