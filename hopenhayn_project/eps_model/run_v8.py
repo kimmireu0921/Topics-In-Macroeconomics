@@ -122,7 +122,8 @@ def show(r):
 
 def summary(r):
     keys = ["net_Y", "Y", "firms", "avg_size", "share_small", "share_50plus", "exit_rate", "endo_exit_share",
-            "users", "eps_share_users", "users_size", "eps_share", "elig_share_plants", "w", "x", "eq_error", "Me"]
+            "users", "eps_share_users", "users_size", "eps_share", "elig_share_plants", "w", "x", "eq_error", "Me",
+            "cost_premium", "cost_eps_fixed", "cost_fixed", "cost_entry", "korean_manual", "core"]
     d = {k: float(r[k]) for k in keys}
     d["type_share"] = [float(v) for v in r["type_share"]]
     return d

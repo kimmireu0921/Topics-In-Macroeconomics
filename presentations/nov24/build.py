@@ -15,17 +15,17 @@ BLOB = json.load(open(os.path.join(HERE, "blobs.json")))
 P, FIT, T, X = R["params"], R["fit"], R["targets"], R["experiments"]
 CH = R["change_vs_current"]
 CUR, PRICE, EQ, NONE = X["current rule"], X["price"], X["equal limit"], X["no EPS"]
-PRESENTERS = json.load(open(os.path.join(HERE, "presenters.json")))   # {"part name": "presenter"}
 
-PARTS = [("feedback", ["nov24-cover", "nov24-feedback", "nov24-test"]),
-         ("model", ["nov24-env", "nov24-tech", "nov24-rules", "nov24-plant", "nov24-eq"]),
-         ("calibration", ["nov24-params", "nov24-fit", "nov24-checks", "nov24-who"]),
-         ("results", ["nov24-results", "nov24-plans", "nov24-assume", "nov24-next"])]
+PARTS = [("Sara", ["nov24-cover", "nov24-feedback", "nov24-test"]),
+         ("Donny", ["nov24-env", "nov24-tech", "nov24-rules"]),
+         ("Mimi", ["nov24-plant", "nov24-eq", "nov24-params"]),
+         ("Julian", ["nov24-fit", "nov24-checks", "nov24-who"]),
+         ("Benjamin", ["nov24-results", "nov24-plans", "nov24-assume", "nov24-next"])]
 ORDER = [s for _, ss in PARTS for s in ss]
 FIRST = 63
 TOTAL = FIRST - 1 + len(ORDER)
 PG = {k: FIRST + i for i, k in enumerate(ORDER)}
-PRESENTER = {s: PRESENTERS.get(n) for n, ss in PARTS for s in ss}
+PRESENTER = {s: n for n, ss in PARTS for s in ss}
 SERIF, SANS = "'Source Serif 4', Georgia, serif", "'IBM Plex Sans', Arial, sans-serif"
 NAVY, INK, BODY, MUTED, RUST, STEEL = "#14213d", "#1f2a3c", "#3d4756", "#5f6876", "#a8432c", "#2f5d8a"
 LOGO = "/_blob/921ccfeb3c9f6d9c3ed1cc4a5be8bdd4"

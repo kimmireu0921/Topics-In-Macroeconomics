@@ -185,8 +185,8 @@ class EPSModelV8(EPSModelV5):
             e = x
         elif regime == "flat":
             e = self.e0
-        else:
-            e = 1.0 if el else 0.0                       # eligibility irrelevant: one block per type
+        else:                                            # eligibility irrelevant: one block per type
+            return sh if el else 0.0
         return sh * (e if el else 1 - e)
 
     # ---- equilibrium ----------------------------------------------------------
@@ -286,5 +286,8 @@ class EPSModelV8(EPSModelV5):
             users_size=(mu[users] @ (n[users] + m[users])) / mu[users].sum() if users.any() else 0.0,
             eps_total=mu @ m, eps_share=(mu @ m) / L, type_share=list(type_mass / firms),
             elig_share_plants=elig_mass / firms,
+            cost_premium=float(mu @ rc - self.cm * mu[users].sum()), cost_eps_fixed=float(self.cm * mu[users].sum()),
+            cost_fixed=float(cf_total), cost_entry=float(self.ce * out["Me"]),
+            korean_manual=float(mu @ k), core=float(mu @ h),
             w=out["w"], x=out["x"], Me=out["Me"], out=out,
         )
