@@ -16,11 +16,11 @@ P, FIT, T, X = R["params"], R["fit"], R["targets"], R["experiments"]
 CH = R["change_vs_current"]
 CUR, PRICE, EQ, NONE = X["current rule"], X["price"], X["equal limit"], X["no EPS"]
 
-PARTS = [("Sara", ["nov24-cover", "nov24-feedback", "nov24-test"]),
-         ("Donny", ["nov24-env", "nov24-tech", "nov24-rules"]),
-         ("Mimi", ["nov24-plant", "nov24-eq", "nov24-params"]),
-         ("Julian", ["nov24-fit", "nov24-checks", "nov24-who"]),
-         ("Benjamin", ["nov24-results", "nov24-plans", "nov24-assume", "nov24-next"])]
+PARTS = [("Mimi", ["nov24-cover", "nov24-feedback", "nov24-test"]),            # hardest to easiest: Donny, Sara,
+         ("Benjamin", ["nov24-env", "nov24-tech", "nov24-rules"]),            # Benjamin, Julian, Mimi (Nov 18)
+         ("Julian", ["nov24-plant", "nov24-eq", "nov24-params"]),
+         ("Sara", ["nov24-fit", "nov24-checks", "nov24-who"]),
+         ("Donny", ["nov24-results", "nov24-plans", "nov24-assume", "nov24-next"])]
 ORDER = [s for _, ss in PARTS for s in ss]
 FIRST = 63
 TOTAL = FIRST - 1 + len(ORDER)
