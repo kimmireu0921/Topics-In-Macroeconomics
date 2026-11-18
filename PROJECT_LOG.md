@@ -713,6 +713,14 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
 <a id="next-steps"></a>
 ## Open questions and next steps
 
+**Schedule to the end (set Nov 18):**
+- **Nov 24:** talk on the v8 model (random eligibility, full legal cap) and the written model.
+- **About Nov 30:** Ministry data.
+- **Dec 8:** last talk, a polished deck of the final paper's results. No restructuring by then: the model is frozen after the Nov 24 feedback.
+- **Final submission:** a full paper of at most 20 pages, in the style of Prof. Hur's papers.
+- The paper contains no internal discussion (class, team or tools).
+
+
 1. ~~Recalibrate with the closure target measured Lee–Peri–Yang's way and the 2019
    caps~~ — done Oct 19.
 2. **Re-fit the closure slope on a finer grid**, and close the remaining gaps: EPS firms
