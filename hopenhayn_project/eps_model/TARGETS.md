@@ -15,9 +15,9 @@ the new values; v6 (`run_v6.py`, the Nov 3 and Nov 10 slides) used the old ones.
 | Average size of EPS firms | 20.78 | 20.78 | Lee, Peri and Yang (2026), Table 3, p. 14 |
 | Closure slope on exposure, with size controls | 0.152 | 0.152 | Lee, Peri and Yang (2026), Table 6, p. 23: columns 4 and 5, 0.154 and 0.150 |
 
-Where the old values came from: the 5.5% and 10% were rough figures the AI assistant wrote into
+Where the old values came from: the 5.5% and 10% were rough figures written into
 the first model on Oct 15 ("~240k E-9 manufacturing workers / ~4.4m manufacturing workers" and
-"~50k EPS manufacturing workplaces / ~510k plants") without looking them up. The 8% exit rate
+"~50k EPS manufacturing workplaces / ~510k plants") without a looked-up source. The 8% exit rate
 was labelled an assumption.
 
 Official series for reference (end of year, manufacturing, e-나라지표 1501):

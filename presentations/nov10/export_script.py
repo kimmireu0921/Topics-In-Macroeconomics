@@ -21,8 +21,7 @@ def span(v):
             runs.append([x])
     return " and ".join(f"{r[0]}–{r[-1]}" if len(r) > 1 else f"{r[0]}" for r in runs)
 out = ["# Nov 17 script (the Nov 10 slides, presented Nov 17)", "",
-       "Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the "
-       "slides word for word, so learn each point and say it in your own words. \"If asked\" entries are backup answers, used only "
+       "Generated from the deck's speaker notes. These are talking points: learn each point and say it in your own words. \"If asked\" entries are backup answers, used only "
        "if the topic comes up. Presenters: " + ", ".join(f"{n} {span(v)}" for n, v in who.items()) + ".", ""]
 for i, sid in enumerate(order):
     t = open(os.path.join(ROOT, "project/slides", sid + ".html"), encoding="utf-8").read()

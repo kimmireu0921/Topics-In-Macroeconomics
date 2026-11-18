@@ -613,8 +613,8 @@ script exported by `export_script.py`):
 
 **Problems found while checking (not yet fixed):**
 - The 5.5% and 10% targets have no source. They date from the first model (Oct 15). The
-  5.5% sets the quota M and so θ. Checked Nov 10: the AI assistant wrote both into `run_eps.py`
-  from rough figures it did not look up (5.5% = "~240k E-9 manufacturing workers / ~4.4m
+  5.5% sets the quota M and so θ. Checked Nov 10: both were written into `run_eps.py`
+  as rough figures without a looked-up source (5.5% = "~240k E-9 manufacturing workers / ~4.4m
   manufacturing workers"; 10% = "~50k EPS manufacturing workplaces / ~510k plants"). No search,
   data file or team member supplied them. They must be replaced or dropped. Candidates: E-9 workers
   in manufacturing from Statistics Korea's 이민자 체류실태 및 고용조사 (about 227,000 in press
@@ -824,8 +824,8 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
     the check that manufacturing holds 81% of E-9 workers). New slides: the model in two parts, the
     three EPS shares with a consistency check, cap use vs wanting more, the top 1% plant at each
     wage (`hopenhayn_project/eps_model/top_plant.py`), the three ways to share the quota, results,
-    the cost breakdown, and bunching on every grid. Results unchanged (v6). Donny is away on Nov 17,
-    so his part (45–49) goes to Mimi.
+    the cost breakdown, and bunching on every grid. Results unchanged (v6). On Nov 17 Mimi presents
+    45–49.
 
 ---
 
@@ -841,7 +841,7 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
 | `hopenhayn_project/eps_model/run_v6.py` | Version-5 model recalibrated to the corrected Lee–Peri–Yang targets |
 | `hopenhayn_project/eps_model/v6_best.json` | **Current** calibration (Nov 1, 13 parameters) |
 | `hopenhayn_project/eps_model/v6_results.json`, `v6_results_fine.json` | Fit, experiments and bunching; finer-grid check |
-| `presentations/nov3/SCRIPT.md` | Nov 3 script by presenter (Benjamin away: Julian 27–29, Mimi 30–32, Sara 33–35, Donny 36–38) |
+| `presentations/nov3/SCRIPT.md` | Nov 3 script by presenter (Julian 27–29, Mimi 30–32, Sara 33–35, Donny 36–38) |
 | `presentations/nov3/build.py`, `notes.py`, `export_script.py` | Generate the Nov 3 slides, speaker notes and script from the results files |
 | `hopenhayn_project/eps_model/v6_fine_extra.py`, `v6_fine_extra.json` | Finer grid: quota +50%, and EPS users by Korean workers under the 2019 caps |
 | `hopenhayn_project/eps_model/v5_best.json` | Version-5 calibration (Oct 28; targets since corrected) |

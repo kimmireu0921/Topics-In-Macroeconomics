@@ -1,6 +1,6 @@
 # Nov 17 script (the Nov 10 slides, presented Nov 17)
 
-Generated from the deck's speaker notes. These are talking points: the syllabus says not to read from a script or the slides word for word, so learn each point and say it in your own words. "If asked" entries are backup answers, used only if the topic comes up. Presenters: Sara 39–44, Mimi 45–49 and 62, Julian 50–53, Benjamin 54–61.
+Generated from the deck's speaker notes. These are talking points: learn each point and say it in your own words. "If asked" entries are backup answers, used only if the topic comes up. Presenters: Sara 39–44, Mimi 45–49 and 62, Julian 50–53, Benjamin 54–61.
 
 ### Slide 39: EPS project update: understanding the baseline
 
