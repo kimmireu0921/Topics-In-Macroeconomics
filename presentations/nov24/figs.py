@@ -59,8 +59,10 @@ a.set_ylim(0, max(max(mf), max(sf)) * 1.2)
 a.grid(axis="x", visible=False)
 for vals, c, lab in [(ms, BLUE, "Model"), (ss, ORANGE, "Survey, 2019")]:
     b.plot(x, vals, color=c, lw=2.2, marker="o", ms=8, label=lab, markeredgecolor="white", markeredgewidth=1.5)
-    for i, v in enumerate(vals):
-        b.text(i, v + 2.0, f"{v:.0f}", ha="center", fontsize=14, color=c)
+for i in range(len(keys)):                    # the higher point's label above, the lower one's below
+    for v, other, c in ((ms[i], ss[i], BLUE), (ss[i], ms[i], ORANGE)):
+        above = v >= other
+        b.text(i, v + (2.0 if above else -2.2), f"{v:.0f}", ha="center", va="bottom" if above else "top", fontsize=14, color=c)
 b.set_title("EPS share of workers at those firms (%)", fontsize=18, loc="left")
 b.set_ylim(0, max(max(ms), max(ss)) * 1.25)
 for axx in (a, b):

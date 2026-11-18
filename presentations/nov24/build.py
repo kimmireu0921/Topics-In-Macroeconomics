@@ -14,6 +14,7 @@ SB = json.load(open(E + "baseline/survey_binding.json"))
 BLOB = json.load(open(os.path.join(HERE, "blobs.json")))
 P, FIT, T, X = R["params"], R["fit"], R["targets"], R["experiments"]
 CH = R["change_vs_current"]
+XT = json.load(open(E + "v8_extra.json"))
 CUR, PRICE, EQ, NONE = X["current rule"], X["price"], X["equal limit"], X["no EPS"]
 
 PARTS = [("Mimi", ["nov24-cover", "nov24-feedback", "nov24-test"]),            # hardest to easiest: Donny, Sara,
@@ -34,7 +35,10 @@ EQS = ["(1) y = s·(h^ρ + λₜ ℓ^ρ)^(α/ρ), ℓ = k + m", "(2) cost of k =
 
 
 def pct(x, d=0, sign=False):
-    return f"{100 * x:{'+' if sign else ''}.{d}f}%".replace("-", "−")
+    v = round(100 * x, d) + 0.0                       # no "−0.00%"
+    if v == 0:
+        return f"{0:.{d}f}%"
+    return f"{v:{'+' if sign else ''}.{d}f}%".replace("-", "−")
 
 
 def num(x, d=0, sign=False):
@@ -169,7 +173,7 @@ rows = [["Your comment (Nov 17)", "What we did", "Slide"],
         ["The 2024 “would go past the cap” line is too much of a stretch", "Dropped", "—"],
         ["The comparison with a 50% larger quota is not informative", "Dropped. We report the change in output only", f"{PG['nov24-results']}"],
         ["Perfect substitutes: corner solutions", "Kept, to change one thing at a time. With the full cap the model still matches cap use (next slides)", f"{PG['nov24-assume']}"],
-        ["Send a complete write-up of the model", "Slides 66–70, and the targets and sources", f"{PG['nov24-env']}–{PG['nov24-fit']}"]]
+        ["Send a complete write-up of the model", f"Slides {PG['nov24-env']}–{PG['nov24-eq']}, with parameters and targets", f"{PG['nov24-env']}–{PG['nov24-fit']}"]]
 write("nov24-feedback", f"""{h2("Your feedback last week, and what we changed")}
 {table(rows, [36, 54, 10], 22)}
 {foot("All results today come from the new model (v8), recalibrated to sourced targets.")}""",
@@ -178,13 +182,13 @@ write("nov24-feedback", f"""{h2("Your feedback last week, and what we changed")}
 
 # ------------------------------------------------------------------ the test
 write("nov24-test", f"""{h2("The test you asked for: how much of its legal cap does each EPS firm use?")}
-{fig("fig_capuse.png", 1664, 582, "Share of the 2019 legal cap used by EPS firms, survey against the new model")}
+{fig("fig_capuse.png", 1664, 520, "Share of the 2019 legal cap used by EPS firms, survey against the new model")}
 {row(box(f"<b>Survey:</b> median {pct(H['median'])} of the cap, {pct(H['at_or_below_theta_0_21'])} at or below 21%, {pct(H['at_or_above_cap'])} at or above the cap. The 21% rule does not fit, so we dropped it.", 1, 24),
      box(f"<b>New model:</b> eligible plants may use their full cap. They use {pct(use_model)} of it on average (survey {pct(H['mean'])}, our target); {pct(at_cap_model)} are at the cap (survey {pct(H['at_or_above_cap'])}).", 1, 24))}
 {foot("772 survey firms, 2019 caps from listed Korean workers (Lee, Peri and Yang, Table 4). Spikes at 20, 40, 60, 80%: firms with a cap of 5.")}""",
       [("Title", '"You asked for a histogram: among firms with at least one EPS worker, the share of their legal cap they use. Orange is the survey, 772 firms in 2019."'),
        ("Survey", f'"Firms are spread out. The median firm uses {pct(H["median"])} of its cap. Only {pct(H["at_or_below_theta_0_21"])} are at or below 21 percent, and {pct(H["at_or_above_cap"])} are at or above the cap. So the data do not support our old rule, which put every plant at 21 percent. The dashed line shows where it was."'),
-       ("Model", f'"Blue is the new model. Eligible plants may use their whole cap. Small plants whose manual work is below their cap use less, so the model spreads out too: {pct(use_model)} on average and {pct(at_cap_model)} at the cap. The average is a target; the shape is not."'),
+       ("Model", f'"Blue is the new model. Eligible plants may use their whole cap. Small plants whose manual work is below their cap use less, so the model spreads out too: {pct(use_model)} on average and {pct(at_cap_model)} at the cap. The average is a target; the shape is not. One gap: the survey has firms below 30 percent of their cap, the model almost none."'),
        ("If asked: the spikes", '"Many survey firms have a cap of 5. One, two, three or four workers is 20, 40, 60 or 80 percent."'),
        ("If asked: over 100 percent", f'"{pct(H["bins"]["above 100%"])} of survey firms are above their cap. The model cannot produce that. They may have been counted on a different date, or have extra permits; we asked the Ministry."')],
       band=False)
@@ -224,7 +228,8 @@ write("nov24-tech", f"""{h2("The model (2/5): output and labour costs")}
 {foot("Net output = output − the Korean premium paid − EPS and operating fixed costs − entry costs. All costs in units of the good.")}""",
       [("Equation 1", '"A plant combines core Korean workers with manual work. Manual work can be done by a Korean manual worker or an EPS worker, one for one. Manual-intensive plants put much more weight on manual work."'),
        ("Equation 2", f'"Korean manual workers cost more than the wage, most of all at small plants: {PREM(0):.2f} times the wage with no core Koreans, {PREM(150):.2f} at 150. An EPS worker costs the wage, plus a fixed cost of using EPS at all."'),
-       ("Footer", '"We measure welfare as net output: output minus the premium, the fixed costs and entry costs."')],
+       ("Footer", '"We measure welfare as net output: output minus the premium, the fixed costs and entry costs."'),
+       ("If asked: 2.7 times the wage?", f'"It is not a wage. It is the full cost of getting manual work done with Korean workers at a plant with no core staff: unfilled jobs, overtime, recruiting. It is calibrated, not measured, and it matters for our result, which is why we show the result with the premium treated as pay."')],
       on=(1, 2))
 
 # ------------------------------------------------------------------ model 3: EPS rules
@@ -319,8 +324,9 @@ write("nov24-checks", f"""{h2("A check we did not target: which EPS firms, and h
 {fig("fig_size.png", 1664, 562, "EPS firms by total workers, model against the survey, 2019 caps")}
 {foot("Model under the 2019 caps, EPS users only. Survey: 772 firms, total workers = Korean + EPS workers. Targeted: only the averages (36.9% and 20.8 workers).")}""",
       [("Left", '"Where EPS firms are, by total workers: blue is the model, orange the survey."'),
-       ("Right", '"The EPS share of workers at those firms, by size. We target only the averages, so the shape is a check."'),
-       ("If asked: what fails", '"Read the gaps from the chart: these are untargeted, so we report them as they are."')], band=False)
+       ("Left, read", '"Where EPS firms are by size is close: most are under 20 workers in both."'),
+       ("Right", '"The EPS share of workers at those firms, by size. We target only the averages, so the shape is a check. Both fall with size, but the model is too flat among small firms: it does not give the smallest firms the very high EPS shares the survey shows."'),
+       ("If asked: why too flat", '"In the model, a small eligible plant fills its manual work with EPS workers up to its cap, and small caps are low. In the survey the smallest firms rely on EPS for about half their workers."')], band=False)
 
 # ------------------------------------------------------------------ who uses EPS
 gname = dict(manual_eligible="Manual-intensive, eligible", manual_not="Manual-intensive, not eligible",
@@ -334,74 +340,78 @@ write("nov24-who", f"""{h2("Who uses EPS today, in the new model")}
 {box(f"<b>Users are the eligible manual-intensive plants.</b> Light plants put almost no weight on manual work, so EPS is not worth its fixed cost. Manual-intensive plants that are not eligible pay the Korean premium instead. {pct(CUR['users'], 1)} of plants use EPS (data 8.0%).", size=25)}
 {foot("2024 caps. Shares of all plants in the stationary distribution; eligibility is drawn at entry.")}""",
       [("Table", '"The highlighted row is who uses EPS: manual-intensive plants that drew eligibility. Light plants never use it. Manual-intensive plants without eligibility do their manual work with Korean workers at a premium."'),
-       ("Exit", '"Compare exit rates: eligible manual plants survive more easily, because the permits save them money every year."')], band=False)
+       ("Exit", '"Exit rates are similar across groups, 6.5 to 6.9 percent: eligibility helps a plant, but not enough to change much who closes. That is also why the closure slope is near zero."')], band=False)
 
 # ------------------------------------------------------------------ results
-def rrow(name, key):
-    d, c = X[key], CH[key]
-    return [name, pct(c["net_Y"], 2, True), pct(c["Y"], 2, True), pct(c["firms"], 1, True), pct(c["w"], 2, True), pct(d["users"], 1)]
+C19, C24 = XT["caps2019"], XT["caps2024"]
+B24, B19 = XT["binding_2024"], XT["binding_2019"]
+rows = [["Same quota, against today", "Net output, 2024 caps", "Net output, 2019 caps", "Gross output, 2024", "If the premium is only pay, 2024"],
+        ["Equal limit: same eligible plants, no link to size", pct(C24["equal_limit"]["net"], 2, True), pct(C19["equal_limit"]["net"], 2, True), pct(C24["equal_limit"]["gross"], 2, True), pct(C24["equal_limit"]["net_premium_as_pay"], 2, True)],
+        ["Price: any plant may buy permits at p", pct(C24["price"]["net"], 2, True), pct(C19["price"]["net"], 2, True), pct(C24["price"]["gross"], 2, True), pct(C24["price"]["net_premium_as_pay"], 2, True)],
+        ["No EPS at all (for scale)", pct(chg("no EPS"), 2, True), "—", pct(chg("no EPS", "Y"), 2, True), "—"]]
+write("nov24-results", f"""{h2("Main result: the link to size barely matters; who gets access does")}
+{table(rows, [34, 16, 16, 15, 19], 24, hi=(1,))}
+{cards([card(pct(C24['equal_limit']['net'], 2, True), f"removing the link to size. The legal caps rarely bind: {pct(B24['users_at_cap'], 1)} of EPS users are at their 2024 cap ({pct(B19['users_at_cap'], 1)} under 2019)"),
+        card(pct(C24['price']['net'], 2, True), f"giving the same quota to whoever pays p = {PRICE['x']:.2f} ({pct(PRICE['x'] / PRICE['w'])} of the wage) instead of to lucky plants", True),
+        card(pct(C24['price']['net_premium_as_pay'], 2, True), "the price gain if the Korean premium is pay to workers, not a real cost")])}
+{foot("Steady states, same quota M and Korean labour N. Equal limit: L = " + f"{C24['equal_limit']['L']:.0f} (2024) and {C19['equal_limit']['L']:.0f} (2019) workers per eligible plant.")}""",
+      [("Title", '"Here is the main result, and it changes how we see our question. We compare steady states with the same quota, allocated in different ways."'),
+       ("Equal limit", f'"First row: keep the same eligible plants but give each the same limit, so there is no link to size. Net output does not change, under either cap schedule. The reason is that the caps rarely bind: only {pct(B24["users_at_cap"], 1)} of EPS users are at their 2024 cap. What limits plants is access, not size."'),
+       ("Price", f'"Second row: let any plant buy permits at a price p that uses up the same quota. Net output rises by {pct(C24["price"]["net"], 2, True)} with the 2024 caps as the baseline, {pct(C19["price"]["net"], 2, True)} with 2019. Workers move to the plants that value them most."'),
+       ("Caveat", f'"Last column: the gain comes from saving the extra cost of Korean manual workers at plants that are short of them. If that extra cost is only higher pay, not a real cost, the gain is about zero, {pct(C24["price"]["net_premium_as_pay"], 2, True)}."'),
+       ("Scale", f'"For scale, EPS as a whole adds about {pct(-chg("no EPS"), 1)} of net output."'),
+       ("If asked: does the size rule keep weak plants alive", '"In this model, no: the caps rarely bind, so tying permits to size changes almost nothing. Whether a plant gets permits at all matters much more."')], band=False)
 
-
-rows = [["", "Net output", "Gross output", "Plants", "Wage", "Plants using EPS"],
-        ["Today (random eligibility + cap)", "0", "0", "0", "0", pct(CUR["users"], 1)],
-        rrow("Price: any plant, permit price p", "price"),
-        rrow("Equal limit: same eligible plants", "equal limit"),
-        rrow("No EPS at all (for scale)", "no EPS")]
-write("nov24-results", f"""{h2("Main result: the same quota, allocated by a price")}
-{table(rows, [34, 13, 14, 11, 11, 17], 25, hi=(1,))}
-{cards([card(pct(chg('price'), 2, True), f"net output with a permit price of {PRICE['x']:.2f} (≈ {pct(PRICE['x'] / PRICE['w'])} of the wage)", True),
-        card(pct(chg('equal limit'), 2, True), f"net output if the same eligible plants each get {EQ['x']:.1f} permits"),
-        card(pct(-chg('no EPS'), 2, True), "what EPS adds today, against no EPS at all")])}
-{foot("Changes against today, 2024 caps, steady states, same quota M and Korean labour N.")}""",
-      [("Table", '"Here is the main result. Each row changes how the same quota is allocated, and we compare steady states."'),
-       ("Price", f'"With a permit price, any plant can hire EPS workers if it pays p. Net output changes by {pct(chg("price"), 2, True)}."'),
-       ("Equal limit", f'"If we keep the same lucky plants but give each the same limit, net output changes by {pct(chg("equal limit"), 2, True)}. That isolates the link to size."'),
-       ("Scale", f'"For scale: EPS as a whole adds {pct(-chg("no EPS"), 2, True)} to net output, against no EPS at all."')], on=(3, 4), band=False)
-
-# ------------------------------------------------------------------ plans of the median and top plants
+# ------------------------------------------------------------------ plans of the median and top plants, and where EPS workers go
 def prow2(name, d, i):
     return [name, f"{d['h'][i]:.0f}", f"{d['k'][i]:.0f}", f"{d['m'][i]:.0f}", f"{d['total'][i]:.0f}"]
 
 
 rows = [["Eligible manual-intensive plant", "Core Koreans h", "Korean manual k", "EPS m", "All workers"]]
 for i, who in ((0, "Median"), (1, "Top 1%")):
-    rows += [prow2(f"{who}: today", PL["current"], i), prow2(f"{who}: price", PL["price"], i), prow2(f"{who}: equal limit", PL["equal"], i)]
-write("nov24-plans", f"""{h2("Why: what the median and top plants do in each case")}
-{table(rows, [34, 16, 18, 14, 18], 25, hi=(0, 3))}
-{box(f"Same productivity in every row: the median and the 99th percentile of eligible manual-intensive plants today. A manual-intensive plant that is not eligible has 0 EPS workers today and the same plan as with a price at a high enough p.", size=24)}
-{foot("2024 caps. Plans at each case's own wage and price. Numbers rounded to whole workers.")}""",
-      [("Table", '"To see why, here are two plants with the same productivity in every row: the median and the top 1 percent of eligible manual-intensive plants."'),
-       ("Read", '"Compare their EPS workers across rows: today they are limited by the cap; with a price they choose where an EPS worker is worth the price."')], band=False)
+    rows += [prow2(f"{who}: today", PL["current"], i), prow2(f"{who}: price", PL["price"], i)]
+BH = XT["by_h"]
+hb = [("2-5", "2–4"), ("5-10", "5–9"), ("10-30", "10–29"), ("30-1e+09", "30+")]
+rows2 = [["Core Koreans h"] + [l for _, l in hb], ["Share of EPS workers, today"] + [pct(BH["today"][k]) for k, _ in hb],
+         ["Share of EPS workers, price"] + [pct(BH["price"][k]) for k, _ in hb]]
+write("nov24-plans", f"""{h2("Why: with a price, EPS workers move to mid-sized plants")}
+{row(col(table(rows, [36, 16, 18, 13, 17], 23, hi=(0, 2)), 3), col(table(rows2, [40, 15, 15, 15, 15], 23) + box(f"An EPS worker saves the Korean premium, which falls with h. At a price of {PRICE['x']:.2f}, plants with 30+ core Koreans save less than p and stop; plants with fewer than 5 cannot cover the fixed cost of using EPS.", size=23), 3))}
+{foot("2024 caps. Left: the same productivity in each pair (median and 99th percentile of eligible manual-intensive plants today), at each case's own wage and price.")}""",
+      [("Left", '"Two eligible plants, the median and the top 1 percent, today and with a price. Today both use EPS workers. With a price, neither does: for them an EPS worker saves less than the price."'),
+       ("Right", f'"So where do the workers go? Today {pct(BH["today"]["30-1e+09"])} of EPS workers are at plants with 30 or more core Koreans, where a Korean manual worker costs only a little more than the wage. With a price, all of them go to plants with 5 to 29 core Koreans, where Korean manual workers are scarcest."'),
+       ("If asked: why not the smallest", '"Using EPS has a fixed cost. Plants with fewer than 5 core Koreans have too little manual work to cover it at that price."'),
+       ("If asked: why exactly 100 Koreans", '"The top plant keeps just over 100 Korean workers, which raises its 2024 cap from 35 to 40 EPS workers. That is the bunching at a cap step."')], band=False)
 
 # ------------------------------------------------------------------ assumptions
 rows = [["Assumption", "Why we keep it", "What would change"],
-        ["Korean and EPS manual workers are perfect substitutes", "One change at a time; with the full cap the model already matches average cap use", "Imperfect substitutes would remove corners in the price experiment"],
+        ["Korean and EPS manual workers are perfect substitutes", "One change at a time; with the full cap the model matches average cap use", "Plants would mix both kinds of workers instead of switching all at once"],
         ["Eligibility is random and permanent", "Your suggestion; the simplest way to ration access", "The points ranking may favour some firms; permits last 3 years"],
-        ["The quota is fully used", f"e &lt; 1 clears it; waiting lists in 2026", "A 2024 projection put arrivals near half the quota"],
-        ["The Korean premium is a real cost", "Search and pay premia for scarce workers", "If it is only a transfer, the net gain falls"],
+        ["The quota is fully used", "e &lt; 1 clears it; reports of waiting lists in 2026", "A 2024 projection put arrivals near half the quota"],
+        ["The Korean premium is a real cost", "Plants short of Korean manual workers search, train and pay more", f"If it is only pay, the price gain falls to {pct(C24['price']['net_premium_as_pay'], 2, True)}"],
         ["Closure slope not targeted", f"Model gives {slope:.2f}; the best of 256 random draws gave at most 0.07", "The model may understate how fragile EPS firms are"]]
 write("nov24-assume", f"""{h2("What we assume, and what it could change")}
-{table(rows, [32, 36, 32], 23)}
-{foot("Survey firms above their cap (11%) and below it but wanting more (41%) are not in the model: access is all-or-nothing here.")}""",
+{table(rows, [30, 36, 34], 23, hi=(3,))}
+{foot("Not in the model: survey firms above their cap (11%), and firms below their cap that still want more (41%). Here access is all or nothing.")}""",
       [("Title", '"Here are the assumptions that matter most for the result, why we keep them, and what each could change."'),
-       ("First row", '"We kept perfect substitutes, as you suggested, to change one thing at a time. With the full cap, the model already matches how much of their cap firms use."'),
+       ("Highlighted", '"The one that matters most for the number is the premium. Our gain is the extra cost of Korean manual workers that a price saves. If that is only higher pay, the gain disappears."'),
+       ("Perfect substitutes", '"We kept perfect substitutes, to change one thing at a time. With the full cap, the model matches how much of their cap firms use on average."'),
        ("If asked: the 41 percent", '"Survey firms below their cap that still want more are rationed in a way our model does not have: here, access is all or nothing."')], band=False)
 
 # ------------------------------------------------------------------ next
 write("nov24-next", f"""{h2("Where we are, and our questions")}
 {row(col(h3("Where we are") + bullets([
     "The 21% rule is gone: random eligibility and the full legal cap on all Korean workers",
-    f"The model matches average cap use ({pct(use_model)} vs {pct(H['mean'])}) and the other targets",
-    f"With the same quota, a price changes net output by {pct(chg('price'), 2, True)}; an equal limit by {pct(chg('equal limit'), 2, True)}",
-    "Ministry data expected around Nov 30: firm counts by size and cap use, 2019 and 2024"], 25), 1),
+    f"The model fits the targets, including average cap use ({pct(use_model)} vs {pct(H['mean'])})",
+    f"The link to size barely matters ({pct(C24['equal_limit']['net'], 2, True)}); a price raises net output {pct(C24['price']['net'], 2, True)}, only if the premium is a real cost",
+    "Ministry data, about Nov 30: firm counts by size and cap use, 2019 and 2024"], 25), 1),
      col(h3("Questions for you") + bullets([
-    "Is this model settled enough to write up the results?",
-    "Should eligibility depend on anything (size, industry), or stay random?",
-    "Should we add imperfect substitutes now, or leave it as a robustness check?",
-    "Is the closure slope something we must match?"], 25), 1))}
-{foot("The written model (slides 66–70) and targets (slides 71–72) are what we will send you.")}""",
-      [("Left", '"To sum up. We dropped the 21 percent rule, after the test you suggested. Plants are now randomly eligible and can hire up to the full legal cap. The model matches cap use and the other targets, and the price result is on the left."'),
-       ("Right", '"Four questions. Is the model settled enough? Should eligibility stay random? Should we add imperfect substitutes now? And must we match the closure slope?"'),
+    "<b>Is this model settled?</b> We plan to freeze it now and write the paper",
+    "Since the caps rarely bind, should the paper ask about access (who gets permits) rather than size?",
+    "Should eligibility stay random, or depend on something?",
+    "How should we treat the Korean premium: a real cost, or pay?"], 25), 1))}
+{foot(f"We will send you the written model: slides {PG['nov24-env']}–{PG['nov24-eq']}, with parameters and targets on slides {PG['nov24-params']}–{PG['nov24-fit']}.")}""",
+      [("Left", f'"To sum up. We dropped the 21 percent rule, after the test you suggested. Plants are now randomly eligible and may hire up to their full legal cap. The model fits the targets. The link to size barely matters; a price raises net output by {pct(C24["price"]["net"], 2, True)}, if the premium is a real cost."'),
+       ("Right", '"Four questions. First, is the model settled? We would like to freeze it now and write the paper. Second, since the caps rarely bind, should our question be about access rather than size? Third, should eligibility stay random? And how should we treat the premium?"'),
        ("Close", '"Thank you. We worked with the AI assistant Claude (Anthropic), used for literature search, fact-checking, coding, model runs and drafting, in line with the course AI policy."')], band=False)
 
 print("slides", {k: PG[k] for k in ORDER}, "total", TOTAL)

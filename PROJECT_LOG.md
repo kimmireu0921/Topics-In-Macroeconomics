@@ -685,6 +685,56 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
 
 ---
 
+## Nov 18 — Model v8: random eligibility and the full legal cap
+
+**Model** (`hopenhayn_project/eps_model/eps_model_v8.py`, `run_v8.py`):
+- Each plant draws at entry, independently of type and productivity, whether it may hire EPS workers. The share e of eligible entrants clears the quota, replacing theta.
+- Eligible plants may hire up to the legal cap q(h + k), counted on all Korean workers, if h >= 1 and h + k < 300.
+- The choice set adds points where h + k sits just past each cap step, so plants can bunch.
+- Perfect substitutes are kept. A CES option (`eta`) exists in the code but stays at 1.
+
+**Targets** (`TARGETS.md`):
+- The v7 sourced targets, plus the survey's average share of the 2019 cap used: 0.624 (`bunching/cap_use_hist.py`).
+- The Lee–Peri–Yang closure slope is now a reported check, not a target. In v8, eligible plants keep their permits and are rarely near closing. The 16 best of 256 random parameter draws all gave 0.00–0.07, against 0.152 in the data.
+
+**Calibration:**
+- A random screen, then a local search: 80 rounds over two runs, the first cut off when the Mac slept.
+- About 35 Nelder–Mead steps gave no improvement, and the search was stopped by hand.
+- Loss 0.036, against 0.044 for v7 on its own targets.
+
+| Target | Data | Model |
+|---|---|---|
+| Average plant size | 8.14 | 8.44 |
+| Plants with 1–4 workers | 71.3% | 67.2% |
+| Exit rate | 6.6% | 6.7% |
+| Plants with 50+ workers | 2.1% | 2.1% |
+| Plants using EPS | 8.0% | 7.0% |
+| EPS share at EPS firms | 36.9% | 34.4% |
+| Workers at EPS firms | 20.8 | 18.7 |
+| Share of the 2019 cap used | 62.4% | 62.4% |
+
+- The eligible share of entrants is 22% under the 2024 caps and 27% under 2019.
+- The Korean manual premium is large: ψ = 1.70, so a Korean manual worker at a plant with no core Koreans costs 2.7 times the wage.
+
+**Bug fixed (same day):**
+- In the price and no-EPS cases, each type's entry value was counted twice (both eligibility blocks had full weight).
+- This inflated the price gain to about +20%. Today's rule and the calibration were not affected.
+
+**Results** (`v8_results.json`, `v8_extra.json`, same quota):
+- **Caps rarely bind.** 1.6% of EPS users are at their 2024 cap (average use 27%); 10.7% are at the 2019 cap.
+- **Equal limit** (same eligible plants, no link to size): net output 0.00% under both cap schedules.
+- **Price** (any plant may buy permits): net output +0.39% against today with 2024 caps, +0.33% with 2019 caps. Gross output +0.23%. p = 0.17, which is 18% of the wage.
+- The price gain is the Korean premium saved. Treated as pay, the gain is +0.02%.
+- With a price, EPS workers move from plants with 30+ core Koreans (31% of EPS workers today) to plants with 5–29.
+- No EPS at all: net output −5.8%.
+- **The research question shifts.** The link to size barely matters; access does. This is put to Prof. Hur on Nov 24.
+
+**Slides:**
+- Nov 24 slides 63–78 are in the deck (`presentations/nov24/build.py`, `figs.py`, `SCRIPT.md`).
+- Presenters: Mimi 63–65, Benjamin 66–68, Julian 69–71, Sara 72–74, Donny 75–78.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
