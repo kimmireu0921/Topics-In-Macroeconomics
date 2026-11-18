@@ -30,3 +30,18 @@ Official series for reference (end of year, manufacturing, e-나라지표 1501):
 Parameters set without calibration: α = 0.6916, persistence of productivity 0.8975 (from the
 first Hopenhayn calibration in `run_eps.py`'s `FIRM`), β = 0.96, exit taste-shock scale 0.1
 (smoothing only).
+
+## v8 (Nov 18, 2026): random eligibility and the full legal cap
+
+`run_v8.py` (model `eps_model_v8.py`) uses the v7 targets above with two changes, after Prof. Hur's
+Nov 17 feedback:
+
+| Change | Value | Source / reason |
+|---|---|---|
+| New target: average share of the 2019 legal cap used by EPS firms | **0.624** | KDI–World Bank EPS survey 2019, 772 firms: EPS workers ÷ 2019 cap from listed Korean workers (`bunching/cap_use_hist.py`, `cap_use_hist.json`; median 0.60). The model computes it the same way, under the 2019 caps, for EPS users. |
+| Closure slope (Lee, Peri and Yang, 0.152) moved from target to reported check | — | In v8 eligible plants keep their permits and are rarely near closing; the 16 best of 256 random parameter draws all gave a slope of 0.00–0.07, so targeting it only pulled the other targets off. It was already fragile in v6 (0.15 on the base grid, 0.05 on a finer one). |
+
+The eligible share e is not a parameter: it clears the quota M (5.29%), as theta did in v5–v7.
+Fixed as before: α = 0.6916, ρ_s = 0.8975, β = 0.96, σ_ε = 0.1, EPS worker cost = w. Perfect
+substitutes between Korean and EPS manual workers are kept (the CES option in `eps_model_v8.py`,
+`eta`, stays at 1).
