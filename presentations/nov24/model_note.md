@@ -132,11 +132,11 @@ The premium is large: at a plant with no core Korean workers, a Korean manual wo
 | Plants using EPS | 8.0% | 7.0% | Ministry of Employment and Labor: 40,766 workplaces with E-9 workers, end of 2024 |
 | EPS share at EPS firms (mean) | 36.9% | 34.4% | Lee, Peri and Yang (2026), Table 3 |
 | Workers at EPS firms (mean) | 20.8 | 18.7 | Lee, Peri and Yang (2026), Table 3 |
-| Share of the 2019 legal cap used (mean) | 62.4% | 62.4% | KDI–World Bank EPS survey 2019, 772 firms |
+| Share of the 2019 legal cap used (mean) | 62.4% | 62.4% | KDI–World Bank EPS survey 2019, 772 firms (replication file of Dong, Lee and Yang 2024) |
 
 In equilibrium 22% of entrants are eligible under the 2024 caps and 27% under the 2019 caps.
 
-**Cap use.** In the survey, EPS firms are spread across the whole range of cap use: the median firm uses 60% of its legal cap, 17% use 21% or less, and 18% are at or above the cap. The model matches the mean by construction. It puts 11% of EPS users at the cap, and almost none below 30% of the cap.
+**Cap use.** In the survey (772 manufacturers, fielded in 2019; Dong, Lee and Yang 2024), EPS firms are spread across the whole range of cap use: the median firm uses 60% of its legal cap, 17% use 21% or less, and 18% are at or above the cap. The model matches the mean by construction. It puts 11% of EPS users at the cap, and almost none below 30% of the cap.
 
 **Closure check, not targeted.** Lee, Peri and Yang estimate that EPS firms more exposed to the 2020–21 stop in inflows closed more often (slope 0.152 on statutory exposure $q/(n+q)$, with size controls). In the model we replicate their design: an unexpected two-year 20% cut in each user's EPS workers at fixed prices, then a regression of the extra closure probability on exposure among users. The model slope is 0.000. Eligible plants keep their permits, so users are rarely close to the exit margin. In a random search over parameters, the best draws all gave slopes of 0.07 or less. We report this as a limitation rather than a target.
 
@@ -163,6 +163,8 @@ The gain is the Korean premium saved. If the premium is pay rather than a resour
 5. Access is all or nothing. The survey's firms above their cap (11%), and firms below half their cap that still want more workers (41% of them), are not in the model.
 
 # References
+
+Dong, M., Lee, J., and Yang, H.-S. (2024). How does low-skilled immigration affect native wages? Evidence from Employment Permit System in Korea. *Oxford Economic Papers*, 76(2). Survey data from the article's replication file.
 
 Hopenhayn, H. A. (1992). Entry, exit, and firm dynamics in long run equilibrium. *Econometrica*, 60(5), 1127–1150.
 
