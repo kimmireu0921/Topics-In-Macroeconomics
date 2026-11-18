@@ -20,22 +20,22 @@ Time is discrete and annual; we study a stationary equilibrium. There is one goo
 
 A plant draws three permanent characteristics at entry, independently of one another:
 
-* a type $t \in \{A, B\}$: light ($A$) or manual-intensive ($B$), with $\Pr(B) = \pi_B$;
-* a permanent productivity level $x \sim \text{Pareto}(1, \gamma)$;
-* EPS eligibility $\iota \in \{0, 1\}$, with $\Pr(\iota = 1) = e$.
+* a type $t$: light ($A$) or manual-intensive ($B$), with $\Pr(B) = \pi_B$;
+* a permanent productivity level $x$, drawn from a Pareto$(1, \gamma)$ distribution;
+* EPS eligibility $\iota$ (1 if eligible, 0 if not), with $\Pr(\iota = 1) = e$.
 
-Productivity is $s = x z$, where $\log z' = \rho_s \log z + \sigma_s \varepsilon'$, $\varepsilon' \sim N(0,1)$. Entrants draw $z$ from its stationary distribution; $\nu$ denotes the entrants' distribution of $s$.
+Productivity is $s = x z$, where $\log z' = \rho_s \log z + \sigma_s \varepsilon'$, $\varepsilon'$ standard normal. Entrants draw $z$ from its stationary distribution; $\nu$ denotes the entrants' distribution of $s$.
 
 **Timing within a year.** Incumbents and entrants hire and produce. Each plant then exits exogenously with probability $\delta$; survivors decide whether to stay, subject to a logit taste shock with scale $\sigma_\varepsilon$. New plants pay $c_e$ and enter until the expected value of entry equals $c_e$.
 
 # 3. Technology and costs
 
 A plant combines core Korean workers $h$ with manual work $\ell$:
-$$ y = s\,\big(h^{\rho} + \lambda_t\,\ell^{\rho}\big)^{\alpha/\rho}, \qquad \ell = k + m, $$
+$$ y = s\,(h^{\rho} + \lambda_t\,\ell^{\rho})^{\alpha/\rho}, \qquad \ell = k + m, $$
 where manual work is done by Korean manual workers $k$ or EPS workers $m$, one for one, and $\alpha < 1$.
 
 * A core worker costs $w$.
-* A Korean manual worker costs $w\,\big(1 + \psi\,(1+h)^{-\xi}\big)$. The premium captures the difficulty of filling manual jobs with Korean workers at small plants (recruiting, unfilled positions, overtime); it falls with $h$.
+* A Korean manual worker costs $w\,(1 + \psi\,(1+h)^{-\xi})$. The premium captures the difficulty of filling manual jobs with Korean workers at small plants (recruiting, unfilled positions, overtime); it falls with $h$.
 * An EPS worker costs $w$; using any EPS workers costs a fixed $c_m$ per year.
 * Operating costs a fixed $c_{f,t}$ per year.
 
@@ -43,7 +43,7 @@ where manual work is done by Korean manual workers $k$ or EPS workers $m$, one f
 
 Today's rule, the baseline, is the following. A plant with $\iota = 0$ cannot hire EPS workers. A plant with $\iota = 1$ may hire
 $$ 0 \le m \le q(h + k) \quad \text{if } h \ge 1 \text{ and } h + k < 300, $$
-where $q(\cdot)$ is the legal cap by insured Korean workers $n = h + k$:
+where $q$ is the legal cap by insured Korean workers $n = h + k$:
 
 | $n$ | 1–10 | 11–50 | 51–100 | 101–150 | 151–200 | 201–299 |
 |---|---|---|---|---|---|---|
@@ -60,20 +60,20 @@ Sources: eps.go.kr (2024, manufacturing); Lee, Peri and Yang (2026), Table 4 (20
 # 5. The plant's problem
 
 **Static profit.** For type $t$, eligibility $\iota$ and productivity $s$:
-$$ \pi_{t,\iota}(s) = \max_{h,k,m}\; s\,f_t(h, k+m) - w h - w\big(1+\psi(1+h)^{-\xi}\big)k - w m - c_m\mathbf{1}[m>0] - c_{f,t} $$
+$$ \pi_{t,\iota}(s) = \max_{h,k,m}\; s\,f_t(h, k+m) - w h - w(1+\psi(1+h)^{-\xi})k - w m - c_m\mathrm{1}[m>0] - c_{f,t} $$
 subject to the rule in Section 4. Because an EPS worker costs less than a Korean manual worker, an eligible plant that uses EPS fills its manual work with EPS workers up to its cap.
 
-**Values and exit.** With $c_{t,\iota}(s) = \beta(1-\delta)\,\mathbb{E}[V_{t,\iota}(s') \mid s]$,
-$$ V_{t,\iota}(s) = \pi_{t,\iota}(s) + \sigma_\varepsilon \log\!\big(1 + e^{c_{t,\iota}(s)/\sigma_\varepsilon}\big), \qquad \Pr(\text{stay} \mid s) = \frac{1}{1 + e^{-c_{t,\iota}(s)/\sigma_\varepsilon}}. $$
-A plant's exit probability is $1 - (1-\delta)\Pr(\text{stay} \mid s)$.
+**Values and exit.** With $c_{t,\iota}(s) = \beta(1-\delta)\,\mathrm{E}[V_{t,\iota}(s') | s]$,
+$$ V_{t,\iota}(s) = \pi_{t,\iota}(s) + \sigma_\varepsilon \log(1 + e^{c_{t,\iota}(s)/\sigma_\varepsilon}), \qquad \Pr(\text{stay} | s) = \frac{1}{1 + e^{-c_{t,\iota}(s)/\sigma_\varepsilon}}. $$
+A plant's exit probability is $1 - (1-\delta)\Pr(\text{stay} | s)$.
 
 **Free entry.**
-$$ \sum_t \Pr(t)\Big[e\!\int V_{t,1}\,d\nu + (1-e)\!\int V_{t,0}\,d\nu\Big] = c_e. $$
+$$ \sum_t \Pr(t)[e\int V_{t,1}\,d\nu + (1-e)\int V_{t,0}\,d\nu] = c_e. $$
 
 # 6. Stationary distribution and equilibrium
 
 For each $(t, \iota)$, the measure of plants satisfies
-$$ \mu_{t,\iota}(s') = M_e \Pr(t)\Pr(\iota)\,\nu(s') + (1-\delta)\sum_s \Pr(\text{stay} \mid s)\,P(s' \mid s)\,\mu_{t,\iota}(s), $$
+$$ \mu_{t,\iota}(s') = M_e \Pr(t)\Pr(\iota)\,\nu(s') + (1-\delta)\sum_s \Pr(\text{stay} | s)\,P(s' | s)\,\mu_{t,\iota}(s), $$
 where $M_e$ is the mass of entrants and $P$ the transition of $s$.
 
 **Definition.** A stationary equilibrium is $w$, the eligible share $e$, the entry mass $M_e$, policies $(h, k, m)_{t,\iota}(s)$ and measures $\mu_{t,\iota}$ such that:
@@ -85,7 +85,7 @@ where $M_e$ is the mass of entrants and $P$ the transition of $s$.
 5. $\mu$ is the stationary measure above.
 
 **Output and welfare.** Gross output is $Y = \int y\,d\mu$. Net output subtracts the resources the economy uses up:
-$$ Y^{net} = Y - \int\big[w\,\psi(1+h)^{-\xi}k + c_m\mathbf{1}[m>0]\big]d\mu - \sum_t c_{f,t}\,\mu_t - c_e M_e . $$
+$$ Y^{net} = Y - \int\big[w\,\psi(1+h)^{-\xi}k + c_m\mathrm{1}[m>0]\big]d\mu - \sum_t c_{f,t}\,\mu_t - c_e M_e . $$
 Wages are transfers to households and are not subtracted. The Korean premium is treated as a resource cost; we also report results treating it as pay.
 
 # 7. Allocation experiments

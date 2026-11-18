@@ -195,8 +195,17 @@ Hopenhayn, H. A. (1992). Entry, exit, and firm dynamics in long run equilibrium.
 
 Lee, J., Peri, G., and Yang, H.-S. (2026). The effects of a sudden stop in low-skilled immigration: Evidence from Korea's guest worker program. NBER Working Paper 34927.
 """
+# Times New Roman has no glyphs for these TeX symbols; write them in forms it can draw.
+for a, b in [(r"$x \sim \text{Pareto}(1, \gamma)$", r"$x$, drawn from a Pareto$(1, \gamma)$ distribution"),
+             (r"$\varepsilon' \sim N(0,1)$", r"$\varepsilon'$ standard normal"),
+             (r"a type $t \in \{A, B\}$: light", r"a type $t$: light"),
+             (r"EPS eligibility $\iota \in \{0, 1\}$, with", r"EPS eligibility $\iota$ (1 if eligible, 0 if not), with"),
+             (r"\mid", "|"), (r"\mathbb{E}", r"\mathrm{E}"), (r"\mathbf{1}", r"\mathrm{1}"),
+             (r"\big(", "("), (r"\big)", ")"), (r"\Big[", "["), (r"\Big]", "]"), (r"\!", ""), (r"$q(\cdot)$", "$q$")]:
+    assert a in md, a
+    md = md.replace(a, b)
 open("model_note.md", "w").write(md)
-css = """body{font-family:'Source Serif 4',Georgia,serif;font-size:11pt;line-height:1.45;max-width:46em;margin:0 auto;color:#1f2a3c}
+css = """*{font-family:'Times New Roman',Times,serif !important} math{font-family:'Times New Roman',Times,serif !important} mi{text-transform:none !important;font-style:italic} mi[mathvariant=normal]{font-style:normal} body{font-family:'Times New Roman',Times,serif;font-size:11pt;line-height:1.45;max-width:46em;margin:0 auto;color:#1f2a3c}
 h1{font-size:14pt;margin-top:1.4em} header h1.title{font-size:19pt;margin-bottom:0.2em} .subtitle{font-size:12.5pt;margin-top:0}
 .author,.date{font-size:10.5pt;margin:0.2em 0} table{border-collapse:collapse;margin:0.8em 0;font-size:9.5pt;width:100%}
 th,td{border-bottom:1px solid #c9d1de;padding:3px 6px;text-align:left} th{border-bottom:1.5px solid #14213d}
@@ -204,6 +213,8 @@ a{color:#2f5d8a;word-break:break-all} @page{size:A4;margin:2.2cm 2cm}"""
 open("model_note.css", "w").write(css)
 subprocess.run(["pandoc", "model_note.md", "-s", "--mathml", "--css", "model_note.css", "--embed-resources",
                 "--metadata", "lang=en", "-o", "model_note.html"], check=True)
+h = open("model_note.html").read()                  # drop the invisible function-application mark
+open("model_note.html", "w").write(h.replace("<mo>&#8289;</mo>", "").replace("<mo>\u2061</mo>", "").replace("\u2061", ""))
 chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 subprocess.run([chrome, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=5000",
                 f"--print-to-pdf={os.path.abspath('model_note.pdf')}", "file://" + os.path.abspath("model_note.html")],
