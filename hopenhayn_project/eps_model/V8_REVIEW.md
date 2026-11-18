@@ -116,3 +116,24 @@ The sign changes mainly with the parameters, under both structures.
 - So two plants with the same s but different x are different states, with their own values and exit choices.
 
 The model note now says so.
+
+## Addendum: survey evidence on ψ and ξ (`bunching/premium_evidence.py`)
+
+The 2019 survey has no direct measure of the premium, but three questions bear on it. These checks were not used in the calibration.
+
+**Hiring shortfall (Q4).** Share of planned Korean manual hires (production and elementary jobs) that firms did not fill last year, by Korean workers:
+
+| Korean workers | 1–5 | 6–10 | 11–30 | 31–50 | 51+ |
+|---|---|---|---|---|---|
+| Not filled | 56% | 44% | 39% | 19% | 11% |
+
+- Core jobs (managers and clerical) were filled much more often: 26% unfilled at the smallest firms, about 0–4% at firms with 31 or more Korean workers.
+- So Korean manual workers are hard to find, much harder at small plants, and harder than core workers. All three are what the model's premium assumes.
+
+**How fast the shortfall falls with size.** On a log scale, the slope is −0.50 for total hires and −0.22 if each firm counts equally. The v8 premium falls with ξ = 0.59 (v6: 0.23). The direction matches; v8's decline is somewhat steeper than the survey's. The size of ψ is not pinned down, because turning an unfilled share into a cost needs a further assumption.
+
+**Wages (Q13).** The median Korean wage is 1.12 times the EPS wage at firms with up to 50 Korean workers and 1.07 above that. That is flat across size. So small plants do not pay Korean workers more; the premium shows up as unfilled jobs. This supports treating it as a real cost (search, vacancies, lost output) rather than pay.
+
+**Reasons (Q6).** 77% of firms that tried to hire Koreans had difficulty. Of those:
+- 49% gave "no applicants" as the main reason;
+- 21% gave labour costs.

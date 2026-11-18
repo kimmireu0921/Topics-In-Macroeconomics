@@ -1,0 +1,51 @@
+{
+ "by_korean_workers": {
+  "1-5": {
+   "firms": 277,
+   "firms_planning_manual": 137,
+   "unfilled_manual_aggregate": 0.556910569105691,
+   "unfilled_manual_firm_mean": 0.4900243309002433,
+   "unfilled_core_aggregate": 0.26415094339622647,
+   "wage_ratio_korean_to_eps_median": 1.125
+  },
+  "6-10": {
+   "firms": 161,
+   "firms_planning_manual": 100,
+   "unfilled_manual_aggregate": 0.4361233480176211,
+   "unfilled_manual_firm_mean": 0.4213333333333334,
+   "unfilled_core_aggregate": 0.29508196721311475,
+   "wage_ratio_korean_to_eps_median": 1.12
+  },
+  "11-30": {
+   "firms": 227,
+   "firms_planning_manual": 152,
+   "unfilled_manual_aggregate": 0.3877995642701525,
+   "unfilled_manual_firm_mean": 0.4124700956937799,
+   "unfilled_core_aggregate": 0.11811023622047245,
+   "wage_ratio_korean_to_eps_median": 1.12
+  },
+  "31-50": {
+   "firms": 40,
+   "firms_planning_manual": 32,
+   "unfilled_manual_aggregate": 0.19166666666666665,
+   "unfilled_manual_firm_mean": 0.26249999999999996,
+   "unfilled_core_aggregate": 0.0,
+   "wage_ratio_korean_to_eps_median": 1.12
+  },
+  "51-plus": {
+   "firms": 46,
+   "firms_planning_manual": 37,
+   "unfilled_manual_aggregate": 0.10839160839160844,
+   "unfilled_manual_firm_mean": 0.24581724581724582,
+   "unfilled_core_aggregate": 0.03539823008849563,
+   "wage_ratio_korean_to_eps_median": 1.0714285714285714
+  }
+ },
+ "slope_log_unfilled_on_log_1_plus_n": {
+  "aggregate": -0.4978783235010971,
+  "firm_mean": -0.22445483566102847
+ },
+ "share_with_difficulty": 0.7727272727272727,
+ "reason_no_applicants": 0.49019607843137253,
+ "reason_labor_cost": 0.20588235294117646
+}
