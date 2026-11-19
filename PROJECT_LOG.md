@@ -677,6 +677,14 @@ What Prof. Hur said:
 7. **Send a complete written model** with the updated slides this week. He will check the model
    once; after that the model is settled and the work is polishing results and presenting less.
 
+**Written feedback (received Nov 19):** "One issue is that the model makes EPS workers far too
+attractive: firms want many more than the caps allow, whereas in the data only about 10 percent of
+plants use EPS workers and users fill on average 62 percent of their caps. The model assumes every firm
+is eligible and wants EPS workers. Two ways to fix this: a two-sector structure in which
+manual-intensive firms (roughly 10 percent of the economy) can use EPS workers and the rest produce
+with standard Cobb-Douglas technology, or random assignment of EPS eligibility across firms. Either is
+better than restricting every firm to a small share of its cap." v8 (Nov 18) takes the second route.
+
 Histogram done the same day (`bunching/cap_use_hist.py`, `cap_use_hist.png`, `.json`; 2019 caps
 from listed Korean workers, 772 firms): median 60% of the cap, mean 62%. 17% of firms are at or below
 21%, 18% are at or above the cap, 20% at 90% or more. The spikes at 20, 40, 60 and 80% come from
