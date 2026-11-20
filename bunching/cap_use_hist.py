@@ -20,7 +20,7 @@ cap = np.select([listed <= 5, listed <= 10, listed <= 30, listed <= 50, listed <
                 [5, 7, 10, 12, 15, 20, 25], default=30)
 u = (eps / cap)[eps >= 1].dropna()
 
-cnt = np.histogram(np.clip(u, 0, 1.0001), bins=np.r_[np.arange(0, 1.0001, 0.1)[:-1], 0.99999, 1.00001, np.inf])[0]
+cnt = np.histogram(np.clip(u, 0, 1.0001), bins=[0, .1, .2, .3, .4, .5, .6, .7, .8, .9, .99999, 1.00001, np.inf])[0]   # exact edges: a firm at 60% falls in 60–70
 # bins: 0-0.1, ..., 0.8-0.9, 0.9-<1, exactly 1, above 1
 labels = [f"{a:.0f}–{a + 10:.0f}%" for a in range(0, 90, 10)] + ["90–<100%", "exactly 100%", "above 100%"]
 share = cnt / len(u)
