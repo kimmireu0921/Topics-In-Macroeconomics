@@ -34,10 +34,10 @@ fig, ax = plt.subplots(figsize=(10, 5.2), dpi=150)
 col = ["#2a78d6"] * 9 + ["#2a78d6", "#eb6834", "#eb6834"]
 ax.bar(range(len(share)), 100 * share, color=col, width=0.8)
 for i, s in enumerate(share):
-    ax.text(i, 100 * s + 0.4, f"{100 * s:.0f}%", ha="center", fontsize=11, color="#222")
+    ax.text(i, 100 * s + 0.4, f"{100 * s:.1f}%" if 100 * s < 1 else f"{100 * s:.0f}%", ha="center", fontsize=11, color="#222")
 ax.axvline(2 - 0.4 + 0.1 * 0.8, color="#222", ls="--", lw=1.5)   # 21% sits just inside the 20–30% bin
 ax.set_ylim(0, 25)
-ax.text(1.72, 24.5, " model rule: θ = 21% of the cap (82% of model users sit exactly here, the rest below)", fontsize=11, va="top")
+ax.text(1.72, 24.5, " old model rule (v6, until Nov 17): every plant limited to 21% of its cap", fontsize=11, va="top")
 ax.set_xticks(range(len(share)), labels, rotation=35, ha="right", fontsize=10)
 ax.set_ylabel("% of EPS firms", fontsize=12)
 ax.set_xlabel("EPS workers as a share of the firm's 2019 legal cap", fontsize=12)
