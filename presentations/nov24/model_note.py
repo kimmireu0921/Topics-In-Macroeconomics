@@ -205,11 +205,21 @@ for a, b in [(r"$x \sim \text{Pareto}(1, \gamma)$", r"$x$, drawn from a Pareto$(
     assert a in md, a
     md = md.replace(a, b)
 open("model_note.md", "w").write(md)
-css = """*{font-family:'Times New Roman',Times,serif !important} math{font-family:'Times New Roman',Times,serif !important} mi{text-transform:none !important;font-style:italic} mi[mathvariant=normal]{font-style:normal} body{font-family:'Times New Roman',Times,serif;font-size:11pt;line-height:1.45;max-width:46em;margin:0 auto;color:#1f2a3c}
-h1{font-size:14pt;margin-top:1.4em} header h1.title{font-size:19pt;margin-bottom:0.2em} .subtitle{font-size:12.5pt;margin-top:0}
-.author,.date{font-size:10.5pt;margin:0.2em 0} table{border-collapse:collapse;margin:0.8em 0;font-size:9.5pt;width:100%}
-th,td{border-bottom:1px solid #c9d1de;padding:3px 6px;text-align:left} th{border-bottom:1.5px solid #14213d}
-a{color:#2f5d8a;word-break:break-all} @page{size:A4;margin:2.2cm 2cm}"""
+css = """*{font-family:'Times New Roman',Times,serif !important} math{font-family:'Times New Roman',Times,serif !important}
+mi{text-transform:none !important;font-style:italic} mi[mathvariant=normal]{font-style:normal}
+html{font-size:11.5pt} body{max-width:none;margin:0;padding:0;line-height:1.4;color:#000;text-align:justify;hyphens:auto}
+header{text-align:left;margin-bottom:1.2em} header h1.title{font-size:18pt;line-height:1.2;margin:0 0 0.3em} .subtitle{font-size:13pt;font-style:italic;margin:0 0 0.8em}
+.author,.date{font-size:11pt;margin:0.15em 0}
+h1{font-size:13.5pt;margin:1.3em 0 0.5em;break-after:avoid;page-break-after:avoid}
+p{margin:0 0 0.65em;orphans:3;widows:3;break-inside:avoid;page-break-inside:avoid}
+ul,ol{margin:0 0 0.65em;padding-left:1.6em} li{margin:0 0 0.25em;break-inside:avoid;page-break-inside:avoid}
+math[display=block]{margin:0.45em 0}
+table{border-collapse:collapse;margin:0.6em 0 0.9em;font-size:10pt;width:100%;break-inside:avoid;page-break-inside:avoid;text-align:left}
+th,td{border-bottom:0.5pt solid #999;padding:2.5px 6px;text-align:left;vertical-align:top} th{border-top:1pt solid #000;border-bottom:0.8pt solid #000}
+tr:last-child td{border-bottom:1pt solid #000}
+p:has(+ table), p:has(+ ul), p:has(+ ol){break-after:avoid;page-break-after:avoid}
+a{color:#1a4f8a;text-decoration:none;word-break:break-all} code{font-size:inherit}
+@page{size:A4;margin:2.4cm 2.3cm 2.2cm}"""
 open("model_note.css", "w").write(css)
 subprocess.run(["pandoc", "model_note.md", "-s", "--mathml", "--css", "model_note.css", "--embed-resources",
                 "--metadata", "lang=en", "-o", "model_note.html"], check=True)
