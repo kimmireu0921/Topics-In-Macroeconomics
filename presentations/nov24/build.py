@@ -18,7 +18,7 @@ XT = json.load(open(E + "v8_extra.json"))
 CUR, PRICE, EQ, NONE = X["current rule"], X["price"], X["equal limit"], X["no EPS"]
 
 PARTS = [("Mimi", ["nov24-cover", "nov24-feedback", "nov24-test"]),            # Nov 23: concise version, 12 slides;
-         ("Benjamin", ["nov24-env", "nov24-plant"]),                          # Donny takes the results (hardest)
+         ("Benjamin", ["nov24-change", "nov24-env", "nov24-plant"]),                          # Donny takes the results (hardest)
          ("Julian", ["nov24-eq", "nov24-fit"]),
          ("Sara", ["nov24-who", "nov24-checks"]),
          ("Donny", ["nov24-results", "nov24-plans", "nov24-next"])]
@@ -188,24 +188,46 @@ write("nov24-test", f"""{h2("The histogram: EPS workers ÷ legal cap, plants wit
        ("If asked: the spikes", '"Many survey firms have a cap of 5, so one to four workers is 20, 40, 60 or 80 percent."'),
        ("If asked: why none below 30 percent", '"Using EPS has a fixed cost in the model, so a plant that uses EPS hires several workers. We have not tested this yet."')], band=False)
 
+# ------------------------------------------------------------------ what changed
+rows = [["", "Before (Nov 17 talk)", "Now"],
+        ["Who may hire EPS workers", "Every plant with 1–299 core Korean workers", f"A random {pct(e24)} of new plants (EPS-eligible)"],
+        ["How many", "21% of its legal cap (θ = 0.21), the same for every plant", "Up to its full legal cap"],
+        ["What the cap counts", "Core Korean workers h only", "All Korean workers h + k, as in the law"],
+        ["What makes total EPS use equal the quota", "θ", "The eligible share"],
+        ["Targets", "Two had no source (5.5%, 10%)", "All sourced, plus the survey's 62% cap use"],
+        ["Main result", "Price +0.33%; equal limit +0.09 to +0.19%", f"Price {pct(XT['caps2024']['price']['net'], 2, True)}; equal limit {pct(XT['caps2024']['equal_limit']['net'], 2, True)}"]]
+write("nov24-change", f"""{h2("What changed in the model since last week")}
+{table(rows, [28, 36, 36], 24, hi=(0, 1))}
+{foot("Unchanged: entry and exit (Hopenhayn), light and manual-intensive plants, the cost of Korean manual workers, and Korean and EPS manual workers as perfect substitutes.")}""",
+      [("Title", '"For those who were not here last week: here is exactly what changed. Before, every plant could use EPS, but only 21 percent of its cap. Now a random share of plants is eligible, and eligible plants can use their full legal cap, counted on all Korean workers as the law does."'),
+       ("Why", '"The data rejected the 21 percent rule: real firms use 60 percent of their cap on average, not 21. Random eligibility was one of the two fixes the professor suggested."'),
+       ("Last row", '"The headline result also changed. Last week, removing the link to size gained up to 0.19 percent. Now it gains nothing, because caps rarely bind once access is rationed. More on that at the end."')], band=False)
+
 # ------------------------------------------------------------------ model 1: plants and EPS rules
 write("nov24-env", f"""{h2("The model (1/3): plants and today's EPS rules")}
 {bullets([
-    "Hopenhayn economy. At entry each plant draws its <b>type</b> (light or manual-intensive), its <b>productivity</b>, and whether it is <b>EPS-eligible</b>",
-    f"Eligible plants (a random {pct(e24)} of entrants) may hire EPS workers up to the legal cap q(h + k), if h + k &lt; 300",
-    "The eligible share adjusts so that total EPS use equals the quota (5.29% of workers)"], 28)}
-{table(CAP24, [22, 11, 13, 11, 11, 11, 11, 10], 24)}
-{foot("2024 caps, eps.go.kr. h: core Korean workers; k: Korean manual workers.")}""",
-      [("Bullets", f'"Each plant draws three things at entry: its type, its productivity, and whether it is eligible for EPS. Eligibility is random, {pct(e24)} of new plants, and that share adjusts until the quota is used. Eligible plants can hire up to their legal cap, counted on all Korean workers."')], band=False)
+    "Hopenhayn economy: plants enter, produce, and exit when staying is not worth it. Korean labour and the EPS quota are fixed",
+    "At entry each plant draws, for good: its <b>type</b> (light, or manual-intensive), its <b>productivity</b>, and whether it is <b>EPS-eligible</b>",
+    f"Eligible plants ({pct(e24)} of entrants, by chance) may hire EPS workers up to the legal cap q(h + k), if h + k &lt; 300; others hire none",
+    "The eligible share adjusts until total EPS use equals the quota (5.29% of manufacturing workers). It stands in for the points ranking and waiting lists"], 25)}
+{table(CAP24, [22, 11, 13, 11, 11, 11, 11, 10], 22)}
+{table(CAP19, [22, 9, 9, 10, 10, 10, 10, 10, 10], 22)}
+{foot("2024 caps for today's economy (eps.go.kr); 2019 caps for the survey firms (Lee, Peri and Yang, Table 4). h: core Korean workers; k: Korean manual workers.")}""",
+      [("Bullets", f'"Each plant draws three things when it enters: its type, its productivity, and whether it is eligible for EPS. Eligibility is random, {pct(e24)} of new plants, and that share adjusts until the quota is used. Eligible plants can hire up to their legal cap, counted on all Korean workers."'),
+       ("Tables", '"These are the legal caps. We use the 2024 schedule for today\'s economy and the 2019 schedule when we compare with the survey, because those firms faced the 2019 caps."'),
+       ("If asked: why random", '"The professor suggested it, and it matches the data: demand exceeds the quota, and which firm gets workers is partly luck in the points system."')], band=False)
 
 # ------------------------------------------------------------------ model 2: output, costs and the plant's choice
+prem_rows = [["Core Korean workers h", "0", "7", "28", "150"], ["Cost of a Korean manual worker ÷ wage"] + [f"{PREM(h):.2f}" for h in (0, 7, 28, 150)]]
 write("nov24-plant", f"""{h2("The model (2/3): output, costs and the plant's choice")}
-{eqbox("y = s·(h<sup>ρ</sup> + λ<sub>t</sub> ℓ<sup>ρ</sup>)<sup>α/ρ</sup>, &nbsp;ℓ = k + m")}
-{eqbox("cost of k = w·(1 + ψ(1 + h)<sup>−ξ</sup>); &nbsp;cost of m = w, plus a fixed c<sub>m</sub>")}
-{eqbox("V(s) = π(s) + σ<sub>ε</sub>·log(1 + exp(β(1 − δ)E[V(s′)] / σ<sub>ε</sub>)); &nbsp;entry until E[V] = c<sub>e</sub>")}
-{box(f"A Korean manual worker costs {PREM(0):.1f}× the wage at a plant with no core Koreans and {PREM(150):.1f}× at 150: small plants cannot find them.", size=25)}""",
-      [("Equations", '"Output uses core workers and manual work; manual work is done by Korean manual workers or EPS workers. Korean manual workers cost more than the wage, most at small plants. Plants exit when staying is not worth it, and enter until entry pays."'),
-       ("If asked: 2.7 times the wage", '"It is not a wage. In the survey, small firms fill only 44 percent of planned Korean manual hires, while their Korean wages are no higher. The cost is unfilled jobs."')], band=False)
+{row(col(eqbox("y = s·(h<sup>ρ</sup> + λ<sub>t</sub> ℓ<sup>ρ</sup>)<sup>α/ρ</sup>, &nbsp;ℓ = k + m", 28) + bullets(["Output needs core Korean workers h and manual work ℓ", "Manual work is done by Korean manual workers k or EPS workers m, one for one", "Manual-intensive plants put much more weight λ on manual work"], 23)
+         + eqbox("V(s) = π(s) + σ<sub>ε</sub>·log(1 + e<sup>β(1−δ)E[V(s′)]/σ<sub>ε</sub></sup>)", 28) + bullets(["A plant stays if the future is worth it; new plants enter until entry pays"], 23), 1),
+     col(eqbox("cost of k = w·(1 + ψ(1 + h)<sup>−ξ</sup>); &nbsp;cost of m = w + fixed c<sub>m</sub>", 28) + bullets(["Small plants cannot find Korean manual workers, so each one costs more than the wage", "An EPS worker costs the wage, so it saves that extra cost"], 23)
+         + table(prem_rows, [44, 14, 14, 14, 14], 22), 1))}
+{foot("In the 2019 survey, the smallest firms fill only 44% of planned Korean manual hires (large firms 89%), while their Korean wages are no higher.")}""",
+      [("Left", '"A plant combines core Korean workers with manual work, which can be done by a Korean manual worker or an EPS worker. Plants exit when the future is not worth it, and enter until entry pays."'),
+       ("Right", f'"Korean manual workers are hard to find at small plants, so each one costs more than the wage: {PREM(0):.1f} times at a plant with no core Koreans, {PREM(150):.1f} times at 150. An EPS worker costs the wage, so it saves that extra cost."'),
+       ("Footer", '"The survey backs this: small firms fill less than half the Korean manual jobs they plan, but they do not pay Koreans more. The extra cost is unfilled jobs."')], band=False)
 
 # ------------------------------------------------------------------ model 3: equilibrium and experiments
 rows = [["", "Today", "Price", "Equal limit"],
@@ -254,11 +276,12 @@ write("nov24-checks", f"""{h2("An untargeted check: EPS firms by size")}
 # ------------------------------------------------------------------ results
 C19, C24 = XT["caps2019"], XT["caps2024"]
 B24, B19 = XT["binding_2024"], XT["binding_2019"]
-rows = [["Same quota, change in net output", "2024 caps", "2019 caps", "If the premium is only pay"],
-        ["Equal limit (no link to size)", pct(C24["equal_limit"]["net"], 2, True), pct(C19["equal_limit"]["net"], 2, True), pct(C24["equal_limit"]["net_premium_as_pay"], 2, True)],
-        ["Price (any plant may buy)", pct(C24["price"]["net"], 2, True), pct(C19["price"]["net"], 2, True), pct(C24["price"]["net_premium_as_pay"], 2, True)]]
+rows = [["Same quota, change against today", "Net output, 2024 caps", "Net output, 2019 caps", "Gross output, 2024", "Net if the premium is only pay"],
+        ["Equal limit: same eligible plants, no link to size", pct(C24["equal_limit"]["net"], 2, True), pct(C19["equal_limit"]["net"], 2, True), pct(C24["equal_limit"]["gross"], 2, True), pct(C24["equal_limit"]["net_premium_as_pay"], 2, True)],
+        ["Price: any plant may buy permits", pct(C24["price"]["net"], 2, True), pct(C19["price"]["net"], 2, True), pct(C24["price"]["gross"], 2, True), pct(C24["price"]["net_premium_as_pay"], 2, True)],
+        ["No EPS at all (for scale)", pct(chg("no EPS"), 2, True), "—", pct(chg("no EPS", "Y"), 2, True), "—"]]
 write("nov24-results", f"""{h2("Result: the link to size barely matters; access does")}
-{table(rows, [40, 18, 18, 24], 28, hi=(1,))}
+{table(rows, [34, 16, 16, 15, 19], 25, hi=(1,))}
 {box(f"<b>Why size does not matter:</b> caps rarely bind ({pct(B24['users_at_cap'], 1)} of users at the 2024 cap). <b>Why a price helps:</b> permits go to plants that value them most. <b>Caveat:</b> the gain is the Korean premium saved.", size=25)}""",
       [("Table", f'"Same quota, three ways. Removing the link to size changes nothing, under either cap schedule. Letting any plant buy permits raises net output by {pct(C24["price"]["net"], 2, True)}."'),
        ("Box", f'"Size does not matter because caps rarely bind: only {pct(B24["users_at_cap"], 1)} of users are at their 2024 cap. A price helps because permits move to the plants that value them most. But the gain is the premium saved: if the premium is only higher pay, the gain is about zero."'),
@@ -269,10 +292,18 @@ BH = XT["by_h"]
 hb = [("2-5", "2–4"), ("5-10", "5–9"), ("10-30", "10–29"), ("30-1e+09", "30+")]
 rows = [["Core Korean workers h"] + [l for _, l in hb], ["Share of EPS workers, today"] + [pct(BH["today"][k2]) for k2, _ in hb],
         ["Share of EPS workers, price"] + [pct(BH["price"][k2]) for k2, _ in hb]]
+def prow2(name, d, i):
+    return [name, f"{d['h'][i]:.0f}", f"{d['k'][i]:.0f}", f"{d['m'][i]:.0f}"]
+
+
+rows2 = [["Eligible manual-intensive plant", "Core h", "Korean manual k", "EPS m"]]
+for i2, who2 in ((0, "Median"), (1, "Top 1%")):
+    rows2 += [prow2(f"{who2}: today", PL["current"], i2), prow2(f"{who2}: price", PL["price"], i2)]
 write("nov24-plans", f"""{h2("Why: with a price, EPS workers move to mid-sized plants")}
-{table(rows, [36, 16, 16, 16, 16], 28, hi=(1,))}
-{box(f"Large plants (30+ core Koreans) hold {pct(BH['today']['30-1e+09'])} of EPS workers today but save little: Koreans are easy to find there. With a price they go to plants with 5–29.", size=25)}""",
-      [("Table", f'"Today {pct(BH["today"]["30-1e+09"])} of EPS workers are at plants with 30 or more core Koreans, where Korean workers are easy to find. With a price, they all go to plants with 5 to 29 core Koreans, where Korean manual workers are scarcest."'),
+{table(rows, [36, 16, 16, 16, 16], 25, hi=(1,))}
+{row(col(table(rows2, [40, 18, 24, 18], 22), 1), col(box(f"Large plants (30+ core Koreans) hold {pct(BH['today']['30-1e+09'])} of EPS workers today but save little: Koreans are easy to find there. At a price of {PRICE['x']:.2f} ({pct(PRICE['x'] / PRICE['w'])} of the wage), the median and top plants stop using EPS, and the workers go to plants with 5–29 core Koreans.", size=23), 1))}""",
+      [("Top table", f'"Where EPS workers are, by core Korean workers. Today {pct(BH["today"]["30-1e+09"])} are at plants with 30 or more core Koreans. With a price, they all move to plants with 5 to 29, where Korean manual workers are scarcest."'),
+       ("Bottom table", '"Two eligible plants, the median and the top 1 percent. Today both use EPS workers. With a price, neither does: for them an EPS worker saves less than the price."'),
        ("If asked: why not the smallest", '"Using EPS has a fixed cost, which the smallest plants cannot cover at that price."')], band=False)
 
 # ------------------------------------------------------------------ assumptions and questions

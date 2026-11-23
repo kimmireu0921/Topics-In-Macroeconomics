@@ -1,4 +1,4 @@
-# Nov 24 script (slides 63–74)
+# Nov 24 script (slides 63–75)
 
 Talking points from the speaker notes (`presentations/nov24/build.py`). Say them in your own words.
 
@@ -30,27 +30,47 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 
 ## Benjamin
 
-### Slide 66: The model (1/3): plants and today's EPS rules
+### Slide 66: What changed in the model since last week
+
+**Title**  
+"For those who were not here last week: here is exactly what changed. Before, every plant could use EPS, but only 21 percent of its cap. Now a random share of plants is eligible, and eligible plants can use their full legal cap, counted on all Korean workers as the law does."
+
+**Why**  
+"The data rejected the 21 percent rule: real firms use 60 percent of their cap on average, not 21. Random eligibility was one of the two fixes the professor suggested."
+
+**Last row**  
+"The headline result also changed. Last week, removing the link to size gained up to 0.19 percent. Now it gains nothing, because caps rarely bind once access is rationed. More on that at the end."
+
+### Slide 67: The model (1/3): plants and today's EPS rules
 
 **Bullets**  
-"Each plant draws three things at entry: its type, its productivity, and whether it is eligible for EPS. Eligibility is random, 22% of new plants, and that share adjusts until the quota is used. Eligible plants can hire up to their legal cap, counted on all Korean workers."
+"Each plant draws three things when it enters: its type, its productivity, and whether it is eligible for EPS. Eligibility is random, 22% of new plants, and that share adjusts until the quota is used. Eligible plants can hire up to their legal cap, counted on all Korean workers."
 
-### Slide 67: The model (2/3): output, costs and the plant's choice
+**Tables**  
+"These are the legal caps. We use the 2024 schedule for today's economy and the 2019 schedule when we compare with the survey, because those firms faced the 2019 caps."
 
-**Equations**  
-"Output uses core workers and manual work; manual work is done by Korean manual workers or EPS workers. Korean manual workers cost more than the wage, most at small plants. Plants exit when staying is not worth it, and enter until entry pays."
+**If asked: why random**  
+"The professor suggested it, and it matches the data: demand exceeds the quota, and which firm gets workers is partly luck in the points system."
 
-**If asked: 2.7 times the wage**  
-"It is not a wage. In the survey, small firms fill only 44 percent of planned Korean manual hires, while their Korean wages are no higher. The cost is unfilled jobs."
+### Slide 68: The model (2/3): output, costs and the plant's choice
+
+**Left**  
+"A plant combines core Korean workers with manual work, which can be done by a Korean manual worker or an EPS worker. Plants exit when the future is not worth it, and enter until entry pays."
+
+**Right**  
+"Korean manual workers are hard to find at small plants, so each one costs more than the wage: 2.7 times at a plant with no core Koreans, 1.1 times at 150. An EPS worker costs the wage, so it saves that extra cost."
+
+**Footer**  
+"The survey backs this: small firms fill less than half the Korean manual jobs they plan, but they do not pay Koreans more. The extra cost is unfilled jobs."
 
 ## Julian
 
-### Slide 68: The model (3/3): equilibrium and the two experiments
+### Slide 69: The model (3/3): equilibrium and the two experiments
 
 **Table**  
 "We compare today with two ways of allocating the same quota: a permit price open to any plant, and an equal limit for the same eligible plants. The equal limit removes only the link to size."
 
-### Slide 69: Calibration: 13 parameters, 8 targets
+### Slide 70: Calibration: 13 parameters, 8 targets
 
 **Table**  
 "Every target has a source; the model fits all eight closely."
@@ -60,12 +80,12 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 
 ## Sara
 
-### Slide 70: Who uses EPS: 7.0% of plants (data 8.0%)
+### Slide 71: Who uses EPS: 7.0% of plants (data 8.0%)
 
 **Table**  
 "This answers your concern that every firm wanted EPS workers. Now only the highlighted group uses them: about 7 percent of plants, against 8 percent in the data."
 
-### Slide 71: An untargeted check: EPS firms by size
+### Slide 72: An untargeted check: EPS firms by size
 
 **Left**  
 "Where EPS firms are by size: close to the survey."
@@ -75,7 +95,7 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 
 ## Donny
 
-### Slide 72: Result: the link to size barely matters; access does
+### Slide 73: Result: the link to size barely matters; access does
 
 **Table**  
 "Same quota, three ways. Removing the link to size changes nothing, under either cap schedule. Letting any plant buy permits raises net output by +0.39%."
@@ -86,15 +106,18 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 **If asked: does the size rule keep weak plants alive**  
 "In this model, no: the caps rarely bind. Whether a plant gets permits at all matters much more."
 
-### Slide 73: Why: with a price, EPS workers move to mid-sized plants
+### Slide 74: Why: with a price, EPS workers move to mid-sized plants
 
-**Table**  
-"Today 31% of EPS workers are at plants with 30 or more core Koreans, where Korean workers are easy to find. With a price, they all go to plants with 5 to 29 core Koreans, where Korean manual workers are scarcest."
+**Top table**  
+"Where EPS workers are, by core Korean workers. Today 31% are at plants with 30 or more core Koreans. With a price, they all move to plants with 5 to 29, where Korean manual workers are scarcest."
+
+**Bottom table**  
+"Two eligible plants, the median and the top 1 percent. Today both use EPS workers. With a price, neither does: for them an EPS worker saves less than the price."
 
 **If asked: why not the smallest**  
 "Using EPS has a fixed cost, which the smallest plants cannot cover at that price."
 
-### Slide 74: What we assume, and our questions
+### Slide 75: What we assume, and our questions
 
 **Left**  
 "These four assumptions matter most for the result. The last one matters most: the gain is the premium saved."
