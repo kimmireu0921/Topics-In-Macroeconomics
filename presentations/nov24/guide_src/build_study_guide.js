@@ -59,7 +59,7 @@ C.push(new Paragraph({ children: [t("EPS project · Nov 24 study guide", { bold:
 C.push(P([t("The new model (v8), slide by slide, with likely questions", { size: 26, color: "3D4756" })]));
 C.push(P([t("Slides 63–75 of the class deck. Every number below comes from the model and survey files in our repository (v8_results.json, v8_extra.json, v8_capuse_hist.json, premium_evidence.json).", { italics: true, size: 19, color: "5F6876" })]));
 C.push(P([t("Contents", { bold: true })]));
-["1. The change in one page", "2. Key numbers to know", "3. Slide by slide (63–75), with possible questions", "4. The hardest questions, in one place", "5. Glossary"].forEach((x) => C.push(P([t(x)], { spacing: { after: 40 }, indent: { left: 280 } })));
+["1. The change in one page", "2. The model in six equations", "3. Key numbers to know", "4. Slide by slide (63–75), with possible questions", "5. The hardest questions, in one place", "6. Glossary"].forEach((x) => C.push(P([t(x)], { spacing: { after: 40 }, indent: { left: 280 } })));
 C.push(new Paragraph({ children: [new PageBreak()] }));
 
 // Part 1: the change
@@ -92,9 +92,37 @@ C.push(B("**The link to size barely matters.** Replacing the size-based cap with
 C.push(B("**Access matters.** Letting any plant buy permits at a price raises net output by 0.39% (2024 caps)."));
 C.push(B("**Caveat:** the gain is the Korean premium saved. If the premium is only higher pay rather than a real cost, the gain is +0.02%."));
 
+// Part 2: equations
+C.push(new Paragraph({ children: [new PageBreak()] }));
+C.push(H1("2. The model in six equations"));
+C.push(PR("These six equations run along the bottom of slides 66–75; the ones a slide uses are in bold. Equations (3) and (4) are the ones that changed."));
+C.push(table([
+  ["", "Equation", "In words", "Slides"],
+  ["(1)", "y = s·(h^ρ + λₜ ℓ^ρ)^(α/ρ), ℓ = k + m", "A plant's output uses core Korean workers h and manual work ℓ. Manual work is done by Korean manual workers k or EPS workers m, one for one. λ is high for manual-intensive plants", "68, 70, 71, 75"],
+  ["(2)", "cost of k = w·(1 + ψ(1 + h)^−ξ); cost of m = w", "A Korean manual worker costs more than the wage at small plants (2.70× at h = 0, 1.09× at h = 150); an EPS worker costs the wage (plus a fixed cost of using EPS at all)", "68, 70, 74"],
+  ["(3)", "Eligible (share e): m ≤ q(h + k), h + k < 300", "NEW. A random share e of new plants may hire EPS workers up to the legal cap, which counts all Korean workers; plants with 300+ Korean workers cannot. Others hire none", "66, 67, 70–73, 75"],
+  ["(4)", "Price: m at w + p; equal limit: m ≤ L", "NEW. The two experiments: any plant buys permits at price p; or the same eligible plants each get the same limit L", "69, 70, 73, 74"],
+  ["(5)", "Exit if β(1−δ)E[V(s′)] < 0; Σν V = cₑ", "A plant closes when the expected future is not worth staying for; new plants enter until the expected value of entering equals the entry cost", "68, 70"],
+  ["(6)", "Σμ(h + k) = N, Σμ m = M", "Korean workers are all employed, and total EPS use equals the quota (e, p or L adjusts so it does)", "67, 69, 70"],
+], [6, 30, 50, 14]));
+C.push(gap());
+C.push(H2("Symbols"));
+C.push(table([
+  ["Symbol", "Meaning", "Value (v8)"],
+  ["s = x·z", "Productivity: permanent part x (Pareto tail) times a changing part z", "—"],
+  ["h, k, m", "Core Korean workers; Korean manual workers; EPS workers", "—"],
+  ["λₜ", "Weight on manual work, light (A) and manual-intensive (B)", "0.034 and 0.70"],
+  ["ψ, ξ", "Size of the Korean manual premium; how fast it falls with h", "1.70; 0.59"],
+  ["q(·)", "Legal cap by Korean workers (2024 or 2019 schedule)", "Tables on slide 67"],
+  ["e", "Eligible share of new plants", "22% (2024), 27% (2019)"],
+  ["p; L", "Permit price; equal limit", "0.17; 45 (2024)"],
+  ["w", "Wage of Korean workers", "Set by free entry"],
+  ["N; M", "Korean labour; EPS quota", "1; 5.29% of workers"],
+  ["β, δ, σ_ε, α", "Discount factor; exogenous exit; exit taste shock; returns to scale", "0.96; 0.016; 0.1; 0.69"],
+], [18, 56, 26]));
 // Part 2: numbers
 C.push(new Paragraph({ children: [new PageBreak()] }));
-C.push(H1("2. Key numbers to know"));
+C.push(H1("3. Key numbers to know"));
 C.push(table([
   ["Number", "Value", "Meaning"],
   ["Eligible share of new plants", "22% (2024 caps); 27% (2019 caps)", "Adjusts so that total EPS use equals the quota"],
@@ -115,7 +143,7 @@ C.push(table([
 
 // Part 3: slide by slide
 C.push(new Paragraph({ children: [new PageBreak()] }));
-C.push(H1("3. Slide by slide"));
+C.push(H1("4. Slide by slide"));
 C.push(...slide(63, "Cover", "Mimi",
   ["Title: \"EPS project: the new model and what it says\"; the research topic"],
   ["Today: the histogram the professor asked for, the new model in brief, and what it says"], null,
@@ -203,7 +231,7 @@ C.push(...slide(75, "What we assume, and our questions", "Donny",
 
 // Part 4: hard questions
 C.push(new Paragraph({ children: [new PageBreak()] }));
-C.push(H1("4. The hardest questions, in one place"));
+C.push(H1("5. The hardest questions, in one place"));
 [["Is the result circular (random eligibility makes caps irrelevant)?", "Not by assumption: it comes from matching the survey's 62% average cap use. Plants that use 62% of their cap on average are mostly not held back by it. It does rest on one assumption: a firm below its cap has all it wants."],
  ["Is the gain only an accounting choice?", "Partly. With perfect substitutes, moving EPS workers between plants changes only the premium saved, fixed costs and entry, so the gain is the premium. The survey supports treating it as a real cost (unfilled jobs, flat wages). We report both."],
  ["How robust is +0.39% to the premium?", "Holding other parameters fixed: ψ = 0.92 gives +0.13%; ψ = 1.36 gives +0.51%; ψ = 1.70 (ours) +0.39%; ψ = 2.04 +0.47%. So report a range."],
@@ -212,7 +240,7 @@ C.push(H1("4. The hardest questions, in one place"));
  ["What exactly is a plant's state?", "The pair (x, z): permanent and changing productivity. Two plants with the same s but different x are different states in the code."]].forEach(([q, a]) => C.push(...QA(q, a)));
 
 // Part 5: glossary
-C.push(H1("5. Glossary"));
+C.push(H1("6. Glossary"));
 C.push(table([
   ["Term", "Meaning"],
   ["Legal cap q(n)", "Most EPS workers a plant may hire, set by law from its insured Korean workers n = h + k"],
