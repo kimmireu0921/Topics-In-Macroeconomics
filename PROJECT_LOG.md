@@ -772,6 +772,18 @@ Prof. Hur's comments (from our notes):
 4. **Quota.** Redo the larger and smaller quota experiments for v8 (the eligible share adjusts).
 5. **Welfare.** Report consumer welfare in each experiment. EPS workers are outside the model (no consumption or saving), so say so; welfare will likely mirror output.
 
+**Cap-tilt experiment** (`hopenhayn_project/eps_model/v8_tilt.py`, `v8_tilt.json`, figure `presentations/dec8/fig_tilt.png`):
+- **Design.** Cap = A × n^S on all Korean workers, with the same eligible plants as today and A clearing the quota. Today's 2024 schedule fits 9.4 n^0.32.
+- **Check.** S = 0 reproduces the equal limit (A = 45.3, −0.0017% vs −0.0021%). The gap is the finer grid used for the largest feasible m.
+- **Result, change in net output vs today:**
+
+| S | −1.0 | −0.5 | −0.25 | 0 | 0.15 | 0.32 | 0.5 | 0.75 | 1.0 | 1.5 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Net output | −0.0004% | −0.0001% | −0.0022% | −0.0017% | −0.0020% | −0.0024% | −0.0050% | −0.0038% | −0.0007% | **−0.068%** |
+
+- Flat at zero, within numerical noise (about ±0.005%), from S = −1 to 1. It falls only when caps strongly favour large plants (S = 1.5: a cap of 1.5 at 5 Korean workers; 27% of users at the cap).
+- **No tilt raises output.** Giving small plants bigger caps does nothing, because small eligible plants already hire all the EPS workers they want.
+
 **Public data for a separate pool of Korean manual workers** (looked up Nov 24; tables not yet downloaded):
 
 - **직종별사업체노동력조사 (Ministry of Employment and Labor), twice a year.**
