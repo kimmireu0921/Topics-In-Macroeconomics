@@ -771,6 +771,24 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
 <a id="next-steps"></a>
 ## Open questions and next steps
 
+**v8: not yet checked against data (Nov 24). To do after the talk, before the model freezes.**
+
+| Item | v8 value | Check with | Status |
+|---|---|---|---|
+| Fixed cost of using EPS, c_m | 0.73 | Survey Q21: recruiting cost, dorm and meal cost, insurance per EPS worker | Data in hand, not done |
+| Decline of the premium with size, ξ | 0.59 | Survey Q4 hiring shortfall by size (slope 0.22–0.50, `bunching/premium_evidence.json`) | Compared; v8 is steeper; possible target |
+| Size of the premium, ψ | 1.70 (2.7× the wage at h = 0) | No money measure; survey shows the pattern only | Open |
+| Bunching at cap steps (h + k) | — | Survey and census bunching (`bunching/`) | Not rechecked for v8 |
+| Manual-intensive share of plants | 44% | Census occupations or Ministry applicants | No data yet |
+| Access rate (eligible share) | 22% (2024), 27% (2019) | Ministry applications vs permits granted | Waiting for the Ministry |
+| Quota fully used | assumed | Ministry entries vs quota | Waiting for the Ministry |
+| Perfect substitutes | assumed | Survey Q14 productivity (74–96%); Dong, Lee and Yang (2024) | Not tested |
+| Permanent eligibility | assumed | Permit length (about 3 years) | Not tested |
+| EPS share by size, small firms | flat 36% (survey 52% falling) | Survey | Gap: functional form (λ check, Nov 24) |
+| Cap-use tails | 0% below 30% and above 100% (survey 21%, 11%) | Survey | Gap |
+| Closure slope | 0.00 (data 0.152) | Lee, Peri and Yang | Gap |
+
+
 **Schedule to the end (set Nov 18):**
 - **Nov 24:** talk on the v8 model (random eligibility, full legal cap) and the written model.
 - **About Nov 30:** Ministry data.
