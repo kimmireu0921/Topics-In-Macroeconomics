@@ -743,6 +743,36 @@ support θ = 0.21 as an effective cap. This points to his random-eligibility ver
 
 ---
 
+## Nov 24 — Presentation feedback: the model is settled; discipline the premium
+
+Prof. Hur's comments (from our notes):
+
+1. **The model is fine.** We can freeze it and write the paper.
+2. **The Korean manual premium (ψ, ξ) is the least disciplined part.** It is also the most important ingredient. Justify the functional form and its values, from the literature or from data. "That's the number one thing that can be criticized." The paper must make clear it is a recruiting / unfilled-job cost, not a wage.
+3. **Calibration: parameters should equal targets.** Today it is 13 parameters for 8 targets. Either set about 5 externally (from literature) or add 5 targets.
+4. **The equal-limit result looks implausible to him.**
+   - Plants above L should shrink and plants at their cap should grow.
+   - Show the variable that clears the quota (e, p, L) for each policy and year, with more decimals.
+   - Exact values: −0.0021% (2024, L = 45.2) and −0.0013% (2019, L = 14.4). Small, not exactly zero.
+5. **New experiment: tilt the size-based caps.** Give small firms much larger caps and large firms much smaller ones. Trace output along the tilt; he expects a nonlinear, possibly inverted-U, response.
+6. **The price experiment is interesting.**
+   - He guessed the 2019 price is higher. It is not: the price economy has no caps, so it is identical under both years (p = 0.168).
+   - The +0.33% vs +0.39% gap comes from the different baselines.
+7. **The plants slide should show small firms too.** The median plant shrinks under a price (3 EPS workers replaced by 1 Korean manual worker).
+8. **Taste shocks.** Idiosyncratic taste shocks could produce firms hiring only 1–2 EPS workers, which bears on the missing low tail of the cap-use histogram.
+9. **Labour market clearing.** How do Korean workers split between core and manual, and is there a fixed pool of Korean manual workers? Left for a follow-up.
+
+**To do before Dec 8** (no restructuring):
+- Discipline ψ and ξ: survey hiring shortfall by size (`bunching/premium_evidence.json`) and literature.
+- Match parameters to targets.
+- Report the clearing variables and the exact equal-limit effects.
+- Run the cap-tilt experiment.
+- Add small plants to the plans table.
+- Write out the labour-market clearing conditions.
+- The checks in the "not yet checked against data" list.
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
