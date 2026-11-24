@@ -775,6 +775,19 @@ Prof. Hur's comments (from our notes):
   - Published releases list employment by occupation.
   - Not yet confirmed: a manufacturing × occupation cross table on KOSIS.
 
+**Checked Nov 24: the 2026 H1 직종별사업체노동력조사 report** (645 pages).
+- Source: laborstat.moel.go.kr → 통계조사보고서 → 직종별사업체노동력조사, file FILE_000000000059497. Earlier reports on the same board go back to 2023 H2, including 2024 H1 and H2. Public, cite as "고용노동부, 직종별사업체노동력조사".
+- **Table 1-1, industry (중분류) × establishment size.** Gives 현원, 구인, 채용, 미충원, 부족인원 and 채용계획 for manufacturing and each manufacturing sub-industry (10–34). Examples:
+  - all sizes: 현원 3,767,967, 구인 167,386, 채용 140,342;
+  - 5+ regular workers: 미충원 24,025.
+- **Table 1-2, occupation (소분류) × size.** Includes manufacturing production and machine-operator occupations (KECO 8xx) and simple-labour occupations.
+- **Size classes** (regular workers): under 5, 5+, 10–29, 100–299, under 300, 300+ (others still to confirm).
+- **Summary tables split 내국인 / 외국인.**
+- **Not available:** one table of manufacturing × occupation × size. Only two of the three dimensions at a time.
+- **Use:**
+  - Unfilled rate by size within manufacturing, to discipline the decline of the premium (ξ).
+  - Stocks of manual-occupation workers, to size a separate Korean manual pool.
+
 **To do before Dec 8** (no restructuring):
 - Discipline ψ and ξ: survey hiring shortfall by size (`bunching/premium_evidence.json`) and literature.
 - Match parameters to targets.
