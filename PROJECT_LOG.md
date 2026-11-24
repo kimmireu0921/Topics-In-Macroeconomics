@@ -762,6 +762,19 @@ Prof. Hur's comments (from our notes):
 8. **Taste shocks.** Idiosyncratic taste shocks could produce firms hiring only 1–2 EPS workers, which bears on the missing low tail of the cap-use histogram.
 9. **Labour market clearing.** How do Korean workers split between core and manual, and is there a fixed pool of Korean manual workers? Left for a follow-up.
 
+**Public data for a separate pool of Korean manual workers** (looked up Nov 24; tables not yet downloaded):
+
+- **직종별사업체노동력조사 (Ministry of Employment and Labor), twice a year.**
+  - Covers 현원, 구인, 채용, 미충원, 부족인원 and 채용계획 by industry, occupation, establishment size and region.
+  - The report has 직종(소분류)별·규모별 미충원인원 tables.
+  - The 2026 H1 release puts manufacturing's unfilled rate at 16.2%, the highest unfilled count of any industry (korea.kr, 156768867).
+  - The report file is on data.go.kr (dataset 3038237).
+  - Not yet confirmed: a manufacturing × occupation × size table.
+  - Occupation classification: KECO 2018 for 2021–25.
+- **지역별고용조사 (Statistics Korea), employment by industry and occupation.**
+  - Published releases list employment by occupation.
+  - Not yet confirmed: a manufacturing × occupation cross table on KOSIS.
+
 **To do before Dec 8** (no restructuring):
 - Discipline ψ and ξ: survey hiring shortfall by size (`bunching/premium_evidence.json`) and literature.
 - Match parameters to targets.
