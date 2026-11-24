@@ -1,0 +1,9 @@
+{
+ "_source": "고용노동부, 2026년 상반기 직종별사업체노동력조사 보고서, 통계표 1-1 (산업 중분류별, 규모별): C. 제조업(10~34). laborstat.moel.go.kr, file FILE_000000000059497. Size = regular employees. Shortage rate = 부족인원 / (현원 + 부족인원), April 1, 2026.",
+ "manufacturing_by_size": {
+  "under 5": {"workers": 441608, "openings": 22573, "hires": 19554, "unfilled": 3019, "shortage_rate": 4.0},
+  "10-29": {"workers": 837588, "openings": 40937, "hires": 34020, "unfilled": 6917, "shortage_rate": 3.0},
+  "100-299": {"workers": 527515, "openings": 25085, "hires": 20866, "unfilled": 4219, "shortage_rate": 2.0}
+ },
+ "manufacturing_5plus": {"workers": 3326359, "openings": 144813, "hires": 120788, "unfilled": 24025, "shortage_rate": 2.3}
+}

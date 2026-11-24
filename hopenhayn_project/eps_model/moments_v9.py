@@ -92,6 +92,15 @@ def book(mod, r, regime="current"):
                 would += B["mu"][m_if > 0].sum()
         d["applicants"] = float(would / W)
         d["allocation_rate"] = float(d["users"] / max(d["applicants"], 1e-300))
+    # ---- groups by type and eligibility
+    groups = {}
+    for B in out["blocks"]:
+        key = f"{'manual' if B['type'] else 'light'}_{'eligible' if B['eligible'] else 'not'}"
+        bm = B["mu"].sum()
+        groups[key] = dict(plants=float(bm / W), user_rate=float(B["mu"][B["m"] > 0].sum() / max(bm, 1e-300)),
+                           size=float(B["mu"] @ (B["h"] + B["k"] + B["m"]) / max(bm, 1e-300)),
+                           exit=float(B["mu"] @ (1 - (1 - mod.delta) * B["stay"]) / max(bm, 1e-300)))
+    d["groups"] = groups
     d["eligible_share_entrants"] = float(out["x"]) if regime == "current" else None
     d["wage"] = float(out["w"])
     return d

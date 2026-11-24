@@ -841,6 +841,35 @@ Prof. Hur's comments (from our notes):
 
 ---
 
+<a id="dec8-prep"></a>
+## Nov 24 (after class) — Preparing Dec 8: the v9 pipeline and a draft deck
+
+**Goal.** Dec 8 is the final one-hour talk and must match the paper. The Ministry data arrives about Nov 30, so everything is set up now so that the data only changes numbers.
+
+**v9 pipeline** (`hopenhayn_project/eps_model/`, model unchanged from v8):
+- `targets_v9.json`: every target with value, source, weight (1 = fit, 0 = check) and the cap schedule it is measured under; Ministry items are already listed with weight 0.
+- `moments_v9.py`: every model moment, in the Ministry size bands (Korean insured workers 1–5, 6–10, 11–30, 31–50, 51–100, 101–300, 301+), plus groups by type and eligibility.
+- `calibrate_v9.py`, `results_v9.py` (all experiments → `results_v9.json`), `make_all.py` (one command), `DATA_SWAP.md` (Ministry item → moment → use).
+- Check at v8 parameters reproduces the v8 loss (0.036).
+
+**Draft Dec 8 deck** (`presentations/dec8/build.py`, slides 76–111 of the shared deck, sections "Dec 8 (draft)"):
+- Seven parts: question and answer; background (EPS and the size rule); facts from the data; the model; calibration and checks; results; conclusion.
+- Written for an audience new to the topic. Every number is read from `results_v9.json`, `targets_v9.json` and the evidence files, so a rerun updates the slides. No presenter assignment.
+- Figures from `figs_v9.py`: hiring shortfall by size (survey and Ministry labour force survey), why caps rarely bind, quota size, summary of gains.
+
+**Survey Q21 (checked Nov 24).** The fixed cost of using EPS (c_m = 0.73) is not supported: reported costs are small and per worker (table above).
+
+**Decisions still needed before the final recalibration** (each needs a recorded source):
+- Which parameters to set outside the model so that parameters match targets. Candidates:
+  - ξ from the hiring-shortfall gradient by size (survey 0.22–0.50; Ministry labour force survey about 0.18);
+  - ρ from the literature;
+  - δ from the exit rate of the largest plants;
+  - γ from the census size tail;
+  - c_m from Q21.
+- How the manual-intensive share is defined against Ministry item 10 (KSCO 7–9).
+
+---
+
 <a id="what-worked"></a>
 ## What worked and what didn't
 
@@ -873,7 +902,7 @@ Prof. Hur's comments (from our notes):
 
 | Item | v8 value | Check with | Status |
 |---|---|---|---|
-| Fixed cost of using EPS, c_m | 0.73 | Survey Q21: recruiting cost, dorm and meal cost, insurance per EPS worker | Data in hand, not done |
+| Fixed cost of using EPS, c_m | 0.73 (about 76% of a Korean annual wage) | Survey Q21 (772 firms, medians): one-off entry cost 30만원, dorm and meal 20만원/month, insurance 15만원/month; EPS monthly wage 220만원 | **Checked Nov 24: not supported.** Costs are small and run per worker (dorm, meal and insurance about 17% of the EPS wage; entry cost about 1% of a year's wage). The label does not say whether amounts are per worker or per firm; either way there is no large fixed cost. Candidate: set c_m from Q21 |
 | Decline of the premium with size, ξ | 0.59 | Survey Q4 hiring shortfall by size (slope 0.22–0.50, `bunching/premium_evidence.json`) | Compared; v8 is steeper; possible target |
 | Size of the premium, ψ | 1.70 (2.7× the wage at h = 0) | No money measure; survey shows the pattern only | Open |
 | Bunching at cap steps (h + k) | — | Survey and census bunching (`bunching/`) | Not rechecked for v8 |
