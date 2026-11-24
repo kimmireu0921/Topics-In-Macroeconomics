@@ -1,0 +1,57 @@
+{
+ "_readme": "Single source of truth for calibration targets and externally set parameters (v9 pipeline). To use new data: change 'value', 'source' and 'status', set 'weight' > 0 for targets to fit, then run `python3 make_all.py`. Moments are computed in moments_v9.py; 'moment' is the key in its book (dot = nested), 'caps' says which cap schedule the moment is computed under. Status: sourced | pending_ministry | check (compared, not fitted).",
+ "quota": {
+  "eps_share_of_workers": 0.05293,
+  "source": "219,507 E-9 workers in manufacturing, end of 2024 (e-나라지표 1501, table 150107) / 4,147,204 manufacturing workers (MDIS business census 2024)",
+  "status": "sourced"
+ },
+ "targets": [
+  {"name": "avg_size", "moment": "avg_size", "caps": 2024, "value": 8.14, "weight": 1, "status": "sourced",
+   "source": "MDIS business census 2024, all 509,467 manufacturing plants, masked headcounts imputed by band"},
+  {"name": "share_small", "moment": "share_small", "caps": 2024, "value": 0.713, "weight": 1, "status": "sourced",
+   "source": "MDIS business census 2024: plants with 1-4 workers"},
+  {"name": "share_50plus", "moment": "share_50plus", "caps": 2024, "value": 0.021, "weight": 1, "status": "sourced",
+   "source": "MDIS business census 2024: plants with 50+ workers"},
+  {"name": "exit_rate", "moment": "exit_rate", "caps": 2024, "value": 0.066, "weight": 1, "status": "sourced",
+   "source": "Statistics Korea, business demography 2025 (provisional), manufacturing exit rate 2024 (enterprises)"},
+  {"name": "users", "moment": "users", "caps": 2024, "value": 0.080, "weight": 1, "status": "sourced",
+   "source": "40,766 workplaces with E-9 (e-나라지표 1501, table 150106) / 509,467 census plants; may be replaced by Ministry item 2"},
+  {"name": "eps_share_users", "moment": "lpy.mean_share", "caps": 2019, "value": 0.369, "weight": 1, "status": "sourced",
+   "source": "Lee, Peri and Yang (2026), Table 3"},
+  {"name": "users_size", "moment": "lpy.workers", "caps": 2019, "value": 20.78, "weight": 1, "status": "sourced",
+   "source": "Lee, Peri and Yang (2026), Table 3"},
+  {"name": "use_of_cap", "moment": "lpy.use_of_cap", "caps": 2019, "value": 0.624, "weight": 1, "status": "sourced",
+   "source": "KDI-World Bank EPS survey 2019 (Dong, Lee and Yang 2024 replication file), 772 firms"},
+
+  {"name": "cap_use_mean_2024", "moment": "cap_use_mean", "caps": 2024, "value": null, "weight": 0, "status": "pending_ministry",
+   "source": "Ministry item 3: E-9 / allowed workers by size, 2024"},
+  {"name": "at_or_above_cap_2024", "moment": "at_or_above_cap", "caps": 2024, "value": null, "weight": 0, "status": "pending_ministry",
+   "source": "Ministry item 3: share of workplaces at 100% or above"},
+  {"name": "allocation_rate", "moment": "allocation_rate", "caps": 2024, "value": null, "weight": 0, "status": "pending_ministry",
+   "source": "Ministry item 4: allocated workplaces / applicant workplaces (2024 rounds)"},
+  {"name": "exit_users", "moment": "exit_users", "caps": 2024, "value": null, "weight": 0, "status": "pending_ministry",
+   "source": "Ministry item 7: exits / workplaces, E-9 employers"},
+  {"name": "exit_nonusers", "moment": "exit_nonusers", "caps": 2024, "value": null, "weight": 0, "status": "pending_ministry",
+   "source": "Ministry item 7: exits / workplaces, non-E-9 employers"}
+ ],
+ "checks": [
+  {"name": "closure_slope", "moment": "slope_lpy", "caps": 2019, "value": 0.152, "source": "Lee, Peri and Yang (2026), Table 6"},
+  {"name": "cap_use_histogram_2019", "moment": "lpy.use_hist", "caps": 2019, "value": "bunching/cap_use_hist.json", "source": "EPS survey 2019"},
+  {"name": "eps_share_by_size_2019", "moment": "size", "caps": 2019, "value": "baseline/survey_binding.json", "source": "EPS survey 2019"},
+  {"name": "users_by_band", "moment": "by_band.*.user_rate", "caps": 2024, "value": null, "status": "pending_ministry", "source": "Ministry item 2 by size"},
+  {"name": "cap_use_by_band", "moment": "by_band.*.cap_use_buckets", "caps": 2024, "value": null, "status": "pending_ministry", "source": "Ministry item 3 by size"},
+  {"name": "manual_share_buckets", "moment": "manual_share_buckets", "caps": 2024, "value": null, "status": "pending_ministry",
+   "source": "Ministry item 10 (KSCO 7, 8, 9 share of insured). Model manual work = tasks EPS can do; compare with care"},
+  {"name": "korean_unfilled_by_band", "moment": "premium_by_band", "caps": 2024, "value": null, "status": "pending_ministry",
+   "source": "Ministry item 11 (Korean recruitment before application); also survey Q4 and MLFS shortage rates"},
+  {"name": "wages_by_band", "moment": "wage", "caps": 2024, "value": null, "status": "pending_ministry", "source": "Ministry item 12"}
+ ],
+ "external": {
+  "alpha": {"value": 0.6916, "source": "first Hopenhayn calibration of Korean manufacturing (run_eps.py FIRM)", "status": "set"},
+  "rho_s": {"value": 0.8975, "source": "first Hopenhayn calibration (run_eps.py FIRM)", "status": "set"},
+  "beta": {"value": 0.96, "source": "standard annual discount factor", "status": "set"},
+  "sig_e": {"value": 0.1, "source": "smoothing only", "status": "set"}
+ },
+ "free": ["rho", "cm", "psi", "xi", "lamA", "cfA", "lamB", "cfB", "shB", "sigma_s", "gamma", "ce", "delta"],
+ "_todo_external": "Prof. Hur (Nov 24): parameters should equal targets. Candidates to move from 'free' to 'external' with a source: xi (survey Q4 / MLFS shortage gradient), rho (literature elasticity of substitution), delta (exit rate of the largest plants), gamma (Pareto tail of the census size distribution), cm (survey Q21 costs)."
+}
