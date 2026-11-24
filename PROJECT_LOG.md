@@ -784,6 +784,26 @@ Prof. Hur's comments (from our notes):
 - Flat at zero, within numerical noise (about ±0.005%), from S = −1 to 1. It falls only when caps strongly favour large plants (S = 1.5: a cap of 1.5 at 5 Korean workers; 27% of users at the cap).
 - **No tilt raises output.** Giving small plants bigger caps does nothing, because small eligible plants already hire all the EPS workers they want.
 
+**Quota size and welfare** (`hopenhayn_project/eps_model/v8_quota_welfare.py`, `v8_quota_welfare.json`). Welfare is consumption, since utility is linear:
+- *Korean households:* net output minus the EPS wage bill (permit revenue is returned to them).
+- *Everyone:* net output.
+
+| Case | Net output | Korean welfare | Eligible share e |
+|---|---|---|---|
+| Quota × 0.5 | −2.88% | −0.75% | 0.113 |
+| Quota × 0.75 | −1.43% | −0.37% | 0.168 |
+| Today | 0 | 0 | 0.222 |
+| Quota × 1.25 | +1.47% | +0.41% | 0.277 |
+| Quota × 1.5 | +2.97% | +0.83% | 0.329 |
+| Quota × 2 | +5.89% | +1.60% | 0.431 |
+| Price (same quota) | +0.39% | +0.44% | — |
+| Equal limit | 0.00% | 0.00% | — |
+| No EPS | −5.76% | −1.51% | — |
+
+- The quota effects are nearly linear.
+- For Korean households, the price is worth about as much as a 25–30% larger quota. The price adds no EPS wages to pay out and lowers the wage bill (w −0.57%).
+- In net output, the price equals a quota about 7% larger.
+
 **Public data for a separate pool of Korean manual workers** (looked up Nov 24; tables not yet downloaded):
 
 - **직종별사업체노동력조사 (Ministry of Employment and Labor), twice a year.**
