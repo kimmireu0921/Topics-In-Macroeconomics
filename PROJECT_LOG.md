@@ -762,6 +762,16 @@ Prof. Hur's comments (from our notes):
 8. **Taste shocks.** Idiosyncratic taste shocks could produce firms hiring only 1–2 EPS workers, which bears on the missing low tail of the cap-use histogram.
 9. **Labour market clearing.** How do Korean workers split between core and manual, and is there a fixed pool of Korean manual workers? Left for a follow-up.
 
+**After-class meeting with Prof. Hur (Nov 24), decisions:**
+1. **Korean labour market.** Keep one pool with one wage. A separate manual pool or occupation wages "would be a big change"; say upfront that core and manual Koreans earn the same wage.
+2. **Taste shocks.** No (a big change).
+3. **Cap tilt, the main new exercise.**
+   - Parameterize how steeply the cap rises with Korean workers, relative to the 45° line. Move it both ways (more for small plants, more for large), holding total EPS fixed.
+   - Plot the change in output against the tilt. A region above zero may exist.
+   - If every tilt lowers output, the result is that the current schedule is near-optimal. That claim needs every modeling choice justified.
+4. **Quota.** Redo the larger and smaller quota experiments for v8 (the eligible share adjusts).
+5. **Welfare.** Report consumer welfare in each experiment. EPS workers are outside the model (no consumption or saving), so say so; welfare will likely mirror output.
+
 **Public data for a separate pool of Korean manual workers** (looked up Nov 24; tables not yet downloaded):
 
 - **직종별사업체노동력조사 (Ministry of Employment and Labor), twice a year.**
