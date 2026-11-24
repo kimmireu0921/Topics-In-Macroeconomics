@@ -181,9 +181,11 @@ dm, mm = CH19["data"], CH19["model"]
 below30 = lambda r: sum(r["share"][:3])
 write("nov24-test", f"""{h2("The histogram: EPS workers ÷ legal cap, plants with at least one EPS worker")}
 {fig("fig_capuse.png", 1664, 560, "Share of the 2019 legal cap used, survey against the model")}
-{box(f"<b>Same average</b> ({pct(dm['mean'])}, targeted). <b>Model is more concentrated:</b> no plants below 30% or above 100% of the cap; the survey has {pct(below30(dm))} and {pct(dm['share'][-1])}.", size=25)}
+{box(f"<b>How to read:</b> each pair of bars is a range of cap use; orange = real firms, blue = our model. <b>Same average</b> ({pct(dm['mean'])}, targeted), but the model misses both grey zones: no plants below 30% or above 100% of their cap.", size=24)}
 {foot("2019 survey, 772 firms; 2019 caps (Lee, Peri and Yang, Table 4). Model under the 2019 caps.")}""",
-      [("Chart", '"Orange is the survey, blue the model, both under the 2019 caps and only plants with at least one EPS worker. The dashed line is our old 21 percent rule: the data clearly reject it."'),
+      [("How to read", '"Each pair of bars is a range: for example, the 40 to 50 percent pair shows the share of firms using between 40 and 50 percent of their legal cap. Orange is real firms from the 2019 survey, blue is our model, both under the 2019 caps and only firms with at least one EPS worker."'),
+       ("Old rule and median", '"The dashed line is last week\'s model: every plant at 21 percent of its cap. The dotted line is the survey median: half of real firms use less than 60 percent of their cap, half more. So the data clearly reject the 21 percent rule."'),
+       ("Grey zones", f'"The two grey zones are where the model misses. Below 30 percent of the cap, the survey has {pct(below30(dm))} of firms and the model none. At or above the cap, the survey has 18 percent and the model 11, with none above the cap."'),
        ("Box", f'"The model matches the average, which we target. But it is too concentrated: it has no plants below 30 percent of their cap, where the survey has {pct(below30(dm))}, and none above the cap, where the survey has {pct(dm["share"][-1])}."'),
        ("If asked: the spikes", '"Many survey firms have a cap of 5, so one to four workers is 20, 40, 60 or 80 percent."'),
        ("If asked: why none below 30 percent", '"Using EPS has a fixed cost in the model, so a plant that uses EPS hires several workers. We have not tested this yet."')], band=False)
