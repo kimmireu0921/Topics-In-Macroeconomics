@@ -16,8 +16,14 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 
 ### Slide 65: The histogram: EPS workers ÷ legal cap, plants with at least one EPS worker
 
-**Chart**  
-"Orange is the survey, blue the model, both under the 2019 caps and only plants with at least one EPS worker. The dashed line is our old 21 percent rule: the data clearly reject it."
+**How to read**  
+"Each pair of bars is a range: for example, the 40 to 50 percent pair shows the share of firms using between 40 and 50 percent of their legal cap. Orange is real firms from the 2019 survey, blue is our model, both under the 2019 caps and only firms with at least one EPS worker."
+
+**Old rule and median**  
+"The dashed line is last week's model: every plant at 21 percent of its cap. The dotted line is the survey median: half of real firms use less than 60 percent of their cap, half more. So the data clearly reject the 21 percent rule."
+
+**Grey zones**  
+"The two grey zones are where the model misses. Below 30 percent of the cap, the survey has 21% of firms and the model none. At or above the cap, the survey has 18 percent and the model 11, with none above the cap."
 
 **Box**  
 "The model matches the average, which we target. But it is too concentrated: it has no plants below 30 percent of their cap, where the survey has 21%, and none above the cap, where the survey has 11%."
@@ -92,6 +98,9 @@ Talking points from the speaker notes (`presentations/nov24/build.py`). Say them
 
 **Right**  
 "Their EPS share falls with size in both, but the model is too flat among the smallest firms."
+
+**If asked: why flat at 36 percent**  
+"Below about 20 workers the cap does not bind and all manual work is done by EPS workers. Then the EPS share is just the plant's share of manual work, which our production function fixes at about 36 percent at every size. In the data the smallest firms are more manual-heavy. Letting the manual weight vary with size would fix it; we report it as a gap."
 
 ## Donny
 
