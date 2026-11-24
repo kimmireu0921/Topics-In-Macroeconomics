@@ -205,7 +205,7 @@ C.push(...slide(72, "An untargeted check: EPS firms by size", "Sara",
   ["Left: where EPS firms are by total workers (model 45/31/19% under 10/10–19/20–49; survey 41/26/25%)", "Right: EPS share of workers by size (model 36→12%; survey 52→6%)"],
   ["Where EPS firms are by size is close to the survey", "The EPS share falls with size in both, but the model is too flat among the smallest firms"],
   null,
-  [["Why is the model too flat among small firms?", "Small plants have small caps, so their EPS share cannot rise much. In the survey the smallest firms rely on EPS for about half their workers."]]));
+  [["Why is the model too flat among small firms?", "Not a bug: the production function. Below about 20 workers the cap does not bind (0% at the cap) and all manual work is EPS, so the EPS share equals the manual share of work, which is fixed at λ^(1/(1−ρ)) / (1 + λ^(1/(1−ρ))) = 35.7% at every size (λ = 0.70, ρ = 0.40). It falls only above 20 workers, where the cap starts to bind. In the survey the smallest firms are more manual-heavy (52% EPS). Letting the manual weight vary with size would fix it; we report it as an untargeted gap."]]));
 C.push(...slide(73, "Result: the link to size barely matters; access does", "Donny",
   ["Table: equal limit, price and no EPS: net output (2024 and 2019 caps), gross output, and net if the premium is only pay", "Box: why size does not matter, why a price helps, the caveat"],
   ["Equal limit: 0.00% under both cap schedules, because caps rarely bind", "Price: +0.39% (2024), +0.33% (2019)", "The gain is the premium saved: +0.02% if the premium is only pay"],

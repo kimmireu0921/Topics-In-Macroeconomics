@@ -271,7 +271,8 @@ write("nov24-checks", f"""{h2("An untargeted check: EPS firms by size")}
 {fig("fig_size.png", 1664, 562, "EPS firms by total workers, model against the survey, 2019 caps")}
 {foot("2019 caps, EPS users only; survey: 772 firms. Only the averages are targeted.")}""",
       [("Left", '"Where EPS firms are by size: close to the survey."'),
-       ("Right", '"Their EPS share falls with size in both, but the model is too flat among the smallest firms."')], on=(3,))
+       ("Right", '"Their EPS share falls with size in both, but the model is too flat among the smallest firms."'),
+       ("If asked: why flat at 36 percent", '"Below about 20 workers the cap does not bind and all manual work is done by EPS workers. Then the EPS share is just the plant\'s share of manual work, which our production function fixes at about 36 percent at every size. In the data the smallest firms are more manual-heavy. Letting the manual weight vary with size would fix it; we report it as a gap."')], on=(3,))
 
 # ------------------------------------------------------------------ results
 C19, C24 = XT["caps2019"], XT["caps2024"]
